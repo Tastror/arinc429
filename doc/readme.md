@@ -8,7 +8,7 @@
 
 `CArinc429App` 是在 `arinc429.h` 中定义的 `CWinApp`[<sup>1</sup>](#refer-anchor-1) 的子类，用于创建一个用户窗口。接下来的所有代码都是对这个窗口进行处理。
 
-在 `InitInstance()` 的具体实现中，我们的内容显示是由 `CArinc429Dlg` 实现的。它定义在 `arinc429Dlg.h` 以及 `.cpp` 中，继承自 `CDiaLog`[<sup>2</sup>](#refer-anchor-2)，是用于在屏幕上显示对话框的基类。
+在 `InitInstance()` 的具体实现中，我们的内容显示是由 `CArinc429Dlg` 实现的。它定义在 `arinc429Dlg.h` 以及 `.cpp` 中，继承自 `CDialog`[<sup>2</sup>](#refer-anchor-2)，是用于在屏幕上显示对话框的基类。
 
 接着是底层。
 
@@ -78,7 +78,7 @@
 
 <div id="refer-anchor-2"></div>
 
-[2] [CDiaLog 类](https://learn.microsoft.com/zh-cn/cpp/mfc/reference/cdialog-class?view=msvc-170)
+[2] [CDialog 类](https://learn.microsoft.com/zh-cn/cpp/mfc/reference/cdialog-class?view=msvc-170)
 
 <div id="refer-anchor-3"></div>
 
