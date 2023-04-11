@@ -1,8 +1,8 @@
-// arinc429.h : main header file for the ARINC429 application
+// APP429.h : main header file for the APP429 application
 //
 
-#if !defined(AFX_ARINC429_H__607C320B_84C2_4AED_8517_7953FB7ACF38__INCLUDED_)
-#define AFX_ARINC429_H__607C320B_84C2_4AED_8517_7953FB7ACF38__INCLUDED_
+#if !defined(AFX_APP429_H__3CCF21FD_31D2_446D_9E4A_F281B1CA7F1C__INCLUDED_)
+#define AFX_APP429_H__3CCF21FD_31D2_446D_9E4A_F281B1CA7F1C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
@@ -15,25 +15,25 @@
 #include "resource.h"		// main symbols
 
 /////////////////////////////////////////////////////////////////////////////
-// CArinc429App:
-// See arinc429.cpp for the implementation of this class
+// CAPP429App:
+// See APP429.cpp for the implementation of this class
 //
 
-class CArinc429App : public CWinApp
+class CAPP429App : public CWinApp
 {
 public:
-	CArinc429App();
+	CAPP429App();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CArinc429App)
+	//{{AFX_VIRTUAL(CAPP429App)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
 // Implementation
 
-	//{{AFX_MSG(CArinc429App)
+	//{{AFX_MSG(CAPP429App)
 		// NOTE - the ClassWizard will add and remove member functions here.
 		//    DO NOT EDIT what you see in these blocks of generated code !
 	//}}AFX_MSG
@@ -46,4 +46,4 @@ public:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_ARINC429_H__607C320B_84C2_4AED_8517_7953FB7ACF38__INCLUDED_)
+#endif // !defined(AFX_APP429_H__3CCF21FD_31D2_446D_9E4A_F281B1CA7F1C__INCLUDED_)

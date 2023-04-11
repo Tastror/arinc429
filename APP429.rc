@@ -1,0 +1,340 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+// Generated Help ID header file
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.hm"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\APP429.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\APP429.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 69
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 APP429"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,21
+    LTEXT           "APP429 1.0 版",IDC_STATIC,63,11,91,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2008",IDC_STATIC,55,47,119,8
+    DEFPUSHBUTTON   "确定",IDOK,172,25,50,14,WS_GROUP
+    LTEXT           "西安方元明科技发展有限公司",IDC_STATIC,43,29,126,13
+END
+
+IDD_APP429_DIALOG DIALOGEX 0, 0, 326, 256
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "ARINC429_PCI_42应用程序"
+MENU IDR_MENU
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "Tab1",IDC_TAB_REV,"SysTabControl32",0x0,0,0,149,15
+    GROUPBOX        "接收数据显示",IDC_STATIC,6,20,141,230,BS_CENTER
+    LISTBOX         IDC_LIST_RL1,17,38,118,151,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_REVCOUNT1,45,197,65,18,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    LISTBOX         IDC_LIST_RL2,17,38,118,151,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_REVCOUNT2,45,197,65,18,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "开始接收",IDC_BUTTON_STARTREV,39,221,76,21
+    GROUPBOX        "发送数据",IDC_STATIC,153,7,165,243,BS_CENTER
+    GROUPBOX        "配置发送数据",IDC_STATIC,159,55,153,161
+    LTEXT           "数据：",IDC_STATIC,173,72,25,11
+    EDITTEXT        IDC_EDIT_SENDDATA,203,69,70,15,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "（Hex）",IDC_STATIC,278,72,28,14
+    LISTBOX         IDC_LIST_SL,231,100,73,88,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "发送数据列表：",IDC_STATIC,220,88,56,9
+    PUSHBUTTON      "添加",IDC_BUTTON_ADD,166,100,55,15
+    PUSHBUTTON      "删除",IDC_BUTTON_DEL,166,118,55,15
+    PUSHBUTTON      "清空",IDC_BUTTON_CLR,166,135,55,15
+    PUSHBUTTON      "加载数据文件",IDC_BUTTON_LOADF,166,157,55,15
+    PUSHBUTTON      "保存数据文件",IDC_BUTTON_SAVEF,166,174,55,15
+    LTEXT           "发送数据量：",IDC_STATIC,207,200,50,11
+    EDITTEXT        IDC_EDIT_SENDCOUNT,257,195,46,15,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "发送数据",IDC_BUTTON_SEND,163,224,68,19
+    PUSHBUTTON      "停止定时发送",IDC_BUTTON_STOPTIMERTRA,241,224,67,20
+    LISTBOX         IDC_LIST_RL3,17,38,118,151,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_RL4,17,37,118,151,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_REVCOUNT3,45,197,65,18,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_EDIT_REVCOUNT4,46,198,65,18,ES_CENTER | 
+                    ES_AUTOHSCROLL | ES_READONLY
+    GROUPBOX        "发送通道选择",IDC_STATIC,162,20,151,30
+    CONTROL         "第[1]路发送",IDC_CHECK_SL1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,174,32,61,14
+    CONTROL         "第[2]路发送",IDC_CHECK_SL2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,242,32,63,14
+END
+
+IDD_CARDSEL DIALOG DISCARDABLE  0, 0, 177, 85
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "板卡号选择窗口"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,29,48,50,14
+    PUSHBUTTON      "取消",IDCANCEL,91,48,50,14
+    LTEXT           "板卡号：",IDC_STATIC,19,19,34,13
+    LTEXT           "0-255(Dec.)",IDC_STATIC,112,19,50,14
+    EDITTEXT        IDC_EDIT_CARDSEL,55,17,49,13,ES_CENTER | ES_AUTOHSCROLL
+END
+
+IDD_SETUP DIALOGEX 0, 0, 334, 303
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "设置"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,210,270,50,16
+    PUSHBUTTON      "取消",IDCANCEL,265,269,50,16
+    CONTROL         "Tab1",IDC_TAB_CONFIGURE,"SysTabControl32",0x0,0,0,334,
+                    13
+    GROUPBOX        "配置字",IDC_STATIC,7,20,116,49
+    GROUPBOX        "时间标签",IDC_STATIC,7,142,115,31
+    LTEXT           "比特率：",IDC_STATIC,13,34,35,10
+    COMBOBOX        IDC_COMBO_BRATE,49,32,42,57,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "K bps",IDC_STATIC,97,34,23,12
+    LTEXT           "校　验：",IDC_STATIC,13,53,32,10
+    COMBOBOX        IDC_COMBO_PARITY,49,50,64,64,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_BTINTERVAL,62,83,53,13,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    CTEXT           "范围：0-65535(Dec) 单位：50微秒",IDC_STATIC,42,120,79,
+                    17
+    CONTROL         "添加时间标签",IDC_CHECK_TIMETAG,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,49,155,68,13
+    GROUPBOX        "触发深度",IDC_STATIC,7,176,116,79
+    LTEXT           "接收缓冲区：",IDC_STATIC,13,190,51,12
+    LTEXT           "发送缓冲区：",IDC_STATIC,13,222,49,12
+    EDITTEXT        IDC_EDIT_RTRIDEP,65,185,51,15,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_STRIDEP,64,220,51,15,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "范围：0-254(Dec.)",IDC_STATIC,52,206,71,8,0,0,
+                    HIDC_STATIC
+    LTEXT           "范围：0-126(Dec.)",IDC_STATIC,52,240,71,10,0,0,
+                    HIDC_STATIC
+    GROUPBOX        "板卡工作方式",IDC_STATIC,7,258,115,32
+    CONTROL         "自环",IDC_RADIO_SELFLOOP,"Button",BS_AUTORADIOBUTTON,24,
+                    274,33,10
+    CONTROL         "正常",IDC_RADIO_NORMAL,"Button",BS_AUTORADIOBUTTON,75,
+                    274,33,10
+    GROUPBOX        "接收数据标号过滤",IDC_STATIC,130,20,198,232,BS_CENTER
+    LTEXT           "SD:",IDC_STATIC,145,39,17,9
+    COMBOBOX        IDC_COMBO_SD,166,37,45,69,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "允许标号过滤",IDC_CHECK_ENLABLEFIL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,247,36,66,16
+    PUSHBUTTON      "加载配置",IDC_BUTTON_LOADCONF,145,262,53,15
+    PUSHBUTTON      "保存配置",IDC_BUTTON_SAVECONF,145,282,53,15
+    GROUPBOX        "定时发送",IDC_STATIC,7,73,115,66
+    LTEXT           "群定时时间：",IDC_STATIC,12,87,48,13
+    EDITTEXT        IDC_EDIT_STINTERVAL,62,101,53,15,ES_CENTER | 
+                    ES_AUTOHSCROLL
+    LTEXT           "字定时时间：",IDC_STATIC,12,106,48,14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "APP429 Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "APP429\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2007\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "APP429.EXE\0"
+            VALUE "ProductName", "APP429 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 62
+    END
+
+    IDD_APP429_DIALOG, DIALOG
+    BEGIN
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 255
+    END
+
+    IDD_CARDSEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 170
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 78
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    MENUITEM "设置(&S)",                    IDM_SETUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 APP429(&A)..."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_SETUP               "设置板卡"
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\APP429.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

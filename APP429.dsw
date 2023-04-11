@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "arinc429"=".\arinc429.dsp" - Package Owner=<4>
+Project: "APP429"=.\APP429.dsp - Package Owner=<4>
 
 Package=<5>
 {{{

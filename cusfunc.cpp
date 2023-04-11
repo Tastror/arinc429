@@ -110,7 +110,7 @@ unsigned short Get429ConfigureWord(unsigned short baudrate,unsigned short parity
 
 -- */
 
-unsigned long Resume429Word(unsigned long dw429w)    //429字转化计算机字
+unsigned long Resume429Word(unsigned long dw429w)
 {
 	unsigned long dw=dw429w, tp=dw429w;
 	int bitsNum=0;
@@ -118,9 +118,9 @@ unsigned long Resume429Word(unsigned long dw429w)    //429字转化计算机字
 	unsigned char bit8IsZero=0;
 
 	// bit 8 == 0
-	if ((tp&0x00000100)==0x00000100)   //ji ou jiao yan wei 
+	if ((tp&0x00000100)==0x00000100)
 	{
-		bit8IsZero = 0;               
+		bit8IsZero = 0;
 	}
 	else
 	{
@@ -128,7 +128,7 @@ unsigned long Resume429Word(unsigned long dw429w)    //429字转化计算机字
 	}
 
 	// odd bits number of data
-	tp = tp&0xfffffeff;      //ji jiao yan 1 de ge shu 
+	tp = tp&0xfffffeff;
 	for (i=0; i<32; i++)
 	{
 		if ((tp&0x00000001)==0x00000001)
@@ -169,7 +169,7 @@ unsigned long Resume429Word(unsigned long dw429w)    //429字转化计算机字
 		the return value always be a DWORD byte data.
 
 -- */
-/*DWORD HEXS(char *decString)
+DWORD HEXS(char *decString)
 {
 	DWORD hexValue=0;
 	DWORD sl=0;
@@ -286,12 +286,8 @@ unsigned long Resume429Word(unsigned long dw429w)    //429字转化计算机字
 	}
 
 	return  hexValue;
-}*/
-
-void Save_ReceiveData(DWORD d,DWORD *Data_Vector)
-{
-	*Data_Vector = d;
 }
+
 
 void CHTIME(DWORD ctime, DWORD gtime, char *rtString)
 {

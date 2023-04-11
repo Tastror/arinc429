@@ -1,46 +1,46 @@
 ========================================================================
-       MICROSOFT FOUNDATION CLASS LIBRARY : arinc429
+       MICROSOFT FOUNDATION CLASS LIBRARY : APP429
 ========================================================================
 
 
-AppWizard has created this arinc429 application for you.  This application
+AppWizard has created this APP429 application for you.  This application
 not only demonstrates the basics of using the Microsoft Foundation classes
 but is also a starting point for writing your application.
 
 This file contains a summary of what you will find in each of the files that
-make up your arinc429 application.
+make up your APP429 application.
 
-arinc429.dsp
+APP429.dsp
     This file (the project file) contains information at the project level and
     is used to build a single project or subproject. Other users can share the
     project (.dsp) file, but they should export the makefiles locally.
 
-arinc429.h
+APP429.h
     This is the main header file for the application.  It includes other
     project specific headers (including Resource.h) and declares the
-    CArinc429App application class.
+    CAPP429App application class.
 
-arinc429.cpp
+APP429.cpp
     This is the main application source file that contains the application
-    class CArinc429App.
+    class CAPP429App.
 
-arinc429.rc
+APP429.rc
     This is a listing of all of the Microsoft Windows resources that the
     program uses.  It includes the icons, bitmaps, and cursors that are stored
     in the RES subdirectory.  This file can be directly edited in Microsoft
 	Visual C++.
 
-arinc429.clw
+APP429.clw
     This file contains information used by ClassWizard to edit existing
     classes or add new classes.  ClassWizard also uses this file to store
     information needed to create and edit message maps and dialog data
     maps and to create prototype member functions.
 
-res\arinc429.ico
+res\APP429.ico
     This is an icon file, which is used as the application's icon.  This
-    icon is included by the main resource file arinc429.rc.
+    icon is included by the main resource file APP429.rc.
 
-res\arinc429.rc2
+res\APP429.rc2
     This file contains resources that are not edited by Microsoft 
 	Visual C++.  You should place all resources not editable by
 	the resource editor in this file.
@@ -52,10 +52,10 @@ res\arinc429.rc2
 
 AppWizard creates one dialog class:
 
-arinc429Dlg.h, arinc429Dlg.cpp - the dialog
-    These files contain your CArinc429Dlg class.  This class defines
+APP429Dlg.h, APP429Dlg.cpp - the dialog
+    These files contain your CAPP429Dlg class.  This class defines
     the behavior of your application's main dialog.  The dialog's
-    template is in arinc429.rc, which can be edited in Microsoft
+    template is in APP429.rc, which can be edited in Microsoft
 	Visual C++.
 
 
@@ -64,7 +64,7 @@ Other standard files:
 
 StdAfx.h, StdAfx.cpp
     These files are used to build a precompiled header (PCH) file
-    named arinc429.pch and a precompiled types file named StdAfx.obj.
+    named APP429.pch and a precompiled types file named StdAfx.obj.
 
 Resource.h
     This is the standard header file, which defines new resource IDs.

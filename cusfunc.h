@@ -69,9 +69,9 @@ typedef struct _STRUCT_COMMUICATION {
 
 unsigned short Get429ConfigureWord(unsigned short baudrate, unsigned short parity, unsigned short workmode);
 unsigned long Resume429Word(unsigned long dw429w);
-//unsigned long HEXS(char *decString);
+unsigned long HEXS(char *decString);
 void CHTIME(DWORD ctime, DWORD gtime, char *rtString);
-void Save_ReceiveData(DWORD d,DWORD *Data_Vector);
+
 
 #ifdef __cplusplus
 }

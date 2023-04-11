@@ -1,9 +1,10 @@
-// arinc429.cpp : Defines the class behaviors for the application.
+// APP429.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
-#include "arinc429.h"
-#include "arinc429Dlg.h"
+#include "APP429.h"
+#include "APP429Dlg.h"
+#include "DLL429D42_lib.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -12,10 +13,10 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CArinc429App
+// CAPP429App
 
-BEGIN_MESSAGE_MAP(CArinc429App, CWinApp)
-	//{{AFX_MSG_MAP(CArinc429App)
+BEGIN_MESSAGE_MAP(CAPP429App, CWinApp)
+	//{{AFX_MSG_MAP(CAPP429App)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
 		//    DO NOT EDIT what you see in these blocks of generated code!
 	//}}AFX_MSG
@@ -23,23 +24,23 @@ BEGIN_MESSAGE_MAP(CArinc429App, CWinApp)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CArinc429App construction
+// CAPP429App construction
 
-CArinc429App::CArinc429App()
+CAPP429App::CAPP429App()
 {
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// The one and only CArinc429App object
+// The one and only CAPP429App object
 
-CArinc429App theApp;
+CAPP429App theApp;
 
 /////////////////////////////////////////////////////////////////////////////
-// CArinc429App initialization
+// CAPP429App initialization
 
-BOOL CArinc429App::InitInstance()
+BOOL CAPP429App::InitInstance()
 {
 	AfxEnableControlContainer();
 
@@ -54,7 +55,7 @@ BOOL CArinc429App::InitInstance()
 	Enable3dControlsStatic();	// Call this when linking to MFC statically
 #endif
 
-	CArinc429Dlg dlg;
+	CAPP429Dlg dlg;
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

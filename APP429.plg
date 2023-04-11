@@ -1,0 +1,60 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: APP429 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x804 /fo"Debug/APP429.res" /d "_DEBUG" /d "_AFXDLL" "E:\develop\DS\FYM\ARINC429-PCI-42\APP429\APP429.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPB.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/APP429.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\APP429.cpp"
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\APP429Dlg.cpp"
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\CardSel.cpp"
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\cusfunc.cpp"
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\SetUp.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPB.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/APP429.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\develop\DS\FYM\ARINC429-PCI-42\APP429\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPC.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD.tmp" with contents
+[
+DLL429D42.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/APP429.pdb" /debug /machine:I386 /out:"Debug/APP429.exe" /pdbtype:sept 
+".\Debug\APP429.obj"
+".\Debug\APP429Dlg.obj"
+".\Debug\CardSel.obj"
+".\Debug\cusfunc.obj"
+".\Debug\SetUp.obj"
+".\Debug\StdAfx.obj"
+".\Debug\APP429.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPD.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+APP429.cpp
+APP429Dlg.cpp
+CardSel.cpp
+cusfunc.cpp
+SetUp.cpp
+Generating Code...
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/APP429.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\APP429.sbr" ".\Debug\APP429Dlg.sbr" ".\Debug\CardSel.sbr" ".\Debug\cusfunc.sbr" ".\Debug\SetUp.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+APP429.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

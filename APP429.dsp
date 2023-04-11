@@ -1,24 +1,24 @@
-# Microsoft Developer Studio Project File - Name="arinc429" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="APP429" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Application" 0x0101
 
-CFG=arinc429 - Win32 Debug
+CFG=APP429 - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "arinc429.mak".
+!MESSAGE NMAKE /f "APP429.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "arinc429.mak" CFG="arinc429 - Win32 Debug"
+!MESSAGE NMAKE /f "APP429.mak" CFG="APP429 - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "arinc429 - Win32 Release" (based on "Win32 (x86) Application")
-!MESSAGE "arinc429 - Win32 Debug" (based on "Win32 (x86) Application")
+!MESSAGE "APP429 - Win32 Release" (based on "Win32 (x86) Application")
+!MESSAGE "APP429 - Win32 Debug" (based on "Win32 (x86) Application")
 !MESSAGE 
 
 # Begin Project
@@ -29,7 +29,7 @@ CPP=cl.exe
 MTL=midl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "arinc429 - Win32 Release"
+!IF  "$(CFG)" == "APP429 - Win32 Release"
 
 # PROP BASE Use_MFC 6
 # PROP BASE Use_Debug_Libraries 0
@@ -40,9 +40,10 @@ RSC=rc.exe
 # PROP Use_Debug_Libraries 0
 # PROP Output_Dir "Release"
 # PROP Intermediate_Dir "Release"
+# PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /Yu"stdafx.h" /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x804 /d "NDEBUG" /d "_AFXDLL"
@@ -52,9 +53,9 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
-# ADD LINK32 /nologo /subsystem:windows /machine:I386
+# ADD LINK32 DLL429D42.lib /nologo /subsystem:windows /machine:I386
 
-!ELSEIF  "$(CFG)" == "arinc429 - Win32 Debug"
+!ELSEIF  "$(CFG)" == "APP429 - Win32 Debug"
 
 # PROP BASE Use_MFC 6
 # PROP BASE Use_Debug_Libraries 1
@@ -68,7 +69,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR /Yu"stdafx.h" /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x804 /d "_DEBUG" /d "_AFXDLL"
@@ -84,26 +85,34 @@ LINK32=link.exe
 
 # Begin Target
 
-# Name "arinc429 - Win32 Release"
-# Name "arinc429 - Win32 Debug"
+# Name "APP429 - Win32 Release"
+# Name "APP429 - Win32 Debug"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\arinc429.cpp
+SOURCE=.\APP429.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\arinc429.rc
+SOURCE=.\APP429.rc
 # End Source File
 # Begin Source File
 
-SOURCE=.\arinc429Dlg.cpp
+SOURCE=.\APP429Dlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\CardSel.cpp
 # End Source File
 # Begin Source File
 
 SOURCE=.\cusfunc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SetUp.cpp
 # End Source File
 # Begin Source File
 
@@ -116,11 +125,15 @@ SOURCE=.\StdAfx.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\arinc429.h
+SOURCE=.\APP429.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\arinc429Dlg.h
+SOURCE=.\APP429Dlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CardSel.h
 # End Source File
 # Begin Source File
 
@@ -136,6 +149,10 @@ SOURCE=.\Resource.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\SetUp.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.h
 # End Source File
 # End Group
@@ -144,11 +161,11 @@ SOURCE=.\StdAfx.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
-SOURCE=.\res\arinc429.ico
+SOURCE=.\res\APP429.ico
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\arinc429.rc2
+SOURCE=.\res\APP429.rc2
 # End Source File
 # End Group
 # Begin Source File
