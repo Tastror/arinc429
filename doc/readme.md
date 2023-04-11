@@ -4,15 +4,15 @@
 
 首先是 GUI 部分。
 
-主函数：`arinc429.cpp` 的 `BOOL CArinc429App::InitInstance()`。
+主函数：`arinc429.cpp` 的 `BOOL CAPP429App::InitInstance()`。
 
-`CArinc429App` 是在 `arinc429.h` 中定义的 `CWinApp`[<sup>1</sup>](#refer-anchor-1) 的子类，用于创建一个用户窗口。接下来的所有代码都是对这个窗口进行处理。
+`CAPP429App` 是在 `arinc429.h` 中定义的 `CWinApp`[<sup>1</sup>](#refer-anchor-1) 的子类，用于创建一个用户窗口。接下来的所有代码都是对这个窗口进行处理。
 
-在 `InitInstance()` 的具体实现中，我们的内容显示是由 `CArinc429Dlg` 实现的。它定义在 `arinc429Dlg.h` 以及 `.cpp` 中，继承自 `CDialog`[<sup>2</sup>](#refer-anchor-2)，是用于在屏幕上显示对话框的基类。
+在 `InitInstance()` 的具体实现中，我们的内容显示是由 `CAPP429Dlg` 实现的。它定义在 `arinc429Dlg.h` 以及 `.cpp` 中，继承自 `CDialog`[<sup>2</sup>](#refer-anchor-2)，是用于在屏幕上显示对话框的基类。
 
 接着是底层。
 
-软硬件接口（用于调用驱动的 API）在 `DLL429D42_lib.h` 中，具体功能可以查看手册[<sup>3</sup>](#refer-anchor-3)。我们需要在 `CArinc429Dlg` 的实现中大量使用这些接口，来达到我们的最终目的。
+软硬件接口（用于调用驱动的 API）在 `DLL429D42_lib.h` 中，具体功能可以查看手册[<sup>3</sup>](#refer-anchor-3)。我们需要在 `CAPP429Dlg` 的实现中大量使用这些接口，来达到我们的最终目的。
 
 本次任务的难点一方面在 GUI 本身，因为 `CWinApp` 我们可能都不太熟；另一方面就是底层 `DLL429D42_lib.h` 中库函数的使用和性质的把握。
 
