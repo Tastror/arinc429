@@ -13,11 +13,11 @@ Class2=CAPP429Dlg
 Class3=CAboutDlg
 
 ResourceCount=6
-Resource1=IDD_SETUP
+Resource1=IDD_CARDSEL
 Resource2=IDR_MAINFRAME
-Resource3=IDD_APP429_DIALOG
-Resource4=IDD_ABOUTBOX
-Resource5=IDD_CARDSEL
+Resource3=IDD_ABOUTBOX
+Resource4=IDD_SETUP
+Resource5=IDD_APP429_DIALOG
 Class4=CCardSel
 Class5=CSetUp
 Resource6=IDR_MENU
