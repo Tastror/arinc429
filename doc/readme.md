@@ -68,6 +68,10 @@
 
 在OnInitDialog()中，将对话框控件的值与变量进行关联。在UpdateData()中，将变量的值更新到对话框控件中。
 
+具体调用关系为
+
+![拓扑图](https://s2.loli.net/2023/04/11/9Cj7hEqVPnzMUc8.png)
+
 关于库函数的用法，请参考手册[<sup>3</sup>](#refer-anchor-3)。
 
 ## 参考文献
