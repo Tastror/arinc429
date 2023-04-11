@@ -1,0 +1,9 @@
+Debug/
+Release/
+*.APS
+*.aps
+*.clw
+*.ncb
+*.opt
+*.plg
+*.ini
