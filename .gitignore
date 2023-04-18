@@ -1,0 +1,12 @@
+Debug/
+Release/
+*.APS
+*.aps
+*.clw
+*.ncb
+*.opt
+*.plg
+*.ini
+ipch/
+*.db
+*.sdf
