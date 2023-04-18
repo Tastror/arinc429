@@ -1,5 +1,7 @@
-Debug/
-Release/
+# MSVC++ 6.0
+/Debug/*
+/Release/*
+!*.dll
 *.APS
 *.aps
 *.clw
@@ -7,3 +9,12 @@ Release/
 *.opt
 *.plg
 *.ini
+
+# if you use high version VS...
+/ipch/
+*.db
+*.sdf
+*.htm
+*.sln
+*.vcxproj
+*.vcxproj.*
