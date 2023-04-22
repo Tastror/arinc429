@@ -157,7 +157,137 @@ void CARNIC429Dlg::Coding() {
 	set_value_parity(n);
 }
 
-void CARNIC429Dlg::Decoding()
-{
-	
+DWORD WINAPI Decoding(LPVOID lpParam) {
+    HWND hwnd = (HWND)lpParam;
+    DWORD d = 0;
+    int i = 0;
+    // ?
+    BYTE chno = 0;
+    BYTE btTriggerLevel = 0;
+
+    while (keep_receive) {
+        // Get Triger Level
+        btTriggerLevel = stTriggerLevel.Chan0Depth_I;
+
+        // Rx channel 1 ~ CHNO_RMAX
+        // 进行过滤
+        if (btTriggerLevel > 0) {
+            if (IsFIFOTriggered_R(hCard, chno)) {
+                // 使能读 FIFO 数据
+                EnablReadFIFO(hCard, chno);
+                // 如果读到数据
+                while ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) &&
+                (ReadFIFOStatus_R(hCard, chno) != FIFOError)) {
+                    d = ReceiveData(hCard, chno);
+                    if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) {
+                        d = Resume429Word(d);
+                    }
+                    Save_ReceiveData(d, ReceiveData_Vector + i);
+                }
+                // 关闭读 FIFO 数据
+                DisablReadFIFO(hCard);
+            }
+        } 
+        // 不进行过滤
+        else {
+            // 当 recieveFIFO 不空且不溢出时
+            if ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError))
+			{
+                // 使能读 FIFO 数据
+				EnablReadFIFO(hCard, chno);
+				d = ReceiveData(hCard, chno);
+				if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
+				{
+					d = Resume429Word(d);
+				}
+				DWORD temp;  
+				temp = d >> 24;
+				short s;
+                // 根据标识符判断是哪个变量
+				switch (temp)
+				{
+                    case 0x30://控制字1
+                        x_ControlWord1.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0000
+                    case 0x31://控制字2
+                        x_ControlWord2.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0001
+                    
+                    case 0x88:	//真空速
+                        s = (short)(d >> 16);
+                        r_Air_Speed_Real = s * (4096. / 32768);
+                        x_Air_Speed_Real.Format(_T("%08x"), d); break;
+                        //0000 0110 1000 1000
+                    case 0x86://指示空速
+                        s = (short)(d >> 16);
+                        r_Air_Speed = s * (2048. / 32768);
+                        x_Air_Speed.Format(_T("%08x"), d); break;
+                        //0000 0110 1000 0110
+                    case 0x85://马赫数
+                        s = (short)(d >> 16);
+                        r_Air_Ma = s * (4.096 / 32768);
+                        x_Air_Ma.Format(_T("%08x"), d); break;
+                        //	0000 0110 0001 0101
+                    case 0x97://装订气压
+                        s = (short)(d >> 16);
+                        r_Air_AirP = s * (128. / 32768);
+                        x_Air_AirP.Format(_T("%08x"), d); break;
+                        //0000 0110 1001 0111
+                    case 0xA1://攻角
+                        s = (short)(d >> 16);
+                        r_Air_Attack = s * (45. / 32768);
+                        x_Air_Attack.Format(_T("%08x"), d); break;
+                        //0000 0110 1010 0001
+                    case 0x84://相对气压高度
+                        s = (short)(d >> 16);
+                        r_Air_High = s;
+                        x_Air_High.Format(_T("%08x"), d); break;
+                        //0000 0110 1000 0100
+                    case 0x8A://升降速度
+                        s = (short)(d >> 16);
+                        r_Air_SpeedUD = s * (512. / 32768);
+                        x_Air_SpeedUD.Format(_T("%08x"), d); break;
+                        //0000 0110 1000 1010
+                    case 0x32://航向角
+                        s = (short)(d >> 16);
+                        r_Air_Azimuth = s * (360. / 32768);
+                        x_Air_Azimuth.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0010
+                    case 0x33://俯仰角
+                        s = (short)(d >> 16);
+                        r_Air_Pitch = s * (180. / 32768);
+                        x_Air_Pitch.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0011
+                    case 0x34://横滚角
+                        s = (short)(d >> 16);
+                        r_Air_Roll = s * (180. / 32768);
+                        x_Air_Roll.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0100
+                    case 0x35://无线电高度
+                        s = (short)(d >> 16);
+                        r_Air_HighR = s * (1524. / 32768);
+                        x_Air_HighR.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0101
+                    case 0x36://最低安全高度
+                        s = (short)(d >> 16);
+                        r_Air_HighL = s * (1500. / 32768);
+                        x_Air_HighL.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0110 
+                    case 0x37://侧滑角
+                        s = (short)(d >> 16);
+                        r_Air_Sideslip = s * (10. / 32768);
+                        x_Air_Sideslip.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 0111
+                    case 0x38://法向过载
+                        s = (short)(d >> 16);
+                        r_Air_N = s * (10. / 32768);
+                        x_Air_N.Format(_T("%08x"), d); break;
+                        //0000 0110 0011 1000
+                    default:
+                        break;
+				}
+			}
+			DisablReadFIFO(hCard);//禁止读FIFO数据	
+        }
+    }
 }
