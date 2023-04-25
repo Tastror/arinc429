@@ -2765,74 +2765,74 @@ void CARNIC429Dlg::OnClose()
 }
 
 //////////////////////////////////解码编码/////////////////////////////////////
-void CARNIC429Dlg::Coding()
-{
-	wdTxBufLen=0;
-	dwTxBuf[wdTxBufLen] = m_ControlWord1;
-	dwTxBuf[++wdTxBufLen] = m_ControlWord2;
+// void CARNIC429Dlg::Coding()
+// {
+// 	wdTxBufLen=0;
+// 	dwTxBuf[wdTxBufLen] = m_ControlWord1;
+// 	dwTxBuf[++wdTxBufLen] = m_ControlWord2;
 	
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Speed_Real/(4096.0/32768));
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;	
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Speed_Real/(4096.0/32768));
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;	
 	
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Speed/(2048.0/32768));
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000686;	
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Speed/(2048.0/32768));
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000686;	
 	
-	s_Air_Ma = s_Air_Speed/3.6/340;//计算其马赫数
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Ma/(4.096/32768));
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000685;
+// 	s_Air_Ma = s_Air_Speed/3.6/340;//计算其马赫数
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Ma/(4.096/32768));
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000685;
 
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_AirP/(128.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000697;		
-	}	
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_AirP/(128.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000697;		
+// 	}	
 
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Attack/(45.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x000006a1;
-	}
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Attack/(45.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x000006a1;
+// 	}
 
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_High);
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000684;	
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_High);
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000684;	
 
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_SpeedUD/(512.0/32768)); 
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x0000068a;	
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_SpeedUD/(512.0/32768)); 
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x0000068a;	
 	
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Azimuth/(360.0/32768));
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000632;	
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Azimuth/(360.0/32768));
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000632;	
 
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Pitch/(180.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000633;
-	}	
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Pitch/(180.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000633;
+// 	}	
 
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Roll/(180.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000634;
-	}	
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Roll/(180.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000634;
+// 	}	
 	
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_HighR/(1524.0/32768));    
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000635;
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_HighR/(1524.0/32768));    
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000635;
 
-	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_HighL/(1500.0/32768));
-	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000636;		
+// 	dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_HighL/(1500.0/32768));
+// 	dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000636;		
 
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Sideslip/(10.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000637;
-	}	
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_Sideslip/(10.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000637;
+// 	}	
 	
 
-	{
-		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_N/(10.0/32768));
-		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000638;
-	}
+// 	{
+// 		dwTxBuf[++wdTxBufLen] = (DWORD)(s_Air_N/(10.0/32768));
+// 		dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000638;
+// 	}
 	
-}
+// }
 
 void CARNIC429Dlg::Decoding()
 {
@@ -3104,7 +3104,7 @@ start:	HWND hWnd = (HWND)lpParam;
 					d = Resume429Word(d);
 				}
 				DWORD temp;  
-				temp = d & 0x00FF;
+				temp = d >> 24;
 				short s;
 				switch (temp)//判断变量是什么
 				{
@@ -3222,6 +3222,7 @@ void CARNIC429Dlg::OnButtonBITRATE48K()
 	}
 	CARNIC429Dlg::SetUp429Card();
 }
+
 void CARNIC429Dlg::OnBnClickedOnbuttonbitrate12k()
 {
 	// TODO: 在此添加控件通知处理程序代码
