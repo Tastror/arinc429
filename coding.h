@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "DLL429D42_lib.h"
-#include "cusfunc.h"
 
 // 数据结构
 DWORD dwTxBuf[FIFO_TMAX];    //发送 FIFO
@@ -41,53 +40,3 @@ DWORD HighR_Mask            = 0x35000006;
 DWORD HighL_Mask            = 0x36000006;
 DWORD Sideslip_Mask         = 0x37000006;
 DWORD N_Mask                = 0x38000006;
-
-// 是否继续解码
-bool    keep_receive = false;
-
-// 缓冲区触发深度
-TriggerDepth_STRUCT stTriggerLevel={0};
-
-// 板卡的句柄
-HANDLE hCard = NULL;
-
-// 工作模式
-WORD wdMode = C429_SELFTEST;
-
-STCOMMUNICATION stComm[CHNO_TMAX];
-
-DWORD ReceiveData_Vector[FIFO_RMAX];
-
-CString x_ControlWord1;
-CString x_ControlWord2;
-
-int		r_Air_Speed;		//真空速
-float	r_Air_Roll;			//横滚角
-float	r_Air_Pitch;		//俯仰角
-int		r_Air_High;			//无线电高度
-float	r_Air_Azimuth;		//方位角
-float	r_Air_Sideslip;		//侧滑角
-int		r_Air_Speed_Real;	//指示空速
-float	r_Air_Ma;			//马赫数
-float	r_Air_AirP;			//装订气压
-float	r_Air_Attack;		//攻角
-int		r_Air_SpeedUD;		//升降高度
-int		r_Air_HighR;		//气压高度
-int		r_Air_HighL;		//最低安全高度
-float	r_Air_N;			//过载
-int		T;
-
-CString		x_Air_Speed;		//真空速
-CString	    x_Air_Roll;			//横滚角
-CString	    x_Air_Pitch;		//俯仰角
-CString		x_Air_High;			//无线电高度
-CString	    x_Air_Azimuth;		//方位角
-CString	    x_Air_Sideslip;		//侧滑角
-CString		x_Air_Speed_Real;	//指示空速
-CString	    x_Air_Ma;			//马赫数
-CString	    x_Air_AirP;			//装订气压
-CString	    x_Air_Attack;		//攻角
-CString		x_Air_SpeedUD;		//升降高度
-CString		x_Air_HighR;		//气压高度
-CString		x_Air_HighL;		//最低安全高度
-CString	    x_Air_N;			//过载
