@@ -24,7 +24,7 @@ public:
 	CARNIC429Dlg(CWnd* pParent = NULL);	// standard constructor
 	BOOL SetUp429Card();
 	void Coding();
-	void Decoding();
+	void Decoding(LPVOID lpParam);
 	void Send();
 	void Receive();
 	

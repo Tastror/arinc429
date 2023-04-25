@@ -6,6 +6,7 @@
 #include "ARNIC429Dlg.h"
 
 #include "math.h"
+#include "coding.h"
 #include "message.h"
 #include "cusfunc.h"
 #include "DLL429D42_lib.h"
@@ -20,6 +21,8 @@ static char THIS_FILE[] = __FILE__;
 #define	THREAD_EXITCODE		0
 
 int iTabID=0;                 
+
+bool keep_receive = false;
 
 BYTE btCardId=0;     //板卡号         
 HANDLE hCard=NULL;
@@ -2833,11 +2836,6 @@ void CARNIC429Dlg::OnClose()
 // 	}
 	
 // }
-
-void CARNIC429Dlg::Decoding()
-{
-	
-}
 
 /////////////////////////////发送接收流程////////////////////////////////////////////
 void CARNIC429Dlg::Send()   //参考demo  OnButtonSend函数
