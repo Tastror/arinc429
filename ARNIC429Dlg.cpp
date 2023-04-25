@@ -4,9 +4,12 @@
 #include "stdafx.h"
 #include "ARNIC429.h"
 #include "ARNIC429Dlg.h"
+
 #include "math.h"
-#include "DLL429D42_lib.h"
+#include "message.h"
 #include "cusfunc.h"
+#include "DLL429D42_lib.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

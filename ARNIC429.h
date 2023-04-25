@@ -9,10 +9,10 @@
 #endif // _MSC_VER > 1000
 
 #ifndef __AFXWIN_H__
-	#error include 'stdafx.h' before including this file for PCH //预编译头文件
+	#error include 'stdafx.h' before including this file for PCH  // 预编译头文件
 #endif
 
-#include "resource.h"		// main symbols
+#include "resource.h"  // main symbols
 
 /////////////////////////////////////////////////////////////////////////////
 // CARNIC8081App:
