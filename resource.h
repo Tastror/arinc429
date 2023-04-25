@@ -12,8 +12,7 @@
 #define IDB_BITMAP3                     132
 #define IDR_MAINFRAME                   133
 #define IDD_MainWindow                  134
-#define IDD_DevelopInformation          135
-#define IDD_DIALOG1                     135
+#define IDD_Develop                     135
 #define IDC_EDITSpeed                   1000
 #define IDC_EDITHigh                    1001
 #define IDC_EDITPitch                   1002
