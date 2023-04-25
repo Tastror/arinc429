@@ -11,6 +11,8 @@
 #include "cusfunc.h"
 #include "DLL429D42_lib.h"
 
+#include "CAboutDialog.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,29 +26,30 @@ int iTabID=0;
 
 bool keep_receive = false;
 
-BYTE btCardId=0;     //板卡号         
-HANDLE hCard=NULL;
-TriggerDepth_STRUCT stTriggerLevel={0};   //缓冲区触发深度
-LabelTable_STRUCT stLabelTable={0};       //标注区
-BOOL blFilter[CHNO_RMAX];         //标号过滤
-STCOMMUNICATION stComm[CHNO_TMAX];   
-SYSTEMTIME stSysTime={0};      //系统时间
-WORD wdMode=C429_SELFTEST;       //工作模式
-BOOL blTimeTag[CHNO_RMAX];      //使能时间标签
-DWORD dwTime=0;                //时间
-WORD wdBInterval[CHNO_TMAX];     //群定时
-WORD wdSInterval[CHNO_TMAX];    //自定时
-BOOL CWord_flg1 = FALSE;
-BOOL CWord_flg2 = FALSE;
-BOOL isNeedThread=FALSE;
-HANDLE hThread=NULL; // handle to thread function（穿插功能）
-DWORD dwThreadId=0;  
-BOOL Timer_flg = FALSE;
-BOOL blRxNow=FALSE;
-HWND ghWnd=NULL;
+/* Confusing Variables */
+BYTE				btCardId=0;				//板卡号         
+HANDLE				hCard=NULL;				//全局板卡句柄
+LabelTable_STRUCT	stLabelTable={0};		//标注区
+BOOL				blFilter[CHNO_RMAX];    //标号过滤
+STCOMMUNICATION		stComm[CHNO_TMAX];   
+SYSTEMTIME			stSysTime={0};			//系统时间
+WORD				wdMode=C429_SELFTEST;   //工作模式
+BOOL				blTimeTag[CHNO_RMAX];   //使能时间标签
+DWORD				dwTime=0;               //时间
+WORD				wdBInterval[CHNO_TMAX]; //群定时
+WORD				wdSInterval[CHNO_TMAX]; //自定时
+BOOL				CWord_flg1 = FALSE;
+BOOL				CWord_flg2 = FALSE;
+BOOL				isNeedThread=FALSE;
+HANDLE				hThread=NULL;			// handle to thread function（穿插功能）
+DWORD				dwThreadId=0;  
+BOOL				Timer_flg = FALSE;
+BOOL				blRxNow=FALSE;
+HWND				ghWnd=NULL;
 
 DWORD dwTxBuf[FIFO_TMAX];    //发送 FIFO
 WORD wdTxBufLen=0;        //发送FIFO长度
+TriggerDepth_STRUCT stTriggerLevel={0};		//缓冲区触发深度
 
 DWORD ReceiveData_Vector[FIFO_RMAX];
 BOOL Mode_flg;
@@ -85,19 +88,19 @@ int		r_Air_HighL;		//最低安全高度
 float	r_Air_N;			//过载
 int		T;
 
-CString		x_Air_Speed;		//真空速
+CString	x_Air_Speed;		//真空速
 CString	x_Air_Roll;			//横滚角
 CString	x_Air_Pitch;		//俯仰角
-CString		x_Air_High;			//无线电高度
+CString	x_Air_High;			//无线电高度
 CString	x_Air_Azimuth;		//方位角
 CString	x_Air_Sideslip;		//侧滑角
-CString		x_Air_Speed_Real;	//指示空速
+CString	x_Air_Speed_Real;	//指示空速
 CString	x_Air_Ma;			//马赫数
 CString	x_Air_AirP;			//装订气压
 CString	x_Air_Attack;		//攻角
-CString		x_Air_SpeedUD;		//升降高度
-CString		x_Air_HighR;		//气压高度
-CString		x_Air_HighL;		//最低安全高度
+CString	x_Air_SpeedUD;		//升降高度
+CString	x_Air_HighR;		//气压高度
+CString	x_Air_HighL;		//最低安全高度
 CString	x_Air_N;			//过载
 
 DWORD m_ControlWord1=0;
@@ -105,56 +108,14 @@ DWORD m_ControlWord2=0;
 
 CString x_ControlWord1;
 CString x_ControlWord2;
-/////////////////////////////////////////////////////////////////////////////
-// CAboutDlg dialog used for App About
-
-class CAboutDlg : public CDialog
-{
-public:
-	CAboutDlg();
-
-// Dialog Data
-	//{{AFX_DATA(CAboutDlg)
-	enum { IDD = IDD_ABOUTBOX };
-	//}}AFX_DATA
-
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CAboutDlg)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
-
-// Implementation
-protected:
-	//{{AFX_MSG(CAboutDlg)
-	//}}AFX_MSG
-	DECLARE_MESSAGE_MAP()
-};
-
-CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
-{
-	//{{AFX_DATA_INIT(CAboutDlg)
-	//}}AFX_DATA_INIT
-}
-
-void CAboutDlg::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CAboutDlg)
-	//}}AFX_DATA_MAP
-}
-
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
-	//{{AFX_MSG_MAP(CAboutDlg)
-		// No message handlers
-	//}}AFX_MSG_MAP
-END_MESSAGE_MAP()
 
 
-CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent /*=NULL*/)
+// Construc Function
+// Set init variables used in sending and receiving
+CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent)
 	: CDialog(CARNIC429Dlg::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CARNIC8081Dlg)
+	// used in sending
 	s_Air_Speed = 1;
 	s_Air_Roll = 0.0;
 	s_Air_Pitch = 0.0;
@@ -169,7 +130,8 @@ CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent /*=NULL*/)
 	s_Air_HighR = 0;
 	s_Air_HighL = 0;
 	s_Air_N = 0.0f;
-
+	
+	// used in receiving
 	r_Air_Speed = 0;
 	r_Air_Roll = 0.0;
 	r_Air_Pitch = 0.0;
@@ -184,7 +146,8 @@ CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent /*=NULL*/)
 	r_Air_HighR = 0;
 	r_Air_HighL = 0;
 	r_Air_N = 0.0f;
-
+	
+	// used to output
 	x_Air_Speed.Format("%01x", 0);
 	x_Air_Roll.Format("%01x", 0);
 	x_Air_Pitch.Format("%01x", 0);
@@ -201,15 +164,17 @@ CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent /*=NULL*/)
 	x_Air_N.Format("%01x", 0);
 	x_ControlWord1.Format("%01x", 0);
 	x_ControlWord2.Format("%01x", 0);
-	//}}AFX_DATA_INIT
+
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON1);
 }
 
+// formulated by ARNIC429.rc
+// No need to change here
 void CARNIC429Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CARNIC8081Dlg)
+
 	DDX_Control(pDX, IDC_BUTTONReceive, m_Button_Receive);
 	DDX_Control(pDX, IDC_EDITN, s_Edit_N);
 	DDX_Control(pDX, IDC_EDITHighL, s_Edit_HighL);
@@ -253,7 +218,7 @@ void CARNIC429Dlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxInt(pDX, s_Air_HighL, 0, 1500);
 	DDX_Text(pDX, IDC_EDITN, s_Air_N);
 	DDV_MinMaxFloat(pDX, s_Air_N, -10.f, 10.f);
-	//}}AFX_DATA_MAP
+
 	DDX_Text(pDX, IDC_EDITSpeed0, r_Air_Speed);
 	DDX_Text(pDX, IDC_EDITRoll0, r_Air_Roll);
 	DDX_Text(pDX, IDC_EDITPitch0, r_Air_Pitch);
@@ -289,7 +254,7 @@ void CARNIC429Dlg::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
-	//{{AFX_MSG_MAP(CARNIC8081Dlg)
+
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
@@ -348,7 +313,7 @@ BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
 	ON_BN_CLICKED(IDC_CHECKControl2, OnCHECKControl2)
 	ON_EN_KILLFOCUS(IDC_EDITMa, OnKillfocusEDITMa)
 	ON_EN_CHANGE(IDC_EDITMa, OnChangeEDITMa)
-	//}}AFX_MSG_MAP
+
 	ON_BN_CLICKED(IDC_RADIO1, OnButtonBITRATE100K)
 	ON_BN_CLICKED(IDC_RADIO2, OnButtonBITRATE48K)
 	
@@ -359,13 +324,12 @@ BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
 
 END_MESSAGE_MAP()
 
-
-BOOL CARNIC429Dlg::OnInitDialog()  //demo
+// Init function, called when the dialog is created
+BOOL CARNIC429Dlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
 	// Add "About..." menu item to system menu.
-
 	// IDM_ABOUTBOX must be in the system command range.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
@@ -382,24 +346,26 @@ BOOL CARNIC429Dlg::OnInitDialog()  //demo
 		}
 	}
 
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
+	// Set the icon for this dialog. The framework does this automatically
+	// when the application's main window is not a dialog
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
-	// TODO: Add extra initialization here
+	// Add extra initialization here
 	int i,j;
 
-	stTriggerLevel.Chan0Depth_I = TriggerLevel; // default Trigger Level
+	// default Trigger Level
+	stTriggerLevel.Chan0Depth_I = TriggerLevel;
 	stTriggerLevel.Chan1Depth_I = TriggerLevel;
 	stTriggerLevel.Chan2Depth_I = TriggerLevel; 
 	stTriggerLevel.Chan3Depth_I = TriggerLevel;
 	stTriggerLevel.Chan0Depth_O = TriggerLevel;
 	stTriggerLevel.Chan1Depth_O = TriggerLevel;
 
-	for (i=0; i<SD_MAX; i++) // default Label Filter（标签删选）
+	// default Label Filter
+	for (i = 0; i < SD_MAX; i++) 
 	{
-		for (j=0; j<LABEL_MAX; j++)
+		for (j = 0; j < LABEL_MAX; j++)
 		{
 			stLabelTable.LabFilterChan0[i][j]=0;
 			stLabelTable.LabFilterChan1[i][j]=0;
@@ -408,12 +374,15 @@ BOOL CARNIC429Dlg::OnInitDialog()  //demo
 		}
 	}
 	
-	for (i=0; i<CHNO_TMAX; i++) // bits rate & parity//波特率的选择
-	{ // followed definitions can be found in cusfunc.h
-		stComm[i].iSelBR = C429_BITRATE100K; // 0: 100k    1: 48k    2: 12.5k   
-		stComm[i].iSelParity = C429_PARITY_NONE; // 0: odd    1: even    2: none
+	// bits rate & parity
+	// 波特率的选择
+	for (i=0; i<CHNO_TMAX; i++) 
+	{	
+		// followed definitions can be found in cusfunc.h
+		stComm[i].iSelBR = C429_BITRATE100K;		// 0: 100k    1: 48k    2: 12.5k   
+		stComm[i].iSelParity = C429_PARITY_NONE;	// 0: odd    1: even    2: none
 		wdBInterval[i] = 0;
-		wdSInterval[i] = 0;          //100K / 无校验
+		wdSInterval[i] = 0;							// 100K / 无校验
 	}
 
 	for (i=0; i<CHNO_RMAX; i++)
@@ -1195,6 +1164,7 @@ itoa(x,c,10);//x：欲转换的数据；c:目标字符串的地址；10：十进制
 	}
 	pDC->SelectObject(poldPen);
 }
+
 //擦除
 void CARNIC429Dlg::OnDraw_BlackRect(CDC* pDC)
 {
@@ -1203,6 +1173,7 @@ void CARNIC429Dlg::OnDraw_BlackRect(CDC* pDC)
 	brush.CreateSolidBrush(RGB(0,0,0));
 	pDC->FillRect(rect,&brush);
 }
+
 //擦除（天空背景）
 void CARNIC429Dlg::OnDraw_SkyRect(CDC* pDC)
 {
@@ -1215,6 +1186,7 @@ void CARNIC429Dlg::OnDraw_SkyRect(CDC* pDC)
 	brush.CreatePatternBrush(&bmpBackground);  //绑定在位图画刷上
 	pDC->FillRect(rect, &brush);
 }
+
 //画方位角
 void CARNIC429Dlg::OnDraw_HXJ(double x,CDC *pDC)
 {
@@ -1301,6 +1273,7 @@ void CARNIC429Dlg::OnDraw_HXJ(double x,CDC *pDC)
 	}		
 	pDC->SelectObject(poldPen);	
 }
+
 //画滚转角
 void CARNIC429Dlg::OnDraw_HGKD(double HGJ,CDC *pDC)
 {
@@ -3047,6 +3020,7 @@ void CARNIC429Dlg::OnTimer(UINT_PTR nIDEvent)//定时器
 		break;
 	}
 }
+
 /*++
 	Routine Description:
 		Thread function used to read six channels counter and two AD's sampling data.

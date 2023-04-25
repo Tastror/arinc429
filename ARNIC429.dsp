@@ -104,6 +104,14 @@ SOURCE=.\ARNIC429Dlg.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\CAboutDialog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\coding.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\cusfunc.cpp
 # End Source File
 # Begin Source File
@@ -122,6 +130,14 @@ SOURCE=.\ARNIC429.h
 # Begin Source File
 
 SOURCE=.\ARNIC429Dlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\CAboutDialog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\coding.h
 # End Source File
 # Begin Source File
 

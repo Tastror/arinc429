@@ -15,7 +15,6 @@
 #define radius 8
 #define TriggerLevel 0
  
-
 class CARNIC429Dlg : public CDialog
 {
 // Construction
@@ -27,11 +26,8 @@ public:
 	void Decoding(LPVOID lpParam);
 	void Send();
 	void Receive();
-	
 
-
-// Dialog Data
-	//{{AFX_DATA(CARNIC8081Dlg)
+	// Dialog Data
 	enum { IDD = IDD_ARNIC8081_DIALOG };
 	CButton	m_Button_Receive;
 	CEdit	s_Edit_N;
@@ -64,20 +60,16 @@ public:
 	CEdit	r_Edit_Sideslip;
 	CEdit	r_Edit_Speed;
 	
-	//}}AFX_DATA
 
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CARNIC8081Dlg)
-	protected:
+// ClassWizard generated virtual function overrides
+protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
-	//}}AFX_VIRTUAL
 
 // Implementation
 protected:
 	HICON m_hIcon;
 
 	// Generated message map functions
-	//{{AFX_MSG(CARNIC8081Dlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
@@ -136,7 +128,6 @@ protected:
 	afx_msg void OnButtonPARITY_NONE();
 	afx_msg void OnButtonPARITY_ODD();
 	afx_msg void OnButtonPARITY_EVEN();
-	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	
 public:
@@ -145,6 +136,7 @@ public:
 	afx_msg void OnBnClickedOnbuttonbitrate12k();
 	
 };
+
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
