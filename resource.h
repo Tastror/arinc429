@@ -13,6 +13,7 @@
 #define IDR_MAINFRAME                   133
 #define IDD_MainWindow                  134
 #define IDD_Develop                     135
+#define IDD_More                        136
 #define IDC_EDITSpeed                   1000
 #define IDC_EDITHigh                    1001
 #define IDC_EDITPitch                   1002
@@ -38,6 +39,7 @@
 #define IDC_BUTTONStartTimer            1020
 #define IDC_BUTTONStopTimer             1021
 #define IDC_RADIOSelftest               1022
+#define IDC_BUTTONJump                  1022
 #define IDC_RADIONormal                 1023
 #define IDC_CHECKControl1               1024
 #define IDC_EDITRoll0                   1024
@@ -103,7 +105,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        136
+#define _APS_NEXT_RESOURCE_VALUE        137
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1085
 #define _APS_NEXT_SYMED_VALUE           101

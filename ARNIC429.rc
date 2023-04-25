@@ -79,7 +79,7 @@ STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "关于 ARNIC8081"
 FONT 9, "宋体"
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,21,21
     LTEXT           "ARNIC8081 1.1 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "版权所有 (C) 2022    作者：赵雪涵、缪雨辰、何茜雯",
                     IDC_STATIC,39,25,214,11
@@ -250,22 +250,200 @@ BEGIN
                     40,10
 END
 
-IDD_MainWindow DIALOG DISCARDABLE  0, 0, 187, 94
+IDD_MainWindow DIALOGEX 0, 0, 659, 297
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dialog"
+CAPTION "Main"
 FONT 10, "System"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,130,7,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,130,24,50,14
+    LTEXT           "真空速|km/h",IDC_STATIC,21,30,43,10
+    LTEXT           "指示空速|km/h",IDC_STATIC,75,31,50,9
+    LTEXT           "马赫数|Ma",IDC_STATIC,20,60,38,10
+    LTEXT           "装订气压|kpa",IDC_STATIC,75,60,51,9
+    EDITTEXT        IDC_EDITSpeed_Real0,21,42,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    GROUPBOX        "rev",IDC_STATIC,16,7,25,9,BS_CENTER
+    GROUPBOX        "空速相关",IDC_STATIC,16,19,118,67
+    GROUPBOX        "姿态相关",IDC_STATIC,16,88,118,67
+    EDITTEXT        IDC_EDITSpeed0,75,42,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITMa0,21,70,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITAirP0,75,70,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    LTEXT           "攻角| °",IDC_STATIC,21,99,43,10
+    LTEXT           "俯仰角| °",IDC_STATIC,75,100,50,9
+    LTEXT           "横滚角| °",IDC_STATIC,20,129,38,10
+    LTEXT           "侧滑角| °",IDC_STATIC,75,129,51,9
+    EDITTEXT        IDC_EDITAttack0,21,111,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITPitch0,75,111,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITRoll0,21,139,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITSlideslip0,75,139,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    GROUPBOX        "高度相关",IDC_STATIC,16,157,59,93
+    GROUPBOX        "运动相关",IDC_STATIC,77,157,57,93
+    LTEXT           "相对气压高度|m",IDC_STATIC,18,169,57,10
+    EDITTEXT        IDC_EDITHigh0,18,181,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    LTEXT           "无线电高度|m",IDC_STATIC,17,195,54,10
+    EDITTEXT        IDC_EDITHighR0,17,207,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    LTEXT           "最低安全高度|m",IDC_STATIC,17,221,56,10
+    EDITTEXT        IDC_EDITHighL0,17,233,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    LTEXT           "升降速度|m/s",IDC_STATIC,80,169,46,10
+    EDITTEXT        IDC_EDITSpeedUD0,80,181,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    LTEXT           "航向| °",IDC_STATIC,79,195,43,10
+    EDITTEXT        IDC_EDITAzimuth0,79,207,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    LTEXT           "法向过载|g",IDC_STATIC,79,221,43,10
+    EDITTEXT        IDC_EDITN0,79,233,40,12,ES_AUTOHSCROLL | WS_DISABLED,
+                    WS_EX_STATICEDGE
+    LTEXT           "真空速|km/h",IDC_STATIC,532,30,43,10
+    LTEXT           "指示空速|km/h",IDC_STATIC,586,31,50,9
+    LTEXT           "马赫数|Ma",IDC_STATIC,531,60,38,10
+    LTEXT           "装订气压|kpa",IDC_STATIC,586,60,51,9
+    EDITTEXT        IDC_EDITSpeed_Real,532,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "send",IDC_STATIC,621,7,24,9,BS_CENTER
+    GROUPBOX        "空速相关",IDC_STATIC,527,19,118,67
+    GROUPBOX        "姿态相关",IDC_STATIC,527,88,118,67
+    EDITTEXT        IDC_EDITSpeed,586,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITMa,532,70,40,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITAirP,586,70,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "攻角| °",IDC_STATIC,532,99,43,10
+    LTEXT           "俯仰角| °",IDC_STATIC,586,100,50,9
+    LTEXT           "横滚角| °",IDC_STATIC,531,129,38,10
+    LTEXT           "侧滑角| °",IDC_STATIC,586,129,51,9
+    EDITTEXT        IDC_EDITAttack,532,111,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITPitch,586,111,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITRoll,532,139,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITSlideslip,586,139,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "高度相关",IDC_STATIC,527,157,59,93
+    GROUPBOX        "运动相关",IDC_STATIC,588,157,57,93
+    LTEXT           "相对气压高度|m",IDC_STATIC,529,169,57,10
+    EDITTEXT        IDC_EDITHigh,529,181,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "无线电高度|m",IDC_STATIC,528,195,54,10
+    EDITTEXT        IDC_EDITHighR,528,207,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "最低安全高度|m",IDC_STATIC,528,221,56,10
+    EDITTEXT        IDC_EDITHighL,528,233,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "升降速度|m/s",IDC_STATIC,591,169,46,10
+    EDITTEXT        IDC_EDITSpeedUD,591,181,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "航向| °",IDC_STATIC,590,195,43,10
+    EDITTEXT        IDC_EDITAzimuth,590,207,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "法向过载|g",IDC_STATIC,590,221,43,10
+    EDITTEXT        IDC_EDITN,590,233,40,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    PUSHBUTTON      "发送",IDC_BUTTONSend,527,254,41,13,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "接收",IDC_BUTTONReceive,590,254,41,13,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "开始定时发送",IDC_BUTTONStartTimer,527,269,53,13,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "停止定时发送",IDC_BUTTONStopTimer,590,268,54,13,0,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "(需要函数实现跳转至More窗口)",IDC_BUTTONJump,527,283,
+                    125,13,0,WS_EX_CLIENTEDGE
+    LTEXT           "control1",IDC_STATIC,18,261,38,10
+    LTEXT           "control2",IDC_STATIC,73,261,51,9
+    EDITTEXT        IDC_ControlWord1,19,273,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    EDITTEXT        IDC_ControlWord2,73,273,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED,WS_EX_STATICEDGE
+    GROUPBOX        "控制字",IDC_STATIC,16,250,118,40
 END
 
-IDD_Develop DIALOG DISCARDABLE  0, 0, 187, 94
+IDD_Develop DIALOG DISCARDABLE  0, 0, 188, 70
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dialog"
+CAPTION "Devolop"
 FONT 10, "System"
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,130,7,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,130,24,50,14
+    DEFPUSHBUTTON   "OK",IDOK,57,46,50,14,WS_GROUP
+    LTEXT           "认识实习_ARNIC429和平显交互  ",IDC_STATIC,41,16,119,9
+    LTEXT           "组员:  舒适，孟祥宇，吴金剑，徐鑫鹏",IDC_STATIC,41,28,
+                    140,10
+    ICON            IDR_MAINFRAME,IDC_STATIC,18,16,16,16
+END
+
+IDD_More DIALOGEX 0, 0, 304, 211
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "More"
+FONT 10, "System"
+BEGIN
+    LTEXT           "真空速|km/h",IDC_STATIC,21,30,43,10
+    LTEXT           "指示空速|km/h",IDC_STATIC,75,31,50,9
+    LTEXT           "马赫数|Ma",IDC_STATIC,20,60,38,10
+    LTEXT           "装订气压|kpa",IDC_STATIC,75,60,51,9
+    EDITTEXT        IDC_EDITSpeed_Real1,21,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "dis",IDC_STATIC,16,7,25,9,BS_CENTER
+    GROUPBOX        "空速相关",IDC_STATIC,16,19,118,67
+    GROUPBOX        "姿态相关",IDC_STATIC,146,19,118,67
+    EDITTEXT        IDC_EDITSpeed1,75,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITMa1,21,70,40,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITAirP1,75,70,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "攻角| °",IDC_STATIC,151,30,43,10
+    LTEXT           "俯仰角| °",IDC_STATIC,205,31,50,9
+    LTEXT           "横滚角| °",IDC_STATIC,150,60,38,10
+    LTEXT           "侧滑角| °",IDC_STATIC,205,60,51,9
+    EDITTEXT        IDC_EDITAttack1,151,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITPitch1,205,42,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITRoll1,151,70,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDITSlideslip1,205,70,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "高度相关",IDC_STATIC,16,87,59,93
+    GROUPBOX        "运动相关",IDC_STATIC,77,87,57,93
+    LTEXT           "相对气压高度|m",IDC_STATIC,18,99,57,10
+    EDITTEXT        IDC_EDITHigh1,18,111,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "无线电高度|m",IDC_STATIC,17,125,54,10
+    EDITTEXT        IDC_EDITHighR1,17,137,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "最低安全高度|m",IDC_STATIC,17,151,56,10
+    EDITTEXT        IDC_EDITHighL1,17,163,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "升降速度|m/s",IDC_STATIC,80,99,46,10
+    EDITTEXT        IDC_EDITSpeedUD1,80,111,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "航向| °",IDC_STATIC,79,125,43,10
+    EDITTEXT        IDC_EDITAzimuth1,79,137,40,12,ES_AUTOHSCROLL,
+                    WS_EX_STATICEDGE
+    LTEXT           "法向过载|g",IDC_STATIC,79,151,43,10
+    EDITTEXT        IDC_EDITN1,79,163,40,12,ES_AUTOHSCROLL,WS_EX_STATICEDGE
+    CONTROL         "自环",IDC_RADIOSelftest,"Button",BS_AUTORADIOBUTTON,151,
+                    130,30,8
+    CONTROL         "正常",IDC_RADIONormal,"Button",BS_AUTORADIOBUTTON,188,
+                    131,29,8
+    GROUPBOX        "Setting",IDC_STATIC,145,107,119,73
+    CONTROL         "100K",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,151,148,29,
+                    8
+    CONTROL         "48K",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,188,148,28,8
+    CONTROL         "12.5K",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED,223,148,31,8
+    CONTROL         "无校验",IDC_RADIO4,"Button",BS_AUTORADIOBUTTON,150,165,
+                    33,8
+    CONTROL         "偶校验",IDC_RADIO5,"Button",BS_AUTORADIOBUTTON,189,165,
+                    34,8
+    CONTROL         "奇校验",IDC_RADIO6,"Button",BS_AUTORADIOBUTTON,224,165,
+                    34,8
 END
 
 
@@ -353,17 +531,25 @@ BEGIN
     IDD_MainWindow, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 652
         TOPMARGIN, 7
-        BOTTOMMARGIN, 87
+        BOTTOMMARGIN, 94
     END
 
     IDD_Develop, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 181
         TOPMARGIN, 7
-        BOTTOMMARGIN, 87
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_More, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 297
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
     END
 END
 #endif    // APSTUDIO_INVOKED
