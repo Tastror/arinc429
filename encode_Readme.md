@@ -1,6 +1,6 @@
 # 程序逻辑整理
 
-## BOOL CARNIC429Dlg::OnInitDialog()  //demo
+## BOOL CMainWindow::OnInitDialog()  //demo
 
 1. CDialog::OnInitDialog(); 父类的初始化函数
 2. 加载系统菜单，不重要

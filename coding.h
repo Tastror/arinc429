@@ -58,8 +58,8 @@ extern STCOMMUNICATION stComm[CHNO_TMAX];
 
 extern DWORD ReceiveData_Vector[FIFO_RMAX];
 
-extern CString x_ControlWord1;
-extern CString x_ControlWord2;
+extern CString data_ControlWord1;
+extern CString data_ControlWord2;
 
 extern int data_receive_Speed;      // Õæ¿ÕËÙ
 extern float data_receive_Roll;     // ºá¹ö½Ç

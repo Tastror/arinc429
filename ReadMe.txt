@@ -52,8 +52,8 @@ res\ARNIC429.rc2
 
 AppWizard creates one dialog class:
 
-ARNIC429Dlg.h, ARNIC429Dlg.cpp - the dialog
-    These files contain your CARNIC429Dlg class.  This class defines
+MainWindow.h, MainWindow.cpp - the dialog
+    These files contain your CMainWindow class.  This class defines
     the behavior of your application's main dialog.  The dialog's
     template is in ARNIC429.rc, which can be edited in Microsoft
 	Visual C++.

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ARNIC429.h"
-#include "ARNIC429Dlg.h"
+#include "MainWindow.h"
 
 #include "coding.h"
 #include <assert.h>
@@ -52,7 +52,7 @@ static DWORD check_value(char *name, DWORD value, DWORD mask, bool check_parity)
     return value;
 }
 
-void CARNIC429Dlg::Coding() {
+void CMainWindow::Coding() {
     wdTxBufLen=0;
     
     // 控制字 1、2
@@ -160,7 +160,7 @@ void CARNIC429Dlg::Coding() {
     set_value_parity(n);
 }
 
-void CARNIC429Dlg::Decoding(LPVOID lpParam) {
+void CMainWindow::Decoding(LPVOID lpParam) {
     HWND hwnd = (HWND)lpParam;
     DWORD d = 0;
     int i = 0;
@@ -210,10 +210,10 @@ void CARNIC429Dlg::Decoding(LPVOID lpParam) {
                 switch (temp)
                 {
                     case 0x30://控制字1
-                        x_ControlWord1.Format(_T("%08x"), d); break;
+                        data_ControlWord1.Format(_T("%08x"), d); break;
                         //0000 0110 0011 0000
                     case 0x31://控制字2
-                        x_ControlWord2.Format(_T("%08x"), d); break;
+                        data_ControlWord2.Format(_T("%08x"), d); break;
                         //0000 0110 0011 0001
                     
                     case 0x88:    //真空速

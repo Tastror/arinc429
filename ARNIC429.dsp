@@ -104,11 +104,11 @@ SOURCE=.\res\ARNIC429.rc2
 # End Source File
 # Begin Source File
 
-SOURCE=.\ARNIC429Dlg.cpp
+SOURCE=.\MainWindow.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\CAboutDialog.cpp
+SOURCE=.\DevelopWindow.cpp
 # End Source File
 # Begin Source File
 
@@ -133,11 +133,11 @@ SOURCE=.\ARNIC429.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\ARNIC429Dlg.h
+SOURCE=.\MainWindow.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\CAboutDialog.h
+SOURCE=.\DevelopWindow.h
 # End Source File
 # Begin Source File
 

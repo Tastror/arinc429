@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "ARNIC429.h"
-#include "ARNIC429Dlg.h"
+#include "MainWindow.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,15 +19,7 @@ BEGIN_MESSAGE_MAP(CARNIC429App, CWinApp)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
 		//    DO NOT EDIT what you see in these blocks of generated code!
 	//}}AFX_MSG
-
-
-
-
-
-
-
-
-
+	
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
@@ -64,7 +56,7 @@ BOOL CARNIC429App::InitInstance()
 	Enable3dControlsStatic();	// Call this when linking to MFC statically
 #endif
 
-	CARNIC429Dlg dlg;
+	CMainWindow dlg;
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
