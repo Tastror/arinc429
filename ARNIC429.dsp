@@ -112,6 +112,10 @@ SOURCE=.\DevelopWindow.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\MoreWindow.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\coding.cpp
 # End Source File
 # Begin Source File
@@ -138,6 +142,10 @@ SOURCE=.\MainWindow.h
 # Begin Source File
 
 SOURCE=.\DevelopWindow.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MoreWindow.h
 # End Source File
 # Begin Source File
 

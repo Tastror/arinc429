@@ -12,6 +12,7 @@
 #include "DLL429D42_lib.h"
 
 #include "DevelopWindow.h"
+#include "MoreWindow.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -319,6 +320,8 @@ ON_BN_CLICKED(IDC_RADIO_OddCheck, OnButtonPARITY_ODD)
 ON_BN_CLICKED(IDC_RADIO_EvenCheck, OnButtonPARITY_EVEN)
 ON_BN_CLICKED(IDC_RADIO_12p5K, OnBnClickedOnbuttonbitrate12k)
 
+ON_COMMAND(IDM_GoToMore, OnGoToMore)
+
 END_MESSAGE_MAP()
 
 // Init function, called when the dialog is created
@@ -604,8 +607,8 @@ void CMainWindow::OnSysCommand(UINT nID, LPARAM lParam)
 {
     if ((nID & 0xFFF0) == IDM_ABOUTBOX)
     {
-        CAboutDlg dlgAbout;
-        dlgAbout.DoModal();
+        CDevelopDlg window;
+        window.DoModal();
     }
     else
     {
@@ -3216,4 +3219,10 @@ void CMainWindow::OnButtonPARITY_EVEN() // ż
         stComm[i].iSelParity = C429_PARITY_EVEN;
     }
     CMainWindow::SetUp429Card();
+}
+
+void CMainWindow::OnGoToMore()
+{
+    CMoreWindow window;
+    window.DoModal();
 }

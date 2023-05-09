@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "resource.h"
 
-/////////////////////////////////////////////////////////////////////////////
-// CDevelopDlg dialog used for App About
-class CDevelopDlg : public CDialog
+class CMoreWindow : public CDialog
 {
 public:
-	CDevelopDlg();
-	enum { IDD = IDD_Develop };
+	CMoreWindow();
+	enum { IDD = IDD_More };
 
 // Dialog Data
 	//{{AFX_DATA(CDevelopDlg)

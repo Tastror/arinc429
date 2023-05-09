@@ -1,14 +1,14 @@
 #include "stdafx.h"
 #include "resource.h"
-#include "DevelopWindow.h"
+#include "MoreWindow.h"
 
-CDevelopDlg::CDevelopDlg() : CDialog(CDevelopDlg::IDD)
+CMoreWindow::CMoreWindow() : CDialog(CDevelopDlg::IDD)
 {
 	//{{AFX_DATA_INIT(CDevelopDlg)
 	//}}AFX_DATA_INIT
 }
 
-void CDevelopDlg::DoDataExchange(CDataExchange* pDX)
+void CMoreWindow::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDevelopDlg)

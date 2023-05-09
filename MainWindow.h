@@ -128,6 +128,9 @@ protected:
     afx_msg void OnButtonPARITY_NONE();
     afx_msg void OnButtonPARITY_ODD();
     afx_msg void OnButtonPARITY_EVEN();
+
+    afx_msg void OnGoToMore();
+
     DECLARE_MESSAGE_MAP()
 
 public:
