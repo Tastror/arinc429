@@ -491,7 +491,7 @@ start:
             {
                 EnablReadFIFO(mother_window->hCard, chno); // 使能读FIFO数据
                 d = ReceiveData(mother_window->hCard, chno);
-                if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
+                if ((mother_window->wdMode == C429_SELFTEST) && (mother_window->stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
                 {
                     d = Resume429Word(d);
                 }
