@@ -21,7 +21,7 @@
 #define IDB_BG_Hill                     133
 
 // control
-#define IDC_EDIT_SpeedReal              1000
+#define IDC_EDIT_RealSpeed              1000
 #define IDC_EDIT_Speed                  1001
 #define IDC_EDIT_Mach                   1002
 #define IDC_EDIT_AirP                   1003
@@ -36,7 +36,7 @@
 #define IDC_EDIT_HighL                  1012
 #define IDC_EDIT_NormalOverload         1013
 
-#define IDC_SHOW_SpeedReal              1014
+#define IDC_SHOW_RealSpeed              1014
 #define IDC_SHOW_Speed                  1015
 #define IDC_SHOW_Mach                   1016
 #define IDC_SHOW_AirP                   1017
@@ -51,20 +51,20 @@
 #define IDC_SHOW_HighL                  1026
 #define IDC_SHOW_NormalOverload         1027
 
-#define IDC_DIS_SpeedReal               1028
-#define IDC_DIS_Speed                   1029
-#define IDC_DIS_Mach                    1030
-#define IDC_DIS_AirP                    1031
-#define IDC_DIS_Attack                  1032
-#define IDC_DIS_Pitch                   1033
-#define IDC_DIS_Roll                    1034
-#define IDC_DIS_SlideSlip               1035
-#define IDC_DIS_High                    1036
-#define IDC_DIS_SpeedUD                 1037
-#define IDC_DIS_HighR                   1038
-#define IDC_DIS_Azimuth                 1039
-#define IDC_DIS_HighL                   1040
-#define IDC_DIS_NormalOverload          1041
+#define IDC_DIFF_RealSpeed              1028
+#define IDC_DIFF_Speed                  1029
+#define IDC_DIFF_Mach                   1030
+#define IDC_DIFF_AirP                   1031
+#define IDC_DIFF_Attack                 1032
+#define IDC_DIFF_Pitch                  1033
+#define IDC_DIFF_Roll                   1034
+#define IDC_DIFF_SlideSlip              1035
+#define IDC_DIFF_High                   1036
+#define IDC_DIFF_SpeedUD                1037
+#define IDC_DIFF_HighR                  1038
+#define IDC_DIFF_Azimuth                1039
+#define IDC_DIFF_HighL                  1040
+#define IDC_DIFF_NormalOverload         1041
 
 #define IDC_ControlWord1                1042
 #define IDC_ControlWord2                1043

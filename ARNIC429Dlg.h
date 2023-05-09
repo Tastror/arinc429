@@ -30,35 +30,35 @@ public:
 	// Dialog Data
 	enum { IDD = IDD_ARNIC8081_DIALOG };
 	CButton	m_Button_Receive;
-	CEdit	s_Edit_N;
-	CEdit	s_Edit_HighL;
-	CEdit	s_Edit_HighR;
-	CEdit	s_Edit_SpeedUD;
-	CEdit	s_Edit_Attack;
-	CEdit	s_Edit_AirP;
-	CEdit	s_Edit_Ma;
-	CEdit	s_Edit_Speed_Real;
-	CEdit	s_Edit_Azimuth;
-	CEdit	s_Edit_High;
-	CEdit	s_Edit_Pitch;
-	CEdit	s_Edit_Roll;
-	CEdit	s_Edit_Sideslip;
-	CEdit	s_Edit_Speed;
+	CEdit	textbot_send_NormalOverload;
+	CEdit	textbot_send_HighL;
+	CEdit	textbot_send_HighR;
+	CEdit	textbot_send_SpeedUD;
+	CEdit	textbot_send_Attack;
+	CEdit	textbot_send_AirP;
+	CEdit	textbot_send_Ma;
+	CEdit	textbot_send_RealSpeed;
+	CEdit	textbot_send_Azimuth;
+	CEdit	textbot_send_High;
+	CEdit	textbot_send_Pitch;
+	CEdit	textbot_send_Roll;
+	CEdit	textbot_send_Sideslip;
+	CEdit	textbot_send_Speed;
 
-	CEdit	r_Edit_N;
-	CEdit	r_Edit_HighL;
-	CEdit	r_Edit_HighR;
-	CEdit	r_Edit_SpeedUD;
-	CEdit	r_Edit_Attack;
-	CEdit	r_Edit_AirP;
-	CEdit	r_Edit_Ma;
-	CEdit	r_Edit_Speed_Real;
-	CEdit	r_Edit_Azimuth;
-	CEdit	r_Edit_High;
-	CEdit	r_Edit_Pitch;
-	CEdit	r_Edit_Roll;
-	CEdit	r_Edit_Sideslip;
-	CEdit	r_Edit_Speed;
+	CEdit	textbot_receive_NormalOverload;
+	CEdit	textbot_receive_HighL;
+	CEdit	textbot_receive_HighR;
+	CEdit	textbot_receive_SpeedUD;
+	CEdit	textbot_receive_Attack;
+	CEdit	textbot_receive_AirP;
+	CEdit	textbot_receive_Ma;
+	CEdit	textbot_receive_RealSpeed;
+	CEdit	textbot_receive_Azimuth;
+	CEdit	textbot_receive_High;
+	CEdit	textbot_receive_Pitch;
+	CEdit	textbot_receive_Roll;
+	CEdit	textbot_receive_Sideslip;
+	CEdit	textbot_receive_Speed;
 	
 
 // ClassWizard generated virtual function overrides
@@ -98,8 +98,8 @@ protected:
 	afx_msg void OnKillfocusEDITHigh();
 	afx_msg void OnChangeEDITAzimuth();
 	afx_msg void OnKillfocusEDITAzimuth();
-	afx_msg void OnChangeEDITSpeedReal();
-	afx_msg void OnKillfocusEDITSpeedReal();
+	afx_msg void OnChangeEDITRealSpeed();
+	afx_msg void OnKillfocusEDITRealSpeed();
 	afx_msg void OnChangeEDITAirP();
 	afx_msg void OnKillfocusEDITAirP();
 	afx_msg void OnChangeEDITAttack();
