@@ -27,8 +27,8 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     keep_receive = false;
     btCardId = 0;
     hCard = NULL;
-    stLabelTable = (LabelTable_STRUCT)({0});
-    stSysTime = (SYSTEMTIME)({0});
+    // stLabelTable = {0};
+    // stSysTime = {0};
     wdMode = C429_SELFTEST;
     dwTime = 0;
     CWord_flg1 = FALSE;
@@ -40,7 +40,7 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     blRxNow = FALSE;
     ghWnd = NULL;
     wdTxBufLen = 0;
-    stTriggerLevel = (TriggerDepth_STRUCT)({0});
+    // stTriggerLevel = {0};
 
     data_send_Speed = 1;
     data_send_Roll = 0.0;

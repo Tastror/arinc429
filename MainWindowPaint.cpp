@@ -54,14 +54,13 @@ void CMainWindow::OnPaint()
         OnDraw_SkyRect(pMem);
         OnDraw_Fighter(
             display_x_offset, display_y_offset,
-            205 + (int)data_receive_Pitch, 260 + (int)data_receive_Sideslip,
-            pMem
+            205 + (int)data_receive_Pitch, 260 + (int)data_receive_Sideslip, pMem
         );
-        OnDraw_High(data_receive_High, pMem);
-        OnDraw_Speed(data_receive_Speed, pMem);
-        OnDraw_HXJ(data_receive_Azimuth, pMem); // 方位角
-        OnDraw_HGKD(data_receive_Roll, pMem);
-        OnDraw_HG(-data_receive_Roll, data_receive_Pitch, pMem);
+        OnDraw_High(display_x_offset, display_y_offset, data_receive_High, pMem);
+        OnDraw_Speed(display_x_offset, display_y_offset, data_receive_Speed, pMem);
+        OnDraw_HXJ(display_x_offset, display_y_offset, data_receive_Azimuth, pMem); // 方位角
+        OnDraw_HGKD(display_x_offset, display_y_offset, data_receive_Roll, pMem);
+        OnDraw_HG(display_x_offset, display_y_offset, -data_receive_Roll, data_receive_Pitch, pMem);
 
         pDC->BitBlt(rectTemp.left, rectTemp.top, rectTemp.Width(), rectTemp.Height(), pMem, 0, 0, SRCCOPY);
         pMem->SelectObject(pOldBmp);
