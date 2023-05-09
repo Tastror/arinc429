@@ -7,14 +7,12 @@
 #define IDS_ABOUTBOX                    101
 #define IDD_ARNIC8081_DIALOG            102
 #define IDI_ICON1                       128
-#define IDB_BITMAP1                     130
 #define IDB_BITMAP2                     131
 #define IDB_BITMAP3                     132
 #define IDR_MAINFRAME                   133
 #define IDD_MainWindow                  134
 #define IDD_Develop                     135
 #define IDD_More                        136
-
 #define IDC_EDITSpeed0                  1016
 #define IDC_EDITHigh0                   1017
 #define IDC_RADIOControl1               1018
@@ -79,7 +77,6 @@
 #define IDC_RADIO4                      1077
 #define IDC_RADIO5                      1078
 #define IDC_RADIO6                      1079
-
 #define IDC_EDIT_SpeedReal              1080
 #define IDC_EDIT_Speed                  1081
 #define IDC_EDIT_Mach                   1082
@@ -94,7 +91,6 @@
 #define IDC_EDIT_Azimuth                1091
 #define IDC_EDIT_HighL                  1092
 #define IDC_EDIT_NormalOverload         1093
-
 #define IDC_SHOW_SpeedReal              1094
 #define IDC_SHOW_Speed                  1095
 #define IDC_SHOW_Mach                   1096
@@ -109,7 +105,6 @@
 #define IDC_SHOW_Azimuth                1105
 #define IDC_SHOW_HighL                  1106
 #define IDC_SHOW_NormalOverload         1107
-
 #define IDC_DIS_SpeedReal               1108
 #define IDC_DIS_Speed                   1109
 #define IDC_DIS_Mach                    1110
@@ -124,13 +119,11 @@
 #define IDC_DIS_Azimuth                 1119
 #define IDC_DIS_HighL                   1120
 #define IDC_DIS_NormalOverload          1121
-
 #define IDC_BUTTON_Send                 1122
 #define IDC_BUTTON_Receive              1123
 #define IDC_BUTTON_StartTimer           1124
 #define IDC_BUTTON_StopTimer            1125
 #define IDC_BUTTON_Jump                 1022
-
 #define IDC_RADIO_SelfSend              1126
 #define IDC_RADIO_Normal                1127
 #define IDC_RADIO_100K                  1128

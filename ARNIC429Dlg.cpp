@@ -1181,7 +1181,7 @@ void CARNIC429Dlg::OnDraw_SkyRect(CDC* pDC)
 	CBrush brush;
 	CDC   dcBmp;             //定义并创建一个内存设备环境
 	CBitmap   bmpBackground;  //定义位图句柄
-	bmpBackground.LoadBitmap(IDB_BITMAP1);    //将位图资源绑定在位图句柄上
+	bmpBackground.LoadBitmap(IDB_BITMAP2);    //将位图资源绑定在位图句柄上
 	brush.CreatePatternBrush(&bmpBackground);  //绑定在位图画刷上
 	pDC->FillRect(rect, &brush);
 }
