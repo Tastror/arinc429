@@ -124,13 +124,13 @@ BEGIN
                     WS_EX_STATICEDGE
     LTEXT           "法向过载",IDC_STATIC,86,181,33,8
     EDITTEXT        IDC_EDIT_NormalOverload,86,191,40,14,ES_AUTOHSCROLL,WS_EX_STATICEDGE
-    PUSHBUTTON      "开始定时发送",IDC_BUTTONStartTimer,20,269,53,18,0,
+    PUSHBUTTON      "开始定时发送",IDC_BUTTON_StartTimer,20,269,53,18,0,
                     WS_EX_CLIENTEDGE
-    PUSHBUTTON      "结束定时发送",IDC_BUTTONStopTimer,80,270,51,17,0,
+    PUSHBUTTON      "结束定时发送",IDC_BUTTON_StopTimer,80,270,51,17,0,
                     WS_EX_CLIENTEDGE
-    CONTROL         "自环",IDC_RADIOSelftest,"Button",BS_AUTORADIOBUTTON,568,
+    CONTROL         "自环",IDC_RADIO_SelfSend,"Button",BS_AUTORADIOBUTTON,568,
                     264,32,10
-    CONTROL         "正常",IDC_RADIONormal,"Button",BS_AUTORADIOBUTTON,628,
+    CONTROL         "正常",IDC_RADIO_Normal,"Button",BS_AUTORADIOBUTTON,628,
                     264,32,10
     GROUPBOX        "Setting",IDC_STATIC,569,237,170,87
     GROUPBOX        "",IDC_STATIC,551,13,125,203,0,WS_EX_DLGMODALFRAME
