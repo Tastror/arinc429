@@ -161,7 +161,7 @@ SOURCE=.\StdAfx.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
-SOURCE=".\res\ARNIC429 .ico"
+SOURCE=".\res\nwpu_plane.ico"
 # End Source File
 # Begin Source File
 
@@ -177,7 +177,7 @@ SOURCE=.\res\ARNIC8081.ico
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\bitmap2.bmp
+SOURCE=.\res\none.bmp
 # End Source File
 # Begin Source File
 
@@ -186,10 +186,6 @@ SOURCE=".\res\Blue hills.bmp"
 # Begin Source File
 
 SOURCE=.\res\sky.bmp
-# End Source File
-# Begin Source File
-
-SOURCE=.\res\sunset.bmp
 # End Source File
 # End Group
 # Begin Source File

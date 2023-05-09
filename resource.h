@@ -3,143 +3,96 @@
 // Used by ARNIC429.rc
 //
 #define IDM_ABOUTBOX                    0x0010
-#define IDD_ABOUTBOX                    100
-#define IDS_ABOUTBOX                    101
-#define IDD_ARNIC8081_DIALOG            102
-#define IDI_ICON1                       128
-#define IDB_BITMAP2                     131
-#define IDB_BITMAP3                     132
-#define IDR_MAINFRAME                   133
-#define IDD_MainWindow                  134
-#define IDD_Develop                     135
-#define IDD_More                        136
-#define IDC_EDITSpeed0                  1016
-#define IDC_EDITHigh0                   1017
-#define IDC_RADIOControl1               1018
-#define IDC_EDITPitch0                  1018
-#define IDC_RADIOControl2               1019
-#define IDC_EDITAzimuth0                1019
-#define IDC_CHECKControl1               1024
-#define IDC_EDITRoll0                   1024
-#define IDC_CHECKControl2               1025
-#define IDC_EDIT1                       1025
-#define IDC_EDIT2                       1026
-#define IDC_EDIT3                       1027
-#define IDC_EDIT4                       1028
-#define IDC_EDIT5                       1029
-#define IDC_EDIT6                       1030
-#define IDC_EDIT7                       1031
-#define IDC_EDIT8                       1032
-#define IDC_EDIT9                       1033
-#define IDC_EDIT10                      1034
-#define IDC_EDIT11                      1035
-#define IDC_EDIT12                      1036
-#define IDC_EDIT13                      1037
-#define IDC_EDIT14                      1038
-#define IDC_EDITSlideslip0              1039
-#define IDC_EDITMa0                     1040
-#define IDC_EDITAirP0                   1041
-#define IDC_EDITAttack0                 1042
-#define IDC_EDITHighR0                  1043
-#define IDC_EDITSpeedUD0                1044
-#define IDC_EDITHighL0                  1045
-#define IDC_EDITN0                      1046
-#define IDC_EDITSpeed_Real0             1047
-#define IDC_EDITSpeed1                  1048
-#define IDC_EDITHigh1                   1049
-#define IDC_EDITPitch1                  1050
-#define IDC_EDITAzimuth1                1051
-#define IDC_EDITRoll1                   1052
-#define IDC_EDITSlideslip1              1053
-#define IDC_EDITMa1                     1054
-#define IDC_EDITAirP1                   1055
-#define IDC_EDITAttack1                 1056
-#define IDC_EDITHighR1                  1057
-#define IDC_EDITSpeedUD1                1058
-#define IDC_EDITHighL1                  1059
-#define IDC_EDITN1                      1060
-#define IDC_EDITSpeed_Real1             1061
-#define IDC_ControlWord1                1062
-#define IDC_ControlWord2                1063
-#define IDC_OnButtonBITRATE100K         1064
-#define IDC_OnButtonBITRATE48K          1065
-#define IDC_OnButtonPARITY_NONE         1066
-#define IDC_BUTTON4                     1067
-#define IDC_OnButtonPARITY_EVEN         1067
-#define IDC_OnButtonPARITY_ODD          1068
-#define IDC_BUTTON2                     1070
-#define IDC_BUTTON3                     1071
-#define IDC_OnButtonBITRATE12K          1071
-#define IDC_CHECK1                      1072
-#define IDC_RADIO1                      1074
-#define IDC_RADIO2                      1075
-#define IDC_RADIO3                      1076
-#define IDC_RADIO4                      1077
-#define IDC_RADIO5                      1078
-#define IDC_RADIO6                      1079
-#define IDC_EDIT_SpeedReal              1080
-#define IDC_EDIT_Speed                  1081
-#define IDC_EDIT_Mach                   1082
-#define IDC_EDIT_AirP                   1083
-#define IDC_EDIT_Attack                 1084
-#define IDC_EDIT_Pitch                  1085
-#define IDC_EDIT_Roll                   1086
-#define IDC_EDIT_SlideSlip              1087
-#define IDC_EDIT_High                   1088
-#define IDC_EDIT_SpeedUD                1089
-#define IDC_EDIT_HighR                  1090
-#define IDC_EDIT_Azimuth                1091
-#define IDC_EDIT_HighL                  1092
-#define IDC_EDIT_NormalOverload         1093
-#define IDC_SHOW_SpeedReal              1094
-#define IDC_SHOW_Speed                  1095
-#define IDC_SHOW_Mach                   1096
-#define IDC_SHOW_AirP                   1097
-#define IDC_SHOW_Attack                 1098
-#define IDC_SHOW_Pitch                  1099
-#define IDC_SHOW_Roll                   1100
-#define IDC_SHOW_SlideSlip              1101
-#define IDC_SHOW_High                   1102
-#define IDC_SHOW_SpeedUD                1103
-#define IDC_SHOW_HighR                  1104
-#define IDC_SHOW_Azimuth                1105
-#define IDC_SHOW_HighL                  1106
-#define IDC_SHOW_NormalOverload         1107
-#define IDC_DIS_SpeedReal               1108
-#define IDC_DIS_Speed                   1109
-#define IDC_DIS_Mach                    1110
-#define IDC_DIS_AirP                    1111
-#define IDC_DIS_Attack                  1112
-#define IDC_DIS_Pitch                   1113
-#define IDC_DIS_Roll                    1114
-#define IDC_DIS_SlideSlip               1115
-#define IDC_DIS_High                    1116
-#define IDC_DIS_SpeedUD                 1117
-#define IDC_DIS_HighR                   1118
-#define IDC_DIS_Azimuth                 1119
-#define IDC_DIS_HighL                   1120
-#define IDC_DIS_NormalOverload          1121
-#define IDC_BUTTON_Send                 1122
-#define IDC_BUTTON_Receive              1123
-#define IDC_BUTTON_StartTimer           1124
-#define IDC_BUTTON_StopTimer            1125
-#define IDC_BUTTON_Jump                 1022
-#define IDC_RADIO_SelfSend              1126
-#define IDC_RADIO_Normal                1127
-#define IDC_RADIO_100K                  1128
-#define IDC_RADIO_48K                   1129
-#define IDC_RADIO_12p5K                 1130
-#define IDC_RADIO_NoCheck               1131
-#define IDC_RADIO_EvenCheck             1132
-#define IDC_RADIO_OddCheck              1133
+
+// symed
+#define IDS_Develop                     100
+
+// resource
+#define IDD_MainWindow                  110
+#define IDD_Develop                     111
+#define IDD_More                        112
+#define IDD_ARNIC8081_DIALOG            113
+
+#define IDI_NwpuPlane                   129
+#define IDI_Arnic8081                   130
+
+#define IDB_BG_None                     131
+#define IDB_BG_Sky                      132
+#define IDB_BG_Hill                     133
+
+// control
+#define IDC_EDIT_SpeedReal              1000
+#define IDC_EDIT_Speed                  1001
+#define IDC_EDIT_Mach                   1002
+#define IDC_EDIT_AirP                   1003
+#define IDC_EDIT_Attack                 1004
+#define IDC_EDIT_Pitch                  1005
+#define IDC_EDIT_Roll                   1006
+#define IDC_EDIT_SlideSlip              1007
+#define IDC_EDIT_High                   1008
+#define IDC_EDIT_SpeedUD                1009
+#define IDC_EDIT_HighR                  1010
+#define IDC_EDIT_Azimuth                1011
+#define IDC_EDIT_HighL                  1012
+#define IDC_EDIT_NormalOverload         1013
+
+#define IDC_SHOW_SpeedReal              1014
+#define IDC_SHOW_Speed                  1015
+#define IDC_SHOW_Mach                   1016
+#define IDC_SHOW_AirP                   1017
+#define IDC_SHOW_Attack                 1018
+#define IDC_SHOW_Pitch                  1019
+#define IDC_SHOW_Roll                   1020
+#define IDC_SHOW_SlideSlip              1021
+#define IDC_SHOW_High                   1022
+#define IDC_SHOW_SpeedUD                1023
+#define IDC_SHOW_HighR                  1024
+#define IDC_SHOW_Azimuth                1025
+#define IDC_SHOW_HighL                  1026
+#define IDC_SHOW_NormalOverload         1027
+
+#define IDC_DIS_SpeedReal               1028
+#define IDC_DIS_Speed                   1029
+#define IDC_DIS_Mach                    1030
+#define IDC_DIS_AirP                    1031
+#define IDC_DIS_Attack                  1032
+#define IDC_DIS_Pitch                   1033
+#define IDC_DIS_Roll                    1034
+#define IDC_DIS_SlideSlip               1035
+#define IDC_DIS_High                    1036
+#define IDC_DIS_SpeedUD                 1037
+#define IDC_DIS_HighR                   1038
+#define IDC_DIS_Azimuth                 1039
+#define IDC_DIS_HighL                   1040
+#define IDC_DIS_NormalOverload          1041
+
+#define IDC_ControlWord1                1042
+#define IDC_ControlWord2                1043
+
+#define IDC_BUTTON_Send                 1044
+#define IDC_BUTTON_Receive              1045
+#define IDC_BUTTON_StartTimer           1046
+#define IDC_BUTTON_StopTimer            1047
+#define IDC_BUTTON_Jump                 1048
+#define IDC_BUTTON_CheckControl1        1049
+#define IDC_BUTTON_CheckControl2        1050
+
+#define IDC_RADIO_SelfSend              1051
+#define IDC_RADIO_Normal                1052
+#define IDC_RADIO_100K                  1053
+#define IDC_RADIO_48K                   1054
+#define IDC_RADIO_12p5K                 1055
+#define IDC_RADIO_NoCheck               1056
+#define IDC_RADIO_EvenCheck             1057
+#define IDC_RADIO_OddCheck              1058
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        137
+#define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1139
+#define _APS_NEXT_CONTROL_VALUE         1059
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

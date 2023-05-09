@@ -166,7 +166,7 @@ CARNIC429Dlg::CARNIC429Dlg(CWnd* pParent)
 	x_ControlWord2.Format("%01x", 0);
 
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
-	m_hIcon = AfxGetApp()->LoadIcon(IDI_ICON1);
+	m_hIcon = AfxGetApp()->LoadIcon(IDI_NwpuPlane);
 }
 
 // formulated by ARNIC429.rc
@@ -219,35 +219,35 @@ void CARNIC429Dlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_NormalOverload, s_Air_N);
 	DDV_MinMaxFloat(pDX, s_Air_N, -10.f, 10.f);
 
-	DDX_Text(pDX, IDC_EDITSpeed0, r_Air_Speed);
-	DDX_Text(pDX, IDC_EDITRoll0, r_Air_Roll);
-	DDX_Text(pDX, IDC_EDITPitch0, r_Air_Pitch);
-	DDX_Text(pDX, IDC_EDITHigh0, r_Air_High);
-	DDX_Text(pDX, IDC_EDITAzimuth0, r_Air_Azimuth);
-	DDX_Text(pDX, IDC_EDITSlideslip0, r_Air_Sideslip);
-	DDX_Text(pDX, IDC_EDITSpeed_Real0, r_Air_Speed_Real);
-	DDX_Text(pDX, IDC_EDITMa0, r_Air_Ma);
-	DDX_Text(pDX, IDC_EDITAirP0, r_Air_AirP);
-	DDX_Text(pDX, IDC_EDITAttack0, r_Air_Attack);
-	DDX_Text(pDX, IDC_EDITSpeedUD0, r_Air_SpeedUD);
-	DDX_Text(pDX, IDC_EDITHighR0, r_Air_HighR);
-	DDX_Text(pDX, IDC_EDITHighL0, r_Air_HighL);
-	DDX_Text(pDX, IDC_EDITN0, r_Air_N);
+	DDX_Text(pDX, IDC_SHOW_Speed, r_Air_Speed);
+	DDX_Text(pDX, IDC_SHOW_Roll, r_Air_Roll);
+	DDX_Text(pDX, IDC_SHOW_Pitch, r_Air_Pitch);
+	DDX_Text(pDX, IDC_SHOW_High, r_Air_High);
+	DDX_Text(pDX, IDC_SHOW_Azimuth, r_Air_Azimuth);
+	DDX_Text(pDX, IDC_SHOW_SlideSlip, r_Air_Sideslip);
+	DDX_Text(pDX, IDC_SHOW_SpeedReal, r_Air_Speed_Real);
+	DDX_Text(pDX, IDC_SHOW_Mach, r_Air_Ma);
+	DDX_Text(pDX, IDC_SHOW_AirP, r_Air_AirP);
+	DDX_Text(pDX, IDC_SHOW_Attack, r_Air_Attack);
+	DDX_Text(pDX, IDC_SHOW_SpeedUD, r_Air_SpeedUD);
+	DDX_Text(pDX, IDC_SHOW_HighR, r_Air_HighR);
+	DDX_Text(pDX, IDC_SHOW_HighL, r_Air_HighL);
+	DDX_Text(pDX, IDC_SHOW_NormalOverload, r_Air_N);
 
-	DDX_Text(pDX, IDC_EDITSpeed1, x_Air_Speed);
-	DDX_Text(pDX, IDC_EDITRoll1, x_Air_Roll);
-	DDX_Text(pDX, IDC_EDITPitch1, x_Air_Pitch);
-	DDX_Text(pDX, IDC_EDITHigh1, x_Air_High);
-	DDX_Text(pDX, IDC_EDITAzimuth1, x_Air_Azimuth);
-	DDX_Text(pDX, IDC_EDITSlideslip1, x_Air_Sideslip);
-	DDX_Text(pDX, IDC_EDITSpeed_Real1, x_Air_Speed_Real);
-	DDX_Text(pDX, IDC_EDITMa1, x_Air_Ma);
-	DDX_Text(pDX, IDC_EDITAirP1, x_Air_AirP);
-	DDX_Text(pDX, IDC_EDITAttack1, x_Air_Attack);
-	DDX_Text(pDX, IDC_EDITSpeedUD1, x_Air_SpeedUD);
-	DDX_Text(pDX, IDC_EDITHighR1, x_Air_HighR);
-	DDX_Text(pDX, IDC_EDITHighL1, x_Air_HighL);
-	DDX_Text(pDX, IDC_EDITN1, x_Air_N);
+	DDX_Text(pDX, IDC_DIS_Speed, x_Air_Speed);
+	DDX_Text(pDX, IDC_DIS_Roll, x_Air_Roll);
+	DDX_Text(pDX, IDC_DIS_Pitch, x_Air_Pitch);
+	DDX_Text(pDX, IDC_DIS_High, x_Air_High);
+	DDX_Text(pDX, IDC_DIS_Azimuth, x_Air_Azimuth);
+	DDX_Text(pDX, IDC_DIS_SlideSlip, x_Air_Sideslip);
+	DDX_Text(pDX, IDC_DIS_SpeedReal, x_Air_Speed_Real);
+	DDX_Text(pDX, IDC_DIS_Mach, x_Air_Ma);
+	DDX_Text(pDX, IDC_DIS_AirP, x_Air_AirP);
+	DDX_Text(pDX, IDC_DIS_Attack, x_Air_Attack);
+	DDX_Text(pDX, IDC_DIS_SpeedUD, x_Air_SpeedUD);
+	DDX_Text(pDX, IDC_DIS_HighR, x_Air_HighR);
+	DDX_Text(pDX, IDC_DIS_HighL, x_Air_HighL);
+	DDX_Text(pDX, IDC_DIS_NormalOverload, x_Air_N);
 
 	DDX_Text(pDX, IDC_ControlWord1, x_ControlWord1);
 	DDX_Text(pDX, IDC_ControlWord2, x_ControlWord2);
@@ -290,37 +290,37 @@ BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
 	ON_EN_CHANGE(IDC_EDIT_NormalOverload, OnChangeEditn)
 	ON_EN_KILLFOCUS(IDC_EDIT_NormalOverload, OnKillfocusEditn)
 
-	ON_EN_CHANGE(IDC_EDITSpeed0, OnChangeEDITSpeed)
-	ON_EN_CHANGE(IDC_EDITSlideslip0, OnChangeEDITSlideslip)
-	ON_EN_CHANGE(IDC_EDITRoll0, OnChangeEDITRoll)
-	ON_EN_CHANGE(IDC_EDITPitch0, OnChangeEDITPitch)
-	ON_EN_CHANGE(IDC_EDITHigh0, OnChangeEDITHigh)
-	ON_EN_CHANGE(IDC_EDITAzimuth0, OnChangeEDITAzimuth)
-	ON_EN_CHANGE(IDC_EDITSpeed_Real0, OnChangeEDITSpeedReal)
-	ON_EN_CHANGE(IDC_EDITAirP0, OnChangeEDITAirP)
-	ON_EN_CHANGE(IDC_EDITAttack0, OnChangeEDITAttack)
-	ON_EN_CHANGE(IDC_EDITSpeedUD0, OnChangeEDITSpeedUD)
-	ON_EN_CHANGE(IDC_EDITHighR0, OnChangeEDITHighR)
-	ON_EN_CHANGE(IDC_EDITHighL0, OnChangeEDITHighL)
-	ON_EN_CHANGE(IDC_EDITN0, OnChangeEditn)
+	ON_EN_CHANGE(IDC_SHOW_Speed, OnChangeEDITSpeed)
+	ON_EN_CHANGE(IDC_SHOW_SlideSlip, OnChangeEDITSlideslip)
+	ON_EN_CHANGE(IDC_SHOW_Roll, OnChangeEDITRoll)
+	ON_EN_CHANGE(IDC_SHOW_Pitch, OnChangeEDITPitch)
+	ON_EN_CHANGE(IDC_SHOW_High, OnChangeEDITHigh)
+	ON_EN_CHANGE(IDC_SHOW_Azimuth, OnChangeEDITAzimuth)
+	ON_EN_CHANGE(IDC_SHOW_SpeedReal, OnChangeEDITSpeedReal)
+	ON_EN_CHANGE(IDC_SHOW_AirP, OnChangeEDITAirP)
+	ON_EN_CHANGE(IDC_SHOW_Attack, OnChangeEDITAttack)
+	ON_EN_CHANGE(IDC_SHOW_SpeedUD, OnChangeEDITSpeedUD)
+	ON_EN_CHANGE(IDC_SHOW_HighR, OnChangeEDITHighR)
+	ON_EN_CHANGE(IDC_SHOW_HighL, OnChangeEDITHighL)
+	ON_EN_CHANGE(IDC_SHOW_NormalOverload, OnChangeEditn)
 
 	
 	ON_BN_CLICKED(IDC_BUTTON_StopTimer, OnBUTTONCLR)	
 	ON_WM_TIMER()
 	ON_BN_CLICKED(IDC_RADIO_SelfSend, OnRADIOSelftest)
 	ON_BN_CLICKED(IDC_RADIO_Normal, OnRADIONormal)
-	ON_BN_CLICKED(IDC_CHECKControl1, OnCHECKControl1)
-	ON_BN_CLICKED(IDC_CHECKControl2, OnCHECKControl2)
+	ON_BN_CLICKED(IDC_BUTTON_CheckControl1, OnCHECKControl1)
+	ON_BN_CLICKED(IDC_BUTTON_CheckControl2, OnCHECKControl2)
 	ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
 	ON_EN_CHANGE(IDC_EDIT_Mach, OnChangeEDITMa)
 
-	ON_BN_CLICKED(IDC_RADIO1, OnButtonBITRATE100K)
-	ON_BN_CLICKED(IDC_RADIO2, OnButtonBITRATE48K)
+	ON_BN_CLICKED(IDC_RADIO_100K, OnButtonBITRATE100K)
+	ON_BN_CLICKED(IDC_RADIO_48K, OnButtonBITRATE48K)
 	
-	ON_BN_CLICKED(IDC_RADIO4, OnButtonPARITY_NONE)
-	ON_BN_CLICKED(IDC_RADIO6, OnButtonPARITY_ODD)
-	ON_BN_CLICKED(IDC_RADIO5, OnButtonPARITY_EVEN)
-	ON_BN_CLICKED(IDC_RADIO3, OnBnClickedOnbuttonbitrate12k)
+	ON_BN_CLICKED(IDC_RADIO_NoCheck, OnButtonPARITY_NONE)
+	ON_BN_CLICKED(IDC_RADIO_OddCheck, OnButtonPARITY_ODD)
+	ON_BN_CLICKED(IDC_RADIO_EvenCheck, OnButtonPARITY_EVEN)
+	ON_BN_CLICKED(IDC_RADIO_12p5K, OnBnClickedOnbuttonbitrate12k)
 
 END_MESSAGE_MAP()
 
@@ -338,7 +338,7 @@ BOOL CARNIC429Dlg::OnInitDialog()
 	if (pSysMenu != NULL)
 	{
 		CString strAboutMenu;
-		strAboutMenu.LoadString(IDS_ABOUTBOX);
+		strAboutMenu.LoadString(IDS_Develop);
 		if (!strAboutMenu.IsEmpty())
 		{
 			pSysMenu->AppendMenu(MF_SEPARATOR);
@@ -1181,7 +1181,7 @@ void CARNIC429Dlg::OnDraw_SkyRect(CDC* pDC)
 	CBrush brush;
 	CDC   dcBmp;             //定义并创建一个内存设备环境
 	CBitmap   bmpBackground;  //定义位图句柄
-	bmpBackground.LoadBitmap(IDB_BITMAP3);    //将位图资源绑定在位图句柄上
+	bmpBackground.LoadBitmap(IDB_BG_Sky);    //将位图资源绑定在位图句柄上
 	brush.CreatePatternBrush(&bmpBackground);  //绑定在位图画刷上
 	pDC->FillRect(rect, &brush);
 }

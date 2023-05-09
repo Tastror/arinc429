@@ -1,3 +1,3 @@
-# Arinc429
+# Arnic429
 TBD
 
