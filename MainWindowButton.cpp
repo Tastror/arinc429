@@ -436,6 +436,10 @@ void CMainWindow::OnTimer(UINT_PTR nIDEvent) // 定时器
     }
 }
 
+
+// in main window
+extern CMainWindow* mother_window;
+
 /*++
     Routine Description:
         Thread function used to read six channels counter and two AD's sampling data.
@@ -455,38 +459,38 @@ start:
     BYTE btTriggerLevel = 0;
     int i = 0;
 #ifndef CARD_DEBUG
-    while (isNeedThread) //////////////////
+    while (mother_window->isNeedThread) //////////////////
     {
         //  Get trigger level
         //
-        btTriggerLevel = stTriggerLevel.Chan0Depth_I;
+        btTriggerLevel = mother_window->stTriggerLevel.Chan0Depth_I;
 
         //  Rx channel 1~CHNO_RMAX
         // ----------------------------------------------------------------
         if (btTriggerLevel > 0) // triggered//xu yao guo lv
         {
-            if (IsFIFOTriggered_R(hCard, chno)) // 判断是否到达触发深度
+            if (IsFIFOTriggered_R(mother_window->hCard, chno)) // 判断是否到达触发深度
             {
-                EnablReadFIFO(hCard, chno); // 使能读FIFO数据
-                while ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError))
+                EnablReadFIFO(mother_window->hCard, chno); // 使能读FIFO数据
+                while ((ReadFIFOStatus_R(mother_window->hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(mother_window->hCard, chno) != FIFOError))
                 // 当recieveFIFO 不空且不溢出时
                 {
-                    d = ReceiveData(hCard, chno);
-                    if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
+                    d = ReceiveData(mother_window->hCard, chno);
+                    if ((mother_window->wdMode == C429_SELFTEST) && (mother_window->stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
                     {
                         d = Resume429Word(d); // 429字转化计算机字，解码
                     }
-                    Save_ReceiveData(d, ReceiveData_Vector + i);
+                    Save_ReceiveData(d, mother_window->ReceiveData_Vector + i);
                 }
-                DisablReadFIFO(hCard); // 禁止读FIFO数据
+                DisablReadFIFO(mother_window->hCard); // 禁止读FIFO数据
             }
         }
         else // untriggered//不需要过滤 .
         {
-            if ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError)) // 读取状态当recieveFIFO 不空且不溢出时
+            if ((ReadFIFOStatus_R(mother_window->hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(mother_window->hCard, chno) != FIFOError)) // 读取状态当recieveFIFO 不空且不溢出时
             {
-                EnablReadFIFO(hCard, chno); // 使能读FIFO数据
-                d = ReceiveData(hCard, chno);
+                EnablReadFIFO(mother_window->hCard, chno); // 使能读FIFO数据
+                d = ReceiveData(mother_window->hCard, chno);
                 if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
                 {
                     d = Resume429Word(d);
@@ -497,103 +501,103 @@ start:
                 switch (temp) // 判断变量是什么
                 {
                 case 0x30: // 控制字1
-                    data_ControlWord1.Format("%08x", d);
+                    mother_window->data_ControlWord1.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0000
                 case 0x31: // 控制字2
-                    data_ControlWord2.Format("%08x", d);
+                    mother_window->data_ControlWord2.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0001
 
                 case 0x88: // 真空速
                     s = (short)(d >> 16);
-                    data_receive_RealSpeed = s * (4096. / 32768);
-                    data_difference_RealSpeed.Format("%08x", d);
+                    mother_window->data_receive_RealSpeed = s * (4096. / 32768);
+                    mother_window->data_difference_RealSpeed.Format("%08x", d);
                     break;
                     // 0000 0110 1000 1000
                 case 0x86: // 指示空速
                     s = (short)(d >> 16);
-                    data_receive_Speed = s * (2048. / 32768);
-                    data_difference_Speed.Format("%08x", d);
+                    mother_window->data_receive_Speed = s * (2048. / 32768);
+                    mother_window->data_difference_Speed.Format("%08x", d);
                     break;
                     // 0000 0110 1000 0110
                 case 0x85: // 马赫数
                     s = (short)(d >> 16);
-                    data_receive_Mach = s * (4.096 / 32768);
-                    data_difference_Mach.Format("%08x", d);
+                    mother_window->data_receive_Mach = s * (4.096 / 32768);
+                    mother_window->data_difference_Mach.Format("%08x", d);
                     break;
                     //    0000 0110 0001 0101
                 case 0x97: // 装订气压
                     s = (short)(d >> 16);
-                    data_receive_AirP = s * (128. / 32768);
-                    data_difference_AirP.Format("%08x", d);
+                    mother_window->data_receive_AirP = s * (128. / 32768);
+                    mother_window->data_difference_AirP.Format("%08x", d);
                     break;
                     // 0000 0110 1001 0111
                 case 0xA1: // 攻角
                     s = (short)(d >> 16);
-                    data_receive_Attack = s * (45. / 32768);
-                    data_difference_Attack.Format("%08x", d);
+                    mother_window->data_receive_Attack = s * (45. / 32768);
+                    mother_window->data_difference_Attack.Format("%08x", d);
                     break;
                     // 0000 0110 1010 0001
                 case 0x84: // 相对气压高度
                     s = (short)(d >> 16);
-                    data_receive_High = s;
-                    data_difference_High.Format("%08x", d);
+                    mother_window->data_receive_High = s;
+                    mother_window->data_difference_High.Format("%08x", d);
                     break;
                     // 0000 0110 1000 0100
                 case 0x8A: // 升降速度
                     s = (short)(d >> 16);
-                    data_receive_SpeedUD = s * (512. / 32768);
-                    data_difference_SpeedUD.Format("%08x", d);
+                    mother_window->data_receive_SpeedUD = s * (512. / 32768);
+                    mother_window->data_difference_SpeedUD.Format("%08x", d);
                     break;
                     // 0000 0110 1000 1010
                 case 0x32: // 航向角
                     s = (short)(d >> 16);
-                    data_receive_Azimuth = s * (360. / 32768);
-                    data_difference_Azimuth.Format("%08x", d);
+                    mother_window->data_receive_Azimuth = s * (360. / 32768);
+                    mother_window->data_difference_Azimuth.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0010
                 case 0x33: // 俯仰角
                     s = (short)(d >> 16);
-                    data_receive_Pitch = s * (180. / 32768);
-                    data_difference_Pitch.Format("%08x", d);
+                    mother_window->data_receive_Pitch = s * (180. / 32768);
+                    mother_window->data_difference_Pitch.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0011
                 case 0x34: // 横滚角
                     s = (short)(d >> 16);
-                    data_receive_Roll = s * (180. / 32768);
-                    data_difference_Roll.Format("%08x", d);
+                    mother_window->data_receive_Roll = s * (180. / 32768);
+                    mother_window->data_difference_Roll.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0100
                 case 0x35: // 无线电高度
                     s = (short)(d >> 16);
-                    data_receive_HighR = s * (1524. / 32768);
-                    data_difference_HighR.Format("%08x", d);
+                    mother_window->data_receive_HighR = s * (1524. / 32768);
+                    mother_window->data_difference_HighR.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0101
                 case 0x36: // 最低安全高度
                     s = (short)(d >> 16);
-                    data_receive_HighL = s * (1500. / 32768);
-                    data_difference_HighL.Format("%08x", d);
+                    mother_window->data_receive_HighL = s * (1500. / 32768);
+                    mother_window->data_difference_HighL.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0110
                 case 0x37: // 侧滑角
                     s = (short)(d >> 16);
-                    data_receive_Sideslip = s * (10. / 32768);
-                    data_difference_Sideslip.Format("%08x", d);
+                    mother_window->data_receive_Sideslip = s * (10. / 32768);
+                    mother_window->data_difference_Sideslip.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0111
                 case 0x38: // 法向过载
                     s = (short)(d >> 16);
-                    data_receive_NormalOverload = s * (10. / 32768);
-                    data_difference_NormalOverload.Format("%08x", d);
+                    mother_window->data_receive_NormalOverload = s * (10. / 32768);
+                    mother_window->data_difference_NormalOverload.Format("%08x", d);
                     break;
                     // 0000 0110 0011 1000
                 default:
                     break;
                 }
             }
-            DisablReadFIFO(hCard); // 禁止读FIFO数据
+            DisablReadFIFO(mother_window->hCard); // 禁止读FIFO数据
         }                          // end of if (btTriggerLevel...
     }                              // end of while ((chno<CHNO_RMAX...
 
