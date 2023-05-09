@@ -1,3 +1,6 @@
+#ifndef _MOREWINDOW_H_
+#define _MOREWINDOW_H_
+
 #include "stdafx.h"
 #include "resource.h"
 
@@ -23,3 +26,5 @@ protected:
 	DECLARE_MESSAGE_MAP();
 	virtual void DoDataExchange(CDataExchange *pDX);
 };
+
+#endif

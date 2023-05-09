@@ -108,6 +108,22 @@ SOURCE=.\MainWindow.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\MainWindowInit.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainWindowPaint.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainWindowTextbox.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainWindowButton.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\DevelopWindow.cpp
 # End Source File
 # Begin Source File
