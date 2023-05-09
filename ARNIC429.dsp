@@ -100,6 +100,10 @@ SOURCE=.\ARNIC429.rc
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\ARNIC429.rc2
+# End Source File
+# Begin Source File
+
 SOURCE=.\ARNIC429Dlg.cpp
 # End Source File
 # Begin Source File
@@ -166,10 +170,6 @@ SOURCE=".\res\nwpu_plane.ico"
 # Begin Source File
 
 SOURCE=.\res\ARNIC429.ico
-# End Source File
-# Begin Source File
-
-SOURCE=.\res\ARNIC429.rc2
 # End Source File
 # Begin Source File
 

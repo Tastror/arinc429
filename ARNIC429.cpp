@@ -1,4 +1,4 @@
-// ARNIC8081.cpp : Defines the class behaviors for the application.
+// ARNIC429.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -12,10 +12,10 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CARNIC8081App
+// CARNIC429App
 
 BEGIN_MESSAGE_MAP(CARNIC429App, CWinApp)
-	//{{AFX_MSG_MAP(CARNIC8081App)
+	//{{AFX_MSG_MAP(CARNIC429App)
 		// NOTE - the ClassWizard will add and remove mapping macros here.
 		//    DO NOT EDIT what you see in these blocks of generated code!
 	//}}AFX_MSG
@@ -32,7 +32,7 @@ BEGIN_MESSAGE_MAP(CARNIC429App, CWinApp)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CARNIC8081App construction
+// CARNIC429App construction
 
 
 CARNIC429App::CARNIC429App()
@@ -42,12 +42,12 @@ CARNIC429App::CARNIC429App()
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// The one and only CARNIC8081App object
+// The one and only CARNIC429App object
 
 CARNIC429App theApp;
 
 /////////////////////////////////////////////////////////////////////////////
-// CARNIC8081App initialization
+// CARNIC429App initialization
 
 BOOL CARNIC429App::InitInstance()
 {

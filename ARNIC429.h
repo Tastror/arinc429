@@ -1,4 +1,4 @@
-// ARNIC8081.h : main header file for the ARNIC8081 application
+// ARNIC429.h : main header file for the ARNIC429 application
 //
 
 #if !defined(AFX_ARNIC429_H__B6A927A6_C339_4D12_9EE7_87719B874300__INCLUDED_)
@@ -15,8 +15,8 @@
 #include "resource.h"  // main symbols
 
 /////////////////////////////////////////////////////////////////////////////
-// CARNIC8081App:
-// See ARNIC8081.cpp for the implementation of this class
+// CARNIC429App:
+// See ARNIC429.cpp for the implementation of this class
 //
 
 class CARNIC429App : public CWinApp
@@ -26,14 +26,14 @@ public:
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CARNIC8081App)
+	//{{AFX_VIRTUAL(CARNIC429App)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
 // Implementation
 
-	//{{AFX_MSG(CARNIC8081App)
+	//{{AFX_MSG(CARNIC429App)
 		// NOTE - the ClassWizard will add and remove member functions here.
 		//    DO NOT EDIT what you see in these blocks of generated code !
 	//}}AFX_MSG
@@ -46,4 +46,4 @@ public:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_ARNIC8081_H__B6A927A6_C339_4D12_9EE7_87719B874300__INCLUDED_)
+#endif // !defined(AFX_ARNIC429_H__B6A927A6_C339_4D12_9EE7_87719B874300__INCLUDED_)

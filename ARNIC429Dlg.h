@@ -1,4 +1,4 @@
-// ARNIC8081Dlg.h : header file
+// ARNIC429Dlg.h : header file
 //
 
 #if !defined(AFX_ARNIC429DLG_H__8C615E06_307E_4CE0_BCD6_4A514F561FD5__INCLUDED_)
@@ -9,7 +9,7 @@
 #endif // _MSC_VER > 1000
 
 /////////////////////////////////////////////////////////////////////////////
-// CARNIC8081Dlg dialog
+// CARNIC429Dlg dialog
 
 #define PI 3.141592654
 #define radius 8
@@ -28,7 +28,7 @@ public:
 	void Receive();
 
 	// Dialog Data
-	enum { IDD = IDD_ARNIC8081_DIALOG };
+	enum { IDD = IDD_ARNIC429_DIALOG };
 	CButton	m_Button_Receive;
 	CEdit	textbot_send_NormalOverload;
 	CEdit	textbot_send_HighL;
@@ -141,4 +141,4 @@ public:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_ARNIC8081DLG_H__8C615E06_307E_4CE0_BCD6_4A514F561FD5__INCLUDED_)
+#endif // !defined(AFX_ARNIC429DLG_H__8C615E06_307E_4CE0_BCD6_4A514F561FD5__INCLUDED_)

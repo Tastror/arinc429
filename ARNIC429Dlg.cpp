@@ -1,4 +1,4 @@
-// ARNIC8081Dlg.cpp : implementation file
+// ARNIC429Dlg.cpp : implementation file
 //
 
 #include "stdafx.h"
