@@ -175,48 +175,48 @@ void CARNIC429Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 
-	DDX_Control(pDX, IDC_BUTTONReceive, m_Button_Receive);
-	DDX_Control(pDX, IDC_EDITN, s_Edit_N);
-	DDX_Control(pDX, IDC_EDITHighL, s_Edit_HighL);
-	DDX_Control(pDX, IDC_EDITHighR, s_Edit_HighR);
-	DDX_Control(pDX, IDC_EDITSpeedUD, s_Edit_SpeedUD);
-	DDX_Control(pDX, IDC_EDITAttack, s_Edit_Attack);
-	DDX_Control(pDX, IDC_EDITAirP, s_Edit_AirP);
-	DDX_Control(pDX, IDC_EDITMa, s_Edit_Ma);
-	DDX_Control(pDX, IDC_EDITSpeed_Real, s_Edit_Speed_Real);
-	DDX_Control(pDX, IDC_EDITAzimuth, s_Edit_Azimuth);
-	DDX_Control(pDX, IDC_EDITHigh, s_Edit_High);
-	DDX_Control(pDX, IDC_EDITPitch, s_Edit_Pitch);
-	DDX_Control(pDX, IDC_EDITRoll, s_Edit_Roll);
-	DDX_Control(pDX, IDC_EDITSlideslip, s_Edit_Sideslip);
-	DDX_Control(pDX, IDC_EDITSpeed, s_Edit_Speed);
-	DDX_Text(pDX, IDC_EDITSpeed, s_Air_Speed);
+	DDX_Control(pDX, IDC_BUTTON_Receive, m_Button_Receive);
+	DDX_Control(pDX, IDC_EDIT_NormalOverload, s_Edit_N);
+	DDX_Control(pDX, IDC_EDIT_HighL, s_Edit_HighL);
+	DDX_Control(pDX, IDC_EDIT_HighR, s_Edit_HighR);
+	DDX_Control(pDX, IDC_EDIT_SpeedUD, s_Edit_SpeedUD);
+	DDX_Control(pDX, IDC_EDIT_Attack, s_Edit_Attack);
+	DDX_Control(pDX, IDC_EDIT_AirP, s_Edit_AirP);
+	DDX_Control(pDX, IDC_EDIT_Mach, s_Edit_Ma);
+	DDX_Control(pDX, IDC_EDIT_SpeedReal, s_Edit_Speed_Real);
+	DDX_Control(pDX, IDC_EDIT_Azimuth, s_Edit_Azimuth);
+	DDX_Control(pDX, IDC_EDIT_High, s_Edit_High);
+	DDX_Control(pDX, IDC_EDIT_Pitch, s_Edit_Pitch);
+	DDX_Control(pDX, IDC_EDIT_Roll, s_Edit_Roll);
+	DDX_Control(pDX, IDC_EDIT_SlideSlip, s_Edit_Sideslip);
+	DDX_Control(pDX, IDC_EDIT_Speed, s_Edit_Speed);
+	DDX_Text(pDX, IDC_EDIT_Speed, s_Air_Speed);
 	DDV_MinMaxInt(pDX, s_Air_Speed, 0, 2048);
-	DDX_Text(pDX, IDC_EDITRoll, s_Air_Roll);
+	DDX_Text(pDX, IDC_EDIT_Roll, s_Air_Roll);
 	DDV_MinMaxDouble(pDX, s_Air_Roll, -180., 180.);
-	DDX_Text(pDX, IDC_EDITPitch, s_Air_Pitch);
+	DDX_Text(pDX, IDC_EDIT_Pitch, s_Air_Pitch);
 	DDV_MinMaxDouble(pDX, s_Air_Pitch, -180., 180.);
-	DDX_Text(pDX, IDC_EDITHigh, s_Air_High);
+	DDX_Text(pDX, IDC_EDIT_High, s_Air_High);
 	DDV_MinMaxInt(pDX, s_Air_High, 0, 32768);
-	DDX_Text(pDX, IDC_EDITAzimuth, s_Air_Azimuth);
+	DDX_Text(pDX, IDC_EDIT_Azimuth, s_Air_Azimuth);
 	DDV_MinMaxDouble(pDX, s_Air_Azimuth, 0., 360.);
-	DDX_Text(pDX, IDC_EDITSlideslip, s_Air_Sideslip);
+	DDX_Text(pDX, IDC_EDIT_SlideSlip, s_Air_Sideslip);
 	DDV_MinMaxDouble(pDX, s_Air_Sideslip, -10., 10.);
-	DDX_Text(pDX, IDC_EDITSpeed_Real, s_Air_Speed_Real);
+	DDX_Text(pDX, IDC_EDIT_SpeedReal, s_Air_Speed_Real);
 	DDV_MinMaxInt(pDX, s_Air_Speed_Real, 0, 4096);
-	DDX_Text(pDX, IDC_EDITMa, s_Air_Ma);
+	DDX_Text(pDX, IDC_EDIT_Mach, s_Air_Ma);
 	DDV_MinMaxFloat(pDX, s_Air_Ma, 0.f, 4.096f);
-	DDX_Text(pDX, IDC_EDITAirP, s_Air_AirP);
+	DDX_Text(pDX, IDC_EDIT_AirP, s_Air_AirP);
 	DDV_MinMaxFloat(pDX, s_Air_AirP, -128.f, 128.f);
-	DDX_Text(pDX, IDC_EDITAttack, s_Air_Attack);
+	DDX_Text(pDX, IDC_EDIT_Attack, s_Air_Attack);
 	DDV_MinMaxFloat(pDX, s_Air_Attack, -45.f, 45.f);
-	DDX_Text(pDX, IDC_EDITSpeedUD, s_Air_SpeedUD);
+	DDX_Text(pDX, IDC_EDIT_SpeedUD, s_Air_SpeedUD);
 	DDV_MinMaxInt(pDX, s_Air_SpeedUD, -512, 512);
-	DDX_Text(pDX, IDC_EDITHighR, s_Air_HighR);
+	DDX_Text(pDX, IDC_EDIT_HighR, s_Air_HighR);
 	DDV_MinMaxInt(pDX, s_Air_HighR, 0, 1524);
-	DDX_Text(pDX, IDC_EDITHighL, s_Air_HighL);
+	DDX_Text(pDX, IDC_EDIT_HighL, s_Air_HighL);
 	DDV_MinMaxInt(pDX, s_Air_HighL, 0, 1500);
-	DDX_Text(pDX, IDC_EDITN, s_Air_N);
+	DDX_Text(pDX, IDC_EDIT_NormalOverload, s_Air_N);
 	DDV_MinMaxFloat(pDX, s_Air_N, -10.f, 10.f);
 
 	DDX_Text(pDX, IDC_EDITSpeed0, r_Air_Speed);
@@ -258,37 +258,37 @@ BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_BN_CLICKED(IDC_BUTTONSend, OnBUTTONSend)
+	ON_BN_CLICKED(IDC_BUTTON_Send, OnBUTTONSend)
 
 	ON_BN_CLICKED(IDC_BUTTONStartTimer, OnBUTTONStartTimer)
-	ON_BN_CLICKED(IDC_BUTTONReceive, OnBUTTONReceive)
+	ON_BN_CLICKED(IDC_BUTTON_Receive, OnBUTTONReceive)
 
-	ON_EN_CHANGE(IDC_EDITSpeed, OnChangeEDITSpeed)
-	ON_EN_KILLFOCUS(IDC_EDITSpeed, OnKillfocusEDITSpeed)
-	ON_EN_CHANGE(IDC_EDITSlideslip, OnChangeEDITSlideslip)
-	ON_EN_KILLFOCUS(IDC_EDITSlideslip, OnKillfocusEDITSlideslip)
-	ON_EN_CHANGE(IDC_EDITRoll, OnChangeEDITRoll)
-	ON_EN_KILLFOCUS(IDC_EDITRoll, OnKillfocusEDITRoll)
-	ON_EN_CHANGE(IDC_EDITPitch, OnChangeEDITPitch)
-	ON_EN_KILLFOCUS(IDC_EDITPitch, OnKillfocusEDITPitch)
-	ON_EN_CHANGE(IDC_EDITHigh, OnChangeEDITHigh)
-	ON_EN_KILLFOCUS(IDC_EDITHigh, OnKillfocusEDITHigh)
-	ON_EN_CHANGE(IDC_EDITAzimuth, OnChangeEDITAzimuth)
-	ON_EN_KILLFOCUS(IDC_EDITAzimuth, OnKillfocusEDITAzimuth)
-	ON_EN_CHANGE(IDC_EDITSpeed_Real, OnChangeEDITSpeedReal)
-	ON_EN_KILLFOCUS(IDC_EDITSpeed_Real, OnKillfocusEDITSpeedReal)
-	ON_EN_CHANGE(IDC_EDITAirP, OnChangeEDITAirP)
-	ON_EN_KILLFOCUS(IDC_EDITAirP, OnKillfocusEDITAirP)
-	ON_EN_CHANGE(IDC_EDITAttack, OnChangeEDITAttack)
-	ON_EN_KILLFOCUS(IDC_EDITAttack, OnKillfocusEDITAttack)
-	ON_EN_CHANGE(IDC_EDITSpeedUD, OnChangeEDITSpeedUD)
-	ON_EN_KILLFOCUS(IDC_EDITSpeedUD, OnKillfocusEDITSpeedUD)
-	ON_EN_CHANGE(IDC_EDITHighR, OnChangeEDITHighR)
-	ON_EN_KILLFOCUS(IDC_EDITHighR, OnKillfocusEDITHighR)
-	ON_EN_CHANGE(IDC_EDITHighL, OnChangeEDITHighL)
-	ON_EN_KILLFOCUS(IDC_EDITHighL, OnKillfocusEDITHighL)
-	ON_EN_CHANGE(IDC_EDITN, OnChangeEditn)
-	ON_EN_KILLFOCUS(IDC_EDITN, OnKillfocusEditn)
+	ON_EN_CHANGE(IDC_EDIT_Speed, OnChangeEDITSpeed)
+	ON_EN_KILLFOCUS(IDC_EDIT_Speed, OnKillfocusEDITSpeed)
+	ON_EN_CHANGE(IDC_EDIT_SlideSlip, OnChangeEDITSlideslip)
+	ON_EN_KILLFOCUS(IDC_EDIT_SlideSlip, OnKillfocusEDITSlideslip)
+	ON_EN_CHANGE(IDC_EDIT_Roll, OnChangeEDITRoll)
+	ON_EN_KILLFOCUS(IDC_EDIT_Roll, OnKillfocusEDITRoll)
+	ON_EN_CHANGE(IDC_EDIT_Pitch, OnChangeEDITPitch)
+	ON_EN_KILLFOCUS(IDC_EDIT_Pitch, OnKillfocusEDITPitch)
+	ON_EN_CHANGE(IDC_EDIT_High, OnChangeEDITHigh)
+	ON_EN_KILLFOCUS(IDC_EDIT_High, OnKillfocusEDITHigh)
+	ON_EN_CHANGE(IDC_EDIT_Azimuth, OnChangeEDITAzimuth)
+	ON_EN_KILLFOCUS(IDC_EDIT_Azimuth, OnKillfocusEDITAzimuth)
+	ON_EN_CHANGE(IDC_EDIT_SpeedReal, OnChangeEDITSpeedReal)
+	ON_EN_KILLFOCUS(IDC_EDIT_SpeedReal, OnKillfocusEDITSpeedReal)
+	ON_EN_CHANGE(IDC_EDIT_AirP, OnChangeEDITAirP)
+	ON_EN_KILLFOCUS(IDC_EDIT_AirP, OnKillfocusEDITAirP)
+	ON_EN_CHANGE(IDC_EDIT_Attack, OnChangeEDITAttack)
+	ON_EN_KILLFOCUS(IDC_EDIT_Attack, OnKillfocusEDITAttack)
+	ON_EN_CHANGE(IDC_EDIT_SpeedUD, OnChangeEDITSpeedUD)
+	ON_EN_KILLFOCUS(IDC_EDIT_SpeedUD, OnKillfocusEDITSpeedUD)
+	ON_EN_CHANGE(IDC_EDIT_HighR, OnChangeEDITHighR)
+	ON_EN_KILLFOCUS(IDC_EDIT_HighR, OnKillfocusEDITHighR)
+	ON_EN_CHANGE(IDC_EDIT_HighL, OnChangeEDITHighL)
+	ON_EN_KILLFOCUS(IDC_EDIT_HighL, OnKillfocusEDITHighL)
+	ON_EN_CHANGE(IDC_EDIT_NormalOverload, OnChangeEditn)
+	ON_EN_KILLFOCUS(IDC_EDIT_NormalOverload, OnKillfocusEditn)
 
 	ON_EN_CHANGE(IDC_EDITSpeed0, OnChangeEDITSpeed)
 	ON_EN_CHANGE(IDC_EDITSlideslip0, OnChangeEDITSlideslip)
@@ -311,8 +311,8 @@ BEGIN_MESSAGE_MAP(CARNIC429Dlg, CDialog)
 	ON_BN_CLICKED(IDC_RADIONormal, OnRADIONormal)
 	ON_BN_CLICKED(IDC_CHECKControl1, OnCHECKControl1)
 	ON_BN_CLICKED(IDC_CHECKControl2, OnCHECKControl2)
-	ON_EN_KILLFOCUS(IDC_EDITMa, OnKillfocusEDITMa)
-	ON_EN_CHANGE(IDC_EDITMa, OnChangeEDITMa)
+	ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
+	ON_EN_CHANGE(IDC_EDIT_Mach, OnChangeEDITMa)
 
 	ON_BN_CLICKED(IDC_RADIO1, OnButtonBITRATE100K)
 	ON_BN_CLICKED(IDC_RADIO2, OnButtonBITRATE48K)
@@ -1177,7 +1177,6 @@ void CARNIC429Dlg::OnDraw_BlackRect(CDC* pDC)
 //擦除（天空背景）
 void CARNIC429Dlg::OnDraw_SkyRect(CDC* pDC)
 {
-
 	CRect rect(0, 0, 600, 530);
 	CBrush brush;
 	CDC   dcBmp;             //定义并创建一个内存设备环境

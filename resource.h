@@ -14,22 +14,7 @@
 #define IDD_MainWindow                  134
 #define IDD_Develop                     135
 #define IDD_More                        136
-#define IDC_EDITSpeed                   1000
-#define IDC_EDITHigh                    1001
-#define IDC_EDITPitch                   1002
-#define IDC_EDITAzimuth                 1003
-#define IDC_EDITRoll                    1004
-#define IDC_EDITSlideslip               1005
-#define IDC_EDITSpeed_Real              1006
-#define IDC_EDITMa                      1007
-#define IDC_EDITAirP                    1008
-#define IDC_EDITAttack                  1009
-#define IDC_BUTTONSend                  1010
-#define IDC_BUTTONReceive               1011
-#define IDC_EDITHighR                   1012
-#define IDC_EDITSpeedUD                 1013
-#define IDC_EDITHighL                   1014
-#define IDC_EDITN                       1015
+
 #define IDC_EDITSpeed0                  1016
 #define IDC_EDITHigh0                   1017
 #define IDC_RADIOControl1               1018
@@ -101,18 +86,28 @@
 #define IDC_RADIO4                      1077
 #define IDC_RADIO5                      1078
 #define IDC_RADIO6                      1079
-#define IDC_SHOW_SpeedReal              1085
+
 #define IDC_EDIT_SpeedReal              1086
-#define IDC_SHOW_Speed                  1087
 #define IDC_EDIT_Speed                  1088
-#define IDC_SHOW_Mach                   1089
 #define IDC_EDIT_Mach                   1090
-#define IDC_SHOW_AirP                   1091
 #define IDC_EDIT_AirP                   1092
-#define IDC_SHOW_Attack                 1093
 #define IDC_EDIT_Attack                 1094
-#define IDC_SHOW_Pitch                  1095
 #define IDC_EDIT_Pitch                  1096
+#define IDC_EDIT_Roll                   1106
+#define IDC_EDIT_SlideSlip              1107
+#define IDC_EDIT_High                   1108
+#define IDC_EDIT_SpeedUD                1109
+#define IDC_EDIT_HighR                  1110
+#define IDC_EDIT_Azimuth                1111
+#define IDC_EDIT_HighL                  1112
+#define IDC_EDIT_NormalOverload         1105
+
+#define IDC_SHOW_SpeedReal              1085
+#define IDC_SHOW_Speed                  1087
+#define IDC_SHOW_Mach                   1089
+#define IDC_SHOW_AirP                   1091
+#define IDC_SHOW_Attack                 1093
+#define IDC_SHOW_Pitch                  1095
 #define IDC_SHOW_Roll                   1097
 #define IDC_SHOW_SlideSlip              1098
 #define IDC_SHOW_High                   1099
@@ -121,14 +116,7 @@
 #define IDC_SHOW_Azimuth                1102
 #define IDC_SHOW_HighL                  1103
 #define IDC_SHOW_NormalOverload         1104
-#define IDC_EDIT_NormalOverload         1105
-#define IDC_EDIT_Roll                   1106
-#define IDC_EDIT_SlideSlip              1107
-#define IDC_EDIT_High                   1108
-#define IDC_EDIT_SpeedUD                1109
-#define IDC_EDIT_HighR                  1110
-#define IDC_EDIT_Azimuth                1111
-#define IDC_EDIT_HighL                  1112
+
 #define IDC_BUTTON_Send                 1113
 #define IDC_BUTTON_Receive              1114
 #define IDC_BUTTON_StartTimer           1115
