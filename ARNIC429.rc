@@ -100,8 +100,8 @@ BEGIN
     LTEXT           "侧滑角deg",IDC_STATIC,26,181,37,8
     EDITTEXT        IDC_EDIT_SlideSlip,26,192,40,14,ES_AUTOHSCROLL,
                     WS_EX_STATICEDGE
-    PUSHBUTTON      "发送IDC_BUTTON_Sendnd,20,246,54,17,0,WS_EX_CLIENTEDGE
-    PUSHBUTTON      "开始接收IDC_BUTTON_Receiveve,80,246,52,17,0,
+    PUSHBUTTON      "发送","IDC_BUTTON_Send,20,246,54,17,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "开始接收",IDC_BUTTON_Receive,80,246,52,17,0,
                     WS_EX_CLIENTEDGE
     LTEXT           "指示空速km/h",IDC_STATIC,86,16,49,8
     EDITTEXT        IDC_EDIT_SpeedReal,26,29,40,14,ES_AUTOHSCROLL,
