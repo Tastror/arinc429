@@ -41,33 +41,33 @@ public:
     bool keep_receive;
 
     /* Confusing Variables */
-    BYTE btCardId;  // æ¿å¡å·
-    HANDLE hCard;  // å…¨å±€æ¿å¡å¥æŸ„
-    LabelTable_STRUCT stLabelTable; // æ ‡æ³¨åŒº
-    BOOL blFilter[CHNO_RMAX];  // æ ‡å·è¿‡æ»¤
+    BYTE btCardId;  // °å¿¨ºÅ
+    HANDLE hCard;  // È«¾Ö°å¿¨¾ä±ú
+    LabelTable_STRUCT stLabelTable; // ±ê×¢Çø
+    BOOL blFilter[CHNO_RMAX];  // ±êºÅ¹ıÂË
     STCOMMUNICATION stComm[CHNO_TMAX];
-    SYSTEMTIME stSysTime;  // ç³»ç»Ÿæ—¶é—´
-    WORD wdMode;  // å·¥ä½œæ¨¡å¼
-    BOOL blTimeTag[CHNO_RMAX];  // ä½¿èƒ½æ—¶é—´æ ‡ç­¾
-    DWORD dwTime;  // æ—¶é—´
-    WORD wdBInterval[CHNO_TMAX];  // ç¾¤å®šæ—¶
-    WORD wdSInterval[CHNO_TMAX];  // è‡ªå®šæ—¶
+    SYSTEMTIME stSysTime;  // ÏµÍ³Ê±¼ä
+    WORD wdMode;  // ¹¤×÷Ä£Ê½
+    BOOL blTimeTag[CHNO_RMAX];  // Ê¹ÄÜÊ±¼ä±êÇ©
+    DWORD dwTime;  // Ê±¼ä
+    WORD wdBInterval[CHNO_TMAX];  // Èº¶¨Ê±
+    WORD wdSInterval[CHNO_TMAX];  // ×Ô¶¨Ê±
     BOOL CWord_flg1;
     BOOL CWord_flg2;
     BOOL isNeedThread;
-    HANDLE hThread;  // handle to thread functionï¼ˆç©¿æ’åŠŸèƒ½ï¼‰
+    HANDLE hThread;  // handle to thread function£¨´©²å¹¦ÄÜ£©
     DWORD dwThreadId;
     BOOL Timer_flg;
     BOOL blRxNow;
     HWND ghWnd;
 
-    DWORD dwTxBuf[FIFO_TMAX];  // å‘é€ FIFO
-    WORD wdTxBufLen;  // å‘é€FIFOé•¿åº¦
-    TriggerDepth_STRUCT stTriggerLevel; // ç¼“å†²åŒºè§¦å‘æ·±åº¦
+    DWORD dwTxBuf[FIFO_TMAX];  // ·¢ËÍ FIFO
+    WORD wdTxBufLen;  // ·¢ËÍFIFO³¤¶È
+    TriggerDepth_STRUCT stTriggerLevel; // »º³åÇø´¥·¢Éî¶È
 
     DWORD ReceiveData_Vector[FIFO_RMAX];
     BOOL Mode_flg;
-    BOOL Complete_flg; // æ¥æ”¶å®Œæˆæ ‡å¿—
+    BOOL Complete_flg; // ½ÓÊÕÍê³É±êÖ¾
 
     CButton text_Button_Receive;
     CEdit textbox_send_NormalOverload;
@@ -102,20 +102,20 @@ public:
 
     int time_counter;
 
-    int data_send_RealSpeed;        // æŒ‡ç¤ºç©ºé€Ÿ
-    int data_send_Speed;            // çœŸç©ºé€Ÿ
-    float data_send_Roll;           // æ¨ªæ»šè§’
-    float data_send_Pitch;          // ä¿¯ä»°è§’
-    int data_send_High;             // æ°”å‹é«˜åº¦
-    float data_send_Azimuth;        // æ–¹ä½è§’
-    float data_send_Sideslip;       // ä¾§æ»‘è§’
-    float data_send_Mach;           // é©¬èµ«æ•°
-    float data_send_AirP;           // è£…è®¢æ°”å‹
-    float data_send_Attack;         // æ”»è§’
-    int data_send_SpeedUD;          // å‡é™é«˜åº¦
-    int data_send_HighR;            // æ— çº¿ç”µé«˜åº¦
-    int data_send_HighL;            // æœ€ä½å®‰å…¨é«˜åº¦
-    float data_send_NormalOverload; // è¿‡è½½
+    int data_send_RealSpeed;        // Ö¸Ê¾¿ÕËÙ
+    int data_send_Speed;            // Õæ¿ÕËÙ
+    float data_send_Roll;           // ºá¹ö½Ç
+    float data_send_Pitch;          // ¸©Ñö½Ç
+    int data_send_High;             // ÆøÑ¹¸ß¶È
+    float data_send_Azimuth;        // ·½Î»½Ç
+    float data_send_Sideslip;       // ²à»¬½Ç
+    float data_send_Mach;           // ÂíºÕÊı
+    float data_send_AirP;           // ×°¶©ÆøÑ¹
+    float data_send_Attack;         // ¹¥½Ç
+    int data_send_SpeedUD;          // Éı½µ¸ß¶È
+    int data_send_HighR;            // ÎŞÏßµç¸ß¶È
+    int data_send_HighL;            // ×îµÍ°²È«¸ß¶È
+    float data_send_NormalOverload; // ¹ıÔØ
 
     int data_receive_RealSpeed;
     int data_receive_Speed;

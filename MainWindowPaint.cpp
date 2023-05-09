@@ -26,7 +26,7 @@ void CMainWindow::OnPaint()
         int x = (rect.Width() - cxIcon + 1) / 2;
         int y = (rect.Height() - cyIcon + 1) / 2;
 
-        // Draw the icon（图标）
+        // Draw the icon��ͼ�꣩
         dc.DrawIcon(x, y, m_hIcon);
     }
     else
@@ -58,7 +58,7 @@ void CMainWindow::OnPaint()
         );
         OnDraw_High(display_x_offset, display_y_offset, data_receive_High, pMem);
         OnDraw_Speed(display_x_offset, display_y_offset, data_receive_Speed, pMem);
-        OnDraw_HXJ(display_x_offset, display_y_offset, data_receive_Azimuth, pMem); // 方位角
+        OnDraw_HXJ(display_x_offset, display_y_offset, data_receive_Azimuth, pMem); // ��λ��
         OnDraw_HGKD(display_x_offset, display_y_offset, data_receive_Roll, pMem);
         OnDraw_HG(display_x_offset, display_y_offset, -data_receive_Roll, data_receive_Pitch, pMem);
 
@@ -75,16 +75,16 @@ void CMainWindow::OnDraw_SkyRect(CDC *pDC)
 {
     CRect rect(0, 0, 800, 600);
     CBrush brush;
-    CDC dcBmp;                                // 定义并创建一个内存设备环境
-    CBitmap bmpBackground;                    // 定义位图句柄
-    bmpBackground.LoadBitmap(IDB_BG_Sky);     // 将位图资源绑定在位图句柄上
-    brush.CreatePatternBrush(&bmpBackground); // 绑定在位图画刷上
+    CDC dcBmp;                                // ���岢����һ���ڴ��豸����
+    CBitmap bmpBackground;                    // ����λͼ���
+    bmpBackground.LoadBitmap(IDB_BG_Sky);     // ��λͼ��Դ����λͼ�����
+    brush.CreatePatternBrush(&bmpBackground); // ����λͼ��ˢ��
     // brush.CreateSolidBrush(RGB(0, 0, 0));
     pDC->FillRect(rect, &brush);
 }
 
-// 机炮十字线和速度矢量
-void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *pDC) // 机炮十字线和速度矢量
+// ����ʮ���ߺ��ٶ�ʸ��
+void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *pDC) // ����ʮ���ߺ��ٶ�ʸ��
 {
 
     CPen GreenPen, WhitePen;
@@ -92,16 +92,16 @@ void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *
     WhitePen.CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
 
     // poldPen =pDC->SelectObject(&WhitePen);
-    // pDC->SetArcDirection(AD_CLOCKWISE);   //顺时针
+    // pDC->SetArcDirection(AD_CLOCKWISE);   //˳ʱ��
     // pDC->Arc(CRect(30, 30, 150, 150), CPoint(30, 90), CPoint(90, 30));
     // pDC->Arc(CRect(375, 320, 495, 440), CPoint(495, 380), CPoint(435, 440));
-    // pDC->SetArcDirection(AD_COUNTERCLOCKWISE);   //逆时针
+    // pDC->SetArcDirection(AD_COUNTERCLOCKWISE);   //��ʱ��
     // pDC->Arc(CRect(30, 320, 150, 440), CPoint(30, 380), CPoint(90, 440));
     // pDC->Arc(CRect(375, 30, 495, 150), CPoint(495, 90), CPoint(435, 30));
     // pDC->MoveTo(30, 90);
     // pDC->LineTo(30, 380);
     // pDC->MoveTo(495, 90);
-    // pDC->LineTo(495,380);//直线边界
+    // pDC->LineTo(495,380);//ֱ�߽߱�
 
     CPen *poldPen = pDC->SelectObject(&WhitePen);
     pDC->MoveTo(260, 190);
@@ -131,7 +131,7 @@ void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *
     pDC->SelectObject(poldPen);
 }
 
-// 画高度
+// ���߶�
 void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
 {
     char c[80];
@@ -181,7 +181,7 @@ void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
 
     pDC->TextOutA(431, 36, _T("H"));
 
-    itoa(x, c, 10); // 整数转变为字符串
+    itoa(x, c, 10); // ����ת��Ϊ�ַ���
     if (x < 10)
     {
         pDC->TextOutA(451, 36, c);
@@ -292,7 +292,7 @@ void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
     pDC->SelectObject(poldPen);
 }
 
-// 画速度
+// ���ٶ�
 void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
 {
     char c[80];
@@ -327,7 +327,7 @@ void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
     pDC->TextOutA(112, 188, c);
 
     pDC->TextOutA(52, 16, _T("time_counter"));
-    itoa(x, c, 10); // x：欲转换的数据；c:目标字符串的地址；10：十进制
+    itoa(x, c, 10); // x����ת�������ݣ�c:Ŀ���ַ����ĵ�ַ��10��ʮ����
     if (x < 10)
     {
         pDC->TextOutA(72, 16, c);
@@ -569,7 +569,7 @@ void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
     pDC->SelectObject(poldPen);
 }
 
-// 画方位角
+// ����λ��
 void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
 {
     // CDC *pDC = GetDC();
@@ -599,7 +599,7 @@ void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
     pDC->MoveTo(260 - a, 55);
     pDC->LineTo(260 - a, 40);
 
-    al = a / 25; // 左端已画出的线数，范围（0~3）
+    al = a / 25; // ����ѻ�������������Χ��0~3��
     for (i = -6; i < 7; i++)
     {
         j = i * 5;
@@ -656,7 +656,7 @@ void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
     pDC->SelectObject(poldPen);
 }
 
-// 画滚转角
+// ����ת��
 void CMainWindow::OnDraw_HGKD(int x_offset, int y_offset, double HGJ, CDC *pDC)
 {
     // CDC *pDC = GetDC();
@@ -769,7 +769,7 @@ void CMainWindow::OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, 
     CFont font;
     LOGFONT lf;
     memset(&lf, 0, sizeof(LOGFONT)); // zero out structure
-    // 将&if中当前位置后面的sizeof个字节 （typedef unsigned int size_t ）用 0 替换并返回 lf。
+    // ��&if�е�ǰλ�ú����sizeof���ֽ� ��typedef unsigned int size_t ���� 0 �滻������ lf��
     lf.lfHeight = 17; // request a 12-pixel-height font
     lf.lfEscapement = HGJ * 10;
     VERIFY(font.CreateFontIndirect(&lf)); // create the font
@@ -1063,7 +1063,7 @@ void CMainWindow::OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, 
         }
         itoa(FYJ_cas + j, c, 10);
 
-        // 左侧俯仰角字符
+        // ��ษ�����ַ�
         x = 160 - 260;
         y = -a + j * amp - text_offset;
         R = x * x + y * y;
@@ -1083,7 +1083,7 @@ void CMainWindow::OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, 
         y1 = (int)(y + 0.5);
         pDC->TextOutA(x1, y1, c);
 
-        // 右侧俯仰角字符
+        // �Ҳษ�����ַ�
         x = 350 - 260;
         y = -a + j * amp - text_offset;
         R = x * x + y * y;

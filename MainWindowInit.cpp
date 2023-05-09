@@ -57,14 +57,14 @@ BOOL CMainWindow::OnInitDialog()
     }
 
     // bits rate & parity
-    // æ³¢ç‰¹ç‡çš„é€‰æ‹©
+    // ²¨ÌØÂÊµÄÑ¡Ôñ
     for (i = 0; i < CHNO_TMAX; i++)
     {
         // followed definitions can be found in cusfunc.h
         stComm[i].iSelBR = C429_BITRATE100K;     // 0: 100k    1: 48k    2: 12.5k
         stComm[i].iSelParity = C429_PARITY_NONE; // 0: odd    1: even    2: none
         wdBInterval[i] = 0;
-        wdSInterval[i] = 0; // 100K / æ— æ ¡éªŒ
+        wdSInterval[i] = 0; // 100K / ÎŞĞ£Ñé
     }
 
     for (i = 0; i < CHNO_RMAX; i++)
@@ -114,25 +114,25 @@ BOOL CMainWindow::SetUp429Card()
     //
     if (!Card_Open(&hCard, btCardId))
     {
-        MessageBox(TEXT("ç¨‹åºæ‰¾ä¸åˆ°æ¿å¡,å³å°†é€€å‡º!\n\n(Card_Openå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+        MessageBox(TEXT("³ÌĞòÕÒ²»µ½°å¿¨,¼´½«ÍË³ö!\n\n(Card_Openº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
         ExitProcess(0);
         // return FALSE; // quit program
     }
     if (hCard == NULL)
     {
-        MessageBox(TEXT("ç¨‹åºæ‰¾ä¸åˆ°æ¿å¡,å³å°†é€€å‡º!\n\n(æ¿å¡å¥æŸ„è·å–å¤±è´¥)"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+        MessageBox(TEXT("³ÌĞòÕÒ²»µ½°å¿¨,¼´½«ÍË³ö!\n\n(°å¿¨¾ä±ú»ñÈ¡Ê§°Ü)"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
         ExitProcess(0);
         // return FALSE; // quit program
     }
 
-    //  1. reset cardï¼ˆé‡ç½®æ¿å¡ï¼‰
+    //  1. reset card£¨ÖØÖÃ°å¿¨£©
     //
     if (!ResetCard(hCard)) // reset Card
     {
-        MessageBox(TEXT("å¤ä½æ¿å¡å¤±è´¥,å³å°†é€€å‡ºç¨‹åº!\n\n(ResetCardå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+        MessageBox(TEXT("¸´Î»°å¿¨Ê§°Ü,¼´½«ÍË³ö³ÌĞò!\n\n(ResetCardº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
         if (!Card_Close(hCard))
         {
-            MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
         }
         ExitProcess(0);
         // return FALSE; // quit program
@@ -140,9 +140,9 @@ BOOL CMainWindow::SetUp429Card()
 
     //  2. setting up configure word for communication
     //
-    for (i = 0; i < CHNO_TMAX; i++) // å‘å‡ºé€šé“ï¼ˆ2é€šé“ï¼‰
+    for (i = 0; i < CHNO_TMAX; i++) // ·¢³öÍ¨µÀ£¨2Í¨µÀ£©
     {
-        wd = ::Get429ConfigureWord(stComm[i].iSelBR, stComm[i].iSelParity, wdMode); // wdModeå·¥ä½œæ¨¡å¼
+        wd = ::Get429ConfigureWord(stComm[i].iSelBR, stComm[i].iSelParity, wdMode); // wdMode¹¤×÷Ä£Ê½
         switch (wd)
         {
         case 0xFFFF:
@@ -155,11 +155,11 @@ BOOL CMainWindow::SetUp429Card()
             MessageBox("workmode", "Error", MB_OK);
             break;
         }
-        if (SetConfigureWord(hCard, (BYTE)(i), wd)) // è¿‡æ»¤åŠå…¶æ³¢ç‰¹ç‡çš„é€‰æ‹©//è®¾ç½®429 çš„é…ç½®å­—
+        if (SetConfigureWord(hCard, (BYTE)(i), wd)) // ¹ıÂË¼°Æä²¨ÌØÂÊµÄÑ¡Ôñ//ÉèÖÃ429 µÄÅäÖÃ×Ö
         {
             if (stComm[i].iSelBR == C429_BITRATE48K) // enable 48k function
             {
-                EnableBaudrate_48K(hCard, (BYTE)(i), TRUE); // æ­¤èƒŒæ™¯ä¸‹ï¼Œæ³¢ç‰¹ç‡ç»Ÿä¸€é€‰æ‹©48k
+                EnableBaudrate_48K(hCard, (BYTE)(i), TRUE); // ´Ë±³¾°ÏÂ£¬²¨ÌØÂÊÍ³Ò»Ñ¡Ôñ48k
             }
             else
             {
@@ -168,10 +168,10 @@ BOOL CMainWindow::SetUp429Card()
         }
         else
         {
-            MessageBox(TEXT("é…ç½®ç¡¬ä»¶å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(SetConfigureWordå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("ÅäÖÃÓ²¼ş³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(SetConfigureWordº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             if (!Card_Close(hCard))
             {
-                MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             }
             ExitProcess(0);
             // return FALSE; // quit program
@@ -180,21 +180,21 @@ BOOL CMainWindow::SetUp429Card()
 
     //  3. configuring Trigger Level
     //On_RADIO_SelfSend
-    SetTriggerDepth(hCard, &stTriggerLevel); // è®¾ç½®è§¦å‘æ·±åº¦
+    SetTriggerDepth(hCard, &stTriggerLevel); // ÉèÖÃ´¥·¢Éî¶È
 
     //  4. setting up Label Filter
     //
-    SetLabelFilter(hCard, &stLabelTable); // è®¾ç½®æ ‡ç­¾è¿‡æ»¤
-    for (i = 0; i < CHNO_RMAX; i++)       // åªé’ˆå¯¹äºæ¥æ”¶é€šé“
+    SetLabelFilter(hCard, &stLabelTable); // ÉèÖÃ±êÇ©¹ıÂË
+    for (i = 0; i < CHNO_RMAX; i++)       // Ö»Õë¶ÔÓÚ½ÓÊÕÍ¨µÀ
     {
         if (blFilter[i])
         {
             if (!StartLabelFilter(hCard, (BYTE)(i), TRUE))
             {
-                MessageBox(TEXT("æ·»åŠ æ ‡å·è¿‡æ»¤åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(StartLabelFilterå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("Ìí¼Ó±êºÅ¹ıÂË¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(StartLabelFilterº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 if (!Card_Close(hCard))
                 {
-                    MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                    MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 }
                 ExitProcess(0);
                 //    return FALSE; // quit program
@@ -204,10 +204,10 @@ BOOL CMainWindow::SetUp429Card()
         {
             if (!StartLabelFilter(hCard, (BYTE)(i), FALSE))
             {
-                MessageBox(TEXT("å–æ¶ˆæ ‡å·è¿‡æ»¤åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(StartLabelFilterå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("È¡Ïû±êºÅ¹ıÂË¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(StartLabelFilterº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 if (!Card_Close(hCard))
                 {
-                    MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                    MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 }
                 ExitProcess(0);
                 //    return FALSE; // quit program
@@ -215,7 +215,7 @@ BOOL CMainWindow::SetUp429Card()
         }
     }
 
-    //  5. configuring Time Tagã€‚æ·»åŠ æ—¶é—´æ ‡ç­¾
+    //  5. configuring Time Tag¡£Ìí¼ÓÊ±¼ä±êÇ©
     //
     for (i = 0; i < CHNO_RMAX; i++)
     {
@@ -223,10 +223,10 @@ BOOL CMainWindow::SetUp429Card()
         {
             if (!AddTimeTag(hCard, (BYTE)(i), TRUE))
             {
-                MessageBox(TEXT("æ·»åŠ æ—¶é—´æ ‡ç­¾åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(AddTimeTagå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("Ìí¼ÓÊ±¼ä±êÇ©¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(AddTimeTagº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 if (!Card_Close(hCard))
                 {
-                    MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                    MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 }
                 ExitProcess(0);
                 //    return FALSE; // quit program
@@ -236,10 +236,10 @@ BOOL CMainWindow::SetUp429Card()
         {
             if (!AddTimeTag(hCard, (BYTE)(i), FALSE))
             {
-                MessageBox(TEXT("å–æ¶ˆæ—¶é—´æ ‡ç­¾åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(AddTimeTagå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("È¡ÏûÊ±¼ä±êÇ©¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(AddTimeTagº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 if (!Card_Close(hCard))
                 {
-                    MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                    MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
                 }
                 ExitProcess(0);
                 //    return FALSE; // quit program
@@ -251,26 +251,26 @@ BOOL CMainWindow::SetUp429Card()
 
     //  6. setting up Tx Timer Interval
     //
-    for (i = 0; i < CHNO_TMAX; i++) // æ¶ˆæ¯çš„å‘é€
+    for (i = 0; i < CHNO_TMAX; i++) // ÏûÏ¢µÄ·¢ËÍ
     {
-        if (!SetTimerIntervalB(hCard, (BYTE)(i), wdBInterval[i])) // bæ˜¯ç¾¤å®šæ—¶å‘é€
+        if (!SetTimerIntervalB(hCard, (BYTE)(i), wdBInterval[i])) // bÊÇÈº¶¨Ê±·¢ËÍ
         {
-            MessageBox(TEXT("è®¾ç½®ç¾¤å®šæ—¶å‘é€åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(SetTimerIntervalBå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("ÉèÖÃÈº¶¨Ê±·¢ËÍ¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(SetTimerIntervalBº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             if (!Card_Close(hCard))
             {
-                MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             }
             // ExitProcess(0);
             ExitProcess(0);
             //    return FALSE; // quit program
         }
 
-        if (!SetTimerIntervalS(hCard, (BYTE)(i), wdSInterval[i])) // sæ˜¯å­—å®šæ—¶å‘é€
+        if (!SetTimerIntervalS(hCard, (BYTE)(i), wdSInterval[i])) // sÊÇ×Ö¶¨Ê±·¢ËÍ
         {
-            MessageBox(TEXT("è®¾ç½®å­—å®šæ—¶å‘é€åŠŸèƒ½å‡ºé”™,å³å°†é€€å‡ºç¨‹åº!\n\n(SetTimerIntervalSå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("ÉèÖÃ×Ö¶¨Ê±·¢ËÍ¹¦ÄÜ³ö´í,¼´½«ÍË³ö³ÌĞò!\n\n(SetTimerIntervalSº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             if (!Card_Close(hCard))
             {
-                MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+                MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             }
             ExitProcess(0);
             //    return FALSE; // quit program
@@ -278,7 +278,7 @@ BOOL CMainWindow::SetUp429Card()
 
         if (wdBInterval[i] > 0)
         {
-            StartTimerB(hCard, (BYTE)(i), TRUE); // enable Tx Timer//è®¾ç½®ç¾¤å®šæ—¶å‘é€
+            StartTimerB(hCard, (BYTE)(i), TRUE); // enable Tx Timer//ÉèÖÃÈº¶¨Ê±·¢ËÍ
         }
         else
         {
@@ -287,7 +287,7 @@ BOOL CMainWindow::SetUp429Card()
 
         if (wdSInterval[i] > 0)
         {
-            StartTimerS(hCard, (BYTE)(i), TRUE); // enable Tx Timer//è®¾ç½®å­—å®šæ—¶å‘é€
+            StartTimerS(hCard, (BYTE)(i), TRUE); // enable Tx Timer//ÉèÖÃ×Ö¶¨Ê±·¢ËÍ
         }
         else
         {
@@ -295,9 +295,9 @@ BOOL CMainWindow::SetUp429Card()
         }
     }
 
-    if (!Enable_R(hCard, TRUE)) // ä½¿èƒ½æ¥æ”¶ï¼Œåœ¨å¤ä½æ¿å¡æ—¶ç¦æ­¢äº†æ¥æ”¶
+    if (!Enable_R(hCard, TRUE)) // Ê¹ÄÜ½ÓÊÕ£¬ÔÚ¸´Î»°å¿¨Ê±½ûÖ¹ÁË½ÓÊÕ
     {
-        MessageBox(TEXT("ä½¿èƒ½æ¥æ”¶å¤±è´¥"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+        MessageBox(TEXT("Ê¹ÄÜ½ÓÊÕÊ§°Ü"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
     }
 #endif
     return TRUE;

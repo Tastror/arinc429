@@ -41,18 +41,18 @@ void CMainWindow::OnCHECKControl2()
     UpdateData(FALSE);
 }
 
-///////////////////////////////æ”¶å‘æŒ‰é’®///////////////////////////////////////////////
-void CMainWindow::On_BUTTON_Send() // å‘é€
+///////////////////////////////ÊÕ·¢°´Å¥///////////////////////////////////////////////
+void CMainWindow::On_BUTTON_Send() // ·¢ËÍ
 {
     // TODO: Add your control notification handler code here
-    UpdateData(true); // è¯»å–
+    UpdateData(true); // ¶ÁÈ¡
     Sleep(20);
     Send();
     Sleep(20);
-    UpdateData(FALSE); // æ˜¾ç¤º
+    UpdateData(FALSE); // ÏÔÊ¾
 }
 
-void CMainWindow::On_BUTTON_Receive() // ä¸€ç›´æ¥æ”¶
+void CMainWindow::On_BUTTON_Receive() // Ò»Ö±½ÓÊÕ
 {
     // TODO: Add your control notification handler code here
     if (blRxNow)
@@ -83,7 +83,7 @@ void CMainWindow::On_BUTTON_Receive() // ä¸€ç›´æ¥æ”¶
             ::CloseHandle(hThread);
             hThread = NULL;
         }
-        this->text_Button_Receive.SetWindowText(TEXT("å¼€å§‹æ¥æ”¶"));
+        this->text_Button_Receive.SetWindowText(TEXT("¿ªÊ¼½ÓÊÕ"));
         blRxNow = FALSE;
         KillTimer(3);
         KillTimer(2);
@@ -102,10 +102,10 @@ void CMainWindow::On_BUTTON_Receive() // ä¸€ç›´æ¥æ”¶
         // AfxBeginThread(DecodeThreadFunc, 0, 0, 0, NULL);
         if (hThread == NULL)
         {
-            MessageBox(TEXT("æ— æ³•åˆ›å»ºæ¥æ”¶çº¿ç¨‹,è¯·é‡æ–°å¯åŠ¨åº”ç”¨ç¨‹åº!"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("ÎŞ·¨´´½¨½ÓÊÕÏß³Ì,ÇëÖØĞÂÆô¶¯Ó¦ÓÃ³ÌĞò!"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
             return;
         }
-        this->text_Button_Receive.SetWindowText(TEXT("åœæ­¢æ¥æ”¶"));
+        this->text_Button_Receive.SetWindowText(TEXT("Í£Ö¹½ÓÊÕ"));
         blRxNow = TRUE;
         /*Sleep(20);
         Decoding();
@@ -117,7 +117,7 @@ void CMainWindow::On_BUTTON_Receive() // ä¸€ç›´æ¥æ”¶
 
 void CMainWindow::OnClose()
 {
-    if (MessageBox(TEXT("æ‚¨ç¡®å®šè¦é€€å‡ºå—?"), TEXT("é€€å‡ºæç¤º"), MB_YESNO | MB_ICONQUESTION) != IDYES)
+    if (MessageBox(TEXT("ÄúÈ·¶¨ÒªÍË³öÂğ?"), TEXT("ÍË³öÌáÊ¾"), MB_YESNO | MB_ICONQUESTION) != IDYES)
     {
         return;
     }
@@ -154,14 +154,14 @@ void CMainWindow::OnClose()
         ResetCard(hCard); // reset Card
         if (!Card_Close(hCard))
         {
-            MessageBox(TEXT("å…³é—­æ¿å¡å¤±è´¥!\n\n(Card_Closeå‡½æ•°è¿”å›å€¼ä¸º[0])"), TEXT("é”™è¯¯"), MB_OK | MB_ICONERROR);
+            MessageBox(TEXT("¹Ø±Õ°å¿¨Ê§°Ü!\n\n(Card_Closeº¯Êı·µ»ØÖµÎª[0])"), TEXT("´íÎó"), MB_OK | MB_ICONERROR);
         }
     }
 
     CDialog::OnClose();
 }
 
-//////////////////////////////////è§£ç ç¼–ç /////////////////////////////////////
+//////////////////////////////////½âÂë±àÂë/////////////////////////////////////
 // void CMainWindow::Coding()
 // {
 //     wdTxBufLen=0;
@@ -174,7 +174,7 @@ void CMainWindow::OnClose()
 //     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_Speed/(2048.0/32768));
 //     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000686;
 
-//     data_send_Mach = data_send_Speed/3.6/340;//è®¡ç®—å…¶é©¬èµ«æ•°
+//     data_send_Mach = data_send_Speed/3.6/340;//¼ÆËãÆäÂíºÕÊı
 //     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_Mach/(4.096/32768));
 //     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000685;
 
@@ -225,10 +225,10 @@ void CMainWindow::OnClose()
 
 // }
 
-/////////////////////////////å‘é€æ¥æ”¶æµç¨‹////////////////////////////////////////////
-void CMainWindow::Send() // å‚è€ƒdemo  OnButtonSendå‡½æ•°
+/////////////////////////////·¢ËÍ½ÓÊÕÁ÷³Ì////////////////////////////////////////////
+void CMainWindow::Send() // ²Î¿¼demo  OnButtonSendº¯Êı
 {
-    int i = 0; // å‘é€æ•°æ®ä¸ªæ•°
+    int i = 0; // ·¢ËÍÊı¾İ¸öÊı
     char c[128];
 
     //  get Tx data
@@ -237,20 +237,20 @@ void CMainWindow::Send() // å‚è€ƒdemo  OnButtonSendå‡½æ•°
     memset(dwTxBuf, 0, sizeof(DWORD) * FIFO_TMAX);
 
     //  fill Tx Buffer
-    Coding(); // ç¼–ç 
+    Coding(); // ±àÂë
 
 #ifndef CARD_DEBUG
     //  data transmission
     //
-    i = 0; // åˆå§‹åŒ–0å‘é€é€šé“ä¸ºå‘é€é€šé“1
+    i = 0; // ³õÊ¼»¯0·¢ËÍÍ¨µÀÎª·¢ËÍÍ¨µÀ1
     // we must stop the Tx timer before we want to write data to Tx FIFO
     //
     if (wdBInterval[i] > 0)
     {
-        if (!StartTimerB(hCard, i, FALSE)) // å¯åŠ¨å¤±è´¥
+        if (!StartTimerB(hCard, i, FALSE)) // Æô¶¯Ê§°Ü
         {
-            sprintf(c, "ç¬¬[%d]è·¯ç»ˆæ­¢ç¾¤å®šæ—¶å‘é€åŠŸèƒ½å‡ºé”™!\n\n(StartTimerBå‡½æ•°è¿”å›å€¼ä¸º[0])", i + 1);
-            MessageBox(TEXT(c), TEXT("ä¿¡æ¯æç¤º"), MB_OK | MB_ICONINFORMATION);
+            sprintf(c, "µÚ[%d]Â·ÖÕÖ¹Èº¶¨Ê±·¢ËÍ¹¦ÄÜ³ö´í!\n\n(StartTimerBº¯Êı·µ»ØÖµÎª[0])", i + 1);
+            MessageBox(TEXT(c), TEXT("ĞÅÏ¢ÌáÊ¾"), MB_OK | MB_ICONINFORMATION);
         }
     }
 
@@ -258,25 +258,25 @@ void CMainWindow::Send() // å‚è€ƒdemo  OnButtonSendå‡½æ•°
     {
         if (!StartTimerS(hCard, i, FALSE))
         {
-            sprintf(c, "ç¬¬[%d]è·¯ç»ˆæ­¢å­—å®šæ—¶å‘é€åŠŸèƒ½å‡ºé”™!\n\n(StartTimerSå‡½æ•°è¿”å›å€¼ä¸º[0])", i + 1);
-            MessageBox(TEXT(c), TEXT("ä¿¡æ¯æç¤º"), MB_OK | MB_ICONINFORMATION);
+            sprintf(c, "µÚ[%d]Â·ÖÕÖ¹×Ö¶¨Ê±·¢ËÍ¹¦ÄÜ³ö´í!\n\n(StartTimerSº¯Êı·µ»ØÖµÎª[0])", i + 1);
+            MessageBox(TEXT(c), TEXT("ĞÅÏ¢ÌáÊ¾"), MB_OK | MB_ICONINFORMATION);
         }
     }
 
-    if (ReadFIFOStatus_S(hCard, i) != FIFOFull) // å½“FIFOç¼“å†²åŒºä¸æ»¡æ—¶å‘é€ï¼Œå¦åˆ™æŠ¥é”™
+    if (ReadFIFOStatus_S(hCard, i) != FIFOFull) // µ±FIFO»º³åÇø²»ÂúÊ±·¢ËÍ£¬·ñÔò±¨´í
     {
         wdTxBufLen = 16;
-        SendData(hCard, i, (BYTE)wdTxBufLen, dwTxBuf); // ç¬¬ä¸‰é¡¹å‘é€æ•°æ®é•¿åº¦ï¼Œ32ä½ï¼Œç¬¬å››é¡¹dwTxBufå‘é€çš„æ•°æ®
+        SendData(hCard, i, (BYTE)wdTxBufLen, dwTxBuf); // µÚÈıÏî·¢ËÍÊı¾İ³¤¶È£¬32Î»£¬µÚËÄÏîdwTxBuf·¢ËÍµÄÊı¾İ
         //        if (!SendData(hCard, i, (BYTE) wdTxBufLen, dwTxBuf))
         //        {
-        //            sprintf(c, "ç¬¬[%d]è·¯å‘é€æ•°æ®å‡ºé”™!\n\n(SendDataå‡½æ•°è¿”å›å€¼ä¸º[0])", i+1);
-        //            MessageBox(TEXT(c), TEXT("ä¿¡æ¯æç¤º"), MB_OK | MB_ICONINFORMATION);
+        //            sprintf(c, "µÚ[%d]Â··¢ËÍÊı¾İ³ö´í!\n\n(SendDataº¯Êı·µ»ØÖµÎª[0])", i+1);
+        //            MessageBox(TEXT(c), TEXT("ĞÅÏ¢ÌáÊ¾"), MB_OK | MB_ICONINFORMATION);
         //        }
     }
     else
     { // Tx FIFO is not empty
-        sprintf(c, "ç¬¬[%d]è·¯ç¡¬ä»¶ç¼“å†²åŒºå·²æ»¡!\n\n(ReadFIFOStatus_Så‡½æ•°è¿”å›å€¼ä¸º[0x12])", i + 1);
-        MessageBox(TEXT(c), TEXT("ä¿¡æ¯æç¤º"), MB_OK | MB_ICONINFORMATION);
+        sprintf(c, "µÚ[%d]Â·Ó²¼ş»º³åÇøÒÑÂú!\n\n(ReadFIFOStatus_Sº¯Êı·µ»ØÖµÎª[0x12])", i + 1);
+        MessageBox(TEXT(c), TEXT("ĞÅÏ¢ÌáÊ¾"), MB_OK | MB_ICONINFORMATION);
     }
 #endif
     // UpdateData(FALSE);
@@ -286,18 +286,18 @@ void CMainWindow::Receive()
 {
 }
 
-void CMainWindow::On_BUTTON_StartTimer() // æ‰“å¼€å®šæ—¶å‘é€
+void CMainWindow::On_BUTTON_StartTimer() // ´ò¿ª¶¨Ê±·¢ËÍ
 {
     // TODO: Add your control notification handler here
     if (!Timer_flg)
     {
-        UpdateData(TRUE); // ç”¨äºå°†å±å¹•ä¸Šæ§ä»¶ä¸­çš„æ•°æ®äº¤æ¢åˆ°å˜é‡ä¸­ï¼Œå°†çª—å£ä¸­çš„å€¼è¯»åˆ°å˜é‡ä¸­
-        // UpdateData(FALSE);            //ç”¨äºå°†æ•°æ®åœ¨å±å¹•ä¸­å¯¹åº”æ§ä»¶ä¸­æ˜¾ç¤ºå‡ºæ¥ï¼Œå°†å˜é‡ä¸­çš„å€¼åœ¨çª—å£ä¸­æ˜¾ç¤º
-        for (int i = 0; i < FIFO_RMAX; i++) // æ¸…ç©ºFIFO
+        UpdateData(TRUE); // ÓÃÓÚ½«ÆÁÄ»ÉÏ¿Ø¼şÖĞµÄÊı¾İ½»»»µ½±äÁ¿ÖĞ£¬½«´°¿ÚÖĞµÄÖµ¶Áµ½±äÁ¿ÖĞ
+        // UpdateData(FALSE);            //ÓÃÓÚ½«Êı¾İÔÚÆÁÄ»ÖĞ¶ÔÓ¦¿Ø¼şÖĞÏÔÊ¾³öÀ´£¬½«±äÁ¿ÖĞµÄÖµÔÚ´°¿ÚÖĞÏÔÊ¾
+        for (int i = 0; i < FIFO_RMAX; i++) // Çå¿ÕFIFO
             ReceiveData_Vector[i] = 0x0;
         SetTimer(3, 100, NULL);
         Timer_flg = TRUE;
-        // this->m_Button_StartTimer.SetWindowText(TEXT("å®šæ—¶å‘é€"));
+        // this->m_Button_StartTimer.SetWindowText(TEXT("¶¨Ê±·¢ËÍ"));
     }
     else
     {
@@ -306,43 +306,43 @@ void CMainWindow::On_BUTTON_StartTimer() // æ‰“å¼€å®šæ—¶å‘é€
         Sleep(10);
         Sleep(10);
         Timer_flg = FALSE;
-        /*    this->m_Button_StartTimer.SetWindowText(TEXT("ç»“æŸå®šæ—¶"));*/
+        /*    this->m_Button_StartTimer.SetWindowText(TEXT("½áÊø¶¨Ê±"));*/
     }
 }
 
-void CMainWindow::On_BUTTON_StopTimer() // ç»“æŸå®šæ—¶å‘é€
+void CMainWindow::On_BUTTON_StopTimer() // ½áÊø¶¨Ê±·¢ËÍ
 {
     memset(dwTxBuf, 0, sizeof(DWORD) * FIFO_TMAX);
     time_counter = 0;
-    data_send_Speed = 0;          // çœŸç©ºé€Ÿ
-    data_send_Roll = 0.0;         // æ¨ªæ»šè§’
-    data_send_Pitch = 0.0;        // ä¿¯ä»°è§’
-    data_send_High = 0;           // æ— çº¿ç”µé«˜åº¦
-    data_send_Azimuth = 0;        // æ–¹ä½è§’
-    data_send_Sideslip = 0.0;     // ä¾§æ»‘è§’
-    data_send_RealSpeed = 0;      // æŒ‡ç¤ºç©ºé€Ÿ
-    data_send_Mach = 0;           // é©¬èµ«æ•°
-    data_send_AirP = 0;           // è£…è®¢æ°”å‹
-    data_send_Attack = 0.0;       // æ”»è§’
-    data_send_SpeedUD = 0;        // å‡é™é«˜åº¦
-    data_send_HighR = 0;          // æ°”å‹é«˜åº¦
-    data_send_HighL = 0;          // æœ€ä½å®‰å…¨é«˜åº¦
-    data_send_NormalOverload = 0; // è¿‡è½½
+    data_send_Speed = 0;          // Õæ¿ÕËÙ
+    data_send_Roll = 0.0;         // ºá¹ö½Ç
+    data_send_Pitch = 0.0;        // ¸©Ñö½Ç
+    data_send_High = 0;           // ÎŞÏßµç¸ß¶È
+    data_send_Azimuth = 0;        // ·½Î»½Ç
+    data_send_Sideslip = 0.0;     // ²à»¬½Ç
+    data_send_RealSpeed = 0;      // Ö¸Ê¾¿ÕËÙ
+    data_send_Mach = 0;           // ÂíºÕÊı
+    data_send_AirP = 0;           // ×°¶©ÆøÑ¹
+    data_send_Attack = 0.0;       // ¹¥½Ç
+    data_send_SpeedUD = 0;        // Éı½µ¸ß¶È
+    data_send_HighR = 0;          // ÆøÑ¹¸ß¶È
+    data_send_HighL = 0;          // ×îµÍ°²È«¸ß¶È
+    data_send_NormalOverload = 0; // ¹ıÔØ
 
-    data_receive_Speed = 0;          // çœŸç©ºé€Ÿ
-    data_receive_Roll = 0;           // æ¨ªæ»šè§’
-    data_receive_Pitch = 0;          // ä¿¯ä»°è§’
-    data_receive_High = 0;           // æ— çº¿ç”µé«˜åº¦
-    data_receive_Azimuth = 0;        // æ–¹ä½è§’
-    data_receive_Sideslip = 0.0;     // ä¾§æ»‘è§’
-    data_receive_RealSpeed = 0;      // æŒ‡ç¤ºç©ºé€Ÿ
-    data_receive_Mach = 0;           // é©¬èµ«æ•°
-    data_receive_AirP = 0;           // è£…è®¢æ°”å‹
-    data_receive_Attack = 0;         // æ”»è§’
-    data_receive_SpeedUD = 0;        // å‡é™é«˜åº¦
-    data_receive_HighR = 0;          // æ°”å‹é«˜åº¦
-    data_receive_HighL = 0;          // æœ€ä½å®‰å…¨é«˜åº¦
-    data_receive_NormalOverload = 0; // è¿‡è½½
+    data_receive_Speed = 0;          // Õæ¿ÕËÙ
+    data_receive_Roll = 0;           // ºá¹ö½Ç
+    data_receive_Pitch = 0;          // ¸©Ñö½Ç
+    data_receive_High = 0;           // ÎŞÏßµç¸ß¶È
+    data_receive_Azimuth = 0;        // ·½Î»½Ç
+    data_receive_Sideslip = 0.0;     // ²à»¬½Ç
+    data_receive_RealSpeed = 0;      // Ö¸Ê¾¿ÕËÙ
+    data_receive_Mach = 0;           // ÂíºÕÊı
+    data_receive_AirP = 0;           // ×°¶©ÆøÑ¹
+    data_receive_Attack = 0;         // ¹¥½Ç
+    data_receive_SpeedUD = 0;        // Éı½µ¸ß¶È
+    data_receive_HighR = 0;          // ÆøÑ¹¸ß¶È
+    data_receive_HighL = 0;          // ×îµÍ°²È«¸ß¶È
+    data_receive_NormalOverload = 0; // ¹ıÔØ
 
     data_difference_Speed.Format("%01x", 0);
     data_difference_Roll.Format("%01x", 0);
@@ -365,10 +365,10 @@ void CMainWindow::On_BUTTON_StopTimer() // ç»“æŸå®šæ—¶å‘é€
     Sleep(20);
     UpdateData(FALSE);
     // TODO: Add your control notification handler code here
-    // ç”¨äºç§»é™¤å…ˆå‰è®¾ç½®çš„å®šæ—¶å™¨
+    // ÓÃÓÚÒÆ³ıÏÈÇ°ÉèÖÃµÄ¶¨Ê±Æ÷
 }
 
-void CMainWindow::OnTimer(UINT_PTR nIDEvent) // å®šæ—¶å™¨
+void CMainWindow::OnTimer(UINT_PTR nIDEvent) // ¶¨Ê±Æ÷
 {
     time_counter++;
     switch (nIDEvent)
@@ -446,12 +446,12 @@ void CMainWindow::OnTimer(UINT_PTR nIDEvent) // å®šæ—¶å™¨
     Return Value:
         If the function is seceeded, return value is TRUE else is FALSE;
 --*/
-DWORD WINAPI DecodeThreadFunc(LPVOID lpParam) // è§£ç æ”¾åˆ°äº†è¿™é‡Œ
+DWORD WINAPI DecodeThreadFunc(LPVOID lpParam) // ½âÂë·Åµ½ÁËÕâÀï
 {
 start:
     HWND hWnd = (HWND)lpParam;
     DWORD d = 0;
-    BYTE chno = 0; /// è®¾ç½®é€šé“1ä¸ºæ¥å—
+    BYTE chno = 0; /// ÉèÖÃÍ¨µÀ1Îª½ÓÊÜ
     BYTE btTriggerLevel = 0;
     int i = 0;
 #ifndef CARD_DEBUG
@@ -465,27 +465,27 @@ start:
         // ----------------------------------------------------------------
         if (btTriggerLevel > 0) // triggered//xu yao guo lv
         {
-            if (IsFIFOTriggered_R(hCard, chno)) // åˆ¤æ–­æ˜¯å¦åˆ°è¾¾è§¦å‘æ·±åº¦
+            if (IsFIFOTriggered_R(hCard, chno)) // ÅĞ¶ÏÊÇ·ñµ½´ï´¥·¢Éî¶È
             {
-                EnablReadFIFO(hCard, chno); // ä½¿èƒ½è¯»FIFOæ•°æ®
+                EnablReadFIFO(hCard, chno); // Ê¹ÄÜ¶ÁFIFOÊı¾İ
                 while ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError))
-                // å½“recieveFIFO ä¸ç©ºä¸”ä¸æº¢å‡ºæ—¶
+                // µ±recieveFIFO ²»¿ÕÇÒ²»Òç³öÊ±
                 {
                     d = ReceiveData(hCard, chno);
                     if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
                     {
-                        d = Resume429Word(d); // 429å­—è½¬åŒ–è®¡ç®—æœºå­—ï¼Œè§£ç 
+                        d = Resume429Word(d); // 429×Ö×ª»¯¼ÆËã»ú×Ö£¬½âÂë
                     }
                     Save_ReceiveData(d, ReceiveData_Vector + i);
                 }
-                DisablReadFIFO(hCard); // ç¦æ­¢è¯»FIFOæ•°æ®
+                DisablReadFIFO(hCard); // ½ûÖ¹¶ÁFIFOÊı¾İ
             }
         }
-        else // untriggered//ä¸éœ€è¦è¿‡æ»¤ .
+        else // untriggered//²»ĞèÒª¹ıÂË .
         {
-            if ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError)) // è¯»å–çŠ¶æ€å½“recieveFIFO ä¸ç©ºä¸”ä¸æº¢å‡ºæ—¶
+            if ((ReadFIFOStatus_R(hCard, chno) != FIFOEmpty) && (ReadFIFOStatus_R(hCard, chno) != FIFOError)) // ¶ÁÈ¡×´Ì¬µ±recieveFIFO ²»¿ÕÇÒ²»Òç³öÊ±
             {
-                EnablReadFIFO(hCard, chno); // ä½¿èƒ½è¯»FIFOæ•°æ®
+                EnablReadFIFO(hCard, chno); // Ê¹ÄÜ¶ÁFIFOÊı¾İ
                 d = ReceiveData(hCard, chno);
                 if ((wdMode == C429_SELFTEST) && (stComm[chno / 2].iSelParity == C429_PARITY_NONE)) // resume 429 Word
                 {
@@ -494,96 +494,96 @@ start:
                 DWORD temp;
                 temp = d >> 24;
                 short s;
-                switch (temp) // åˆ¤æ–­å˜é‡æ˜¯ä»€ä¹ˆ
+                switch (temp) // ÅĞ¶Ï±äÁ¿ÊÇÊ²Ã´
                 {
-                case 0x30: // æ§åˆ¶å­—1
+                case 0x30: // ¿ØÖÆ×Ö1
                     data_ControlWord1.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0000
-                case 0x31: // æ§åˆ¶å­—2
+                case 0x31: // ¿ØÖÆ×Ö2
                     data_ControlWord2.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0001
 
-                case 0x88: // çœŸç©ºé€Ÿ
+                case 0x88: // Õæ¿ÕËÙ
                     s = (short)(d >> 16);
                     data_receive_RealSpeed = s * (4096. / 32768);
                     data_difference_RealSpeed.Format("%08x", d);
                     break;
                     // 0000 0110 1000 1000
-                case 0x86: // æŒ‡ç¤ºç©ºé€Ÿ
+                case 0x86: // Ö¸Ê¾¿ÕËÙ
                     s = (short)(d >> 16);
                     data_receive_Speed = s * (2048. / 32768);
                     data_difference_Speed.Format("%08x", d);
                     break;
                     // 0000 0110 1000 0110
-                case 0x85: // é©¬èµ«æ•°
+                case 0x85: // ÂíºÕÊı
                     s = (short)(d >> 16);
                     data_receive_Mach = s * (4.096 / 32768);
                     data_difference_Mach.Format("%08x", d);
                     break;
                     //    0000 0110 0001 0101
-                case 0x97: // è£…è®¢æ°”å‹
+                case 0x97: // ×°¶©ÆøÑ¹
                     s = (short)(d >> 16);
                     data_receive_AirP = s * (128. / 32768);
                     data_difference_AirP.Format("%08x", d);
                     break;
                     // 0000 0110 1001 0111
-                case 0xA1: // æ”»è§’
+                case 0xA1: // ¹¥½Ç
                     s = (short)(d >> 16);
                     data_receive_Attack = s * (45. / 32768);
                     data_difference_Attack.Format("%08x", d);
                     break;
                     // 0000 0110 1010 0001
-                case 0x84: // ç›¸å¯¹æ°”å‹é«˜åº¦
+                case 0x84: // Ïà¶ÔÆøÑ¹¸ß¶È
                     s = (short)(d >> 16);
                     data_receive_High = s;
                     data_difference_High.Format("%08x", d);
                     break;
                     // 0000 0110 1000 0100
-                case 0x8A: // å‡é™é€Ÿåº¦
+                case 0x8A: // Éı½µËÙ¶È
                     s = (short)(d >> 16);
                     data_receive_SpeedUD = s * (512. / 32768);
                     data_difference_SpeedUD.Format("%08x", d);
                     break;
                     // 0000 0110 1000 1010
-                case 0x32: // èˆªå‘è§’
+                case 0x32: // º½Ïò½Ç
                     s = (short)(d >> 16);
                     data_receive_Azimuth = s * (360. / 32768);
                     data_difference_Azimuth.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0010
-                case 0x33: // ä¿¯ä»°è§’
+                case 0x33: // ¸©Ñö½Ç
                     s = (short)(d >> 16);
                     data_receive_Pitch = s * (180. / 32768);
                     data_difference_Pitch.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0011
-                case 0x34: // æ¨ªæ»šè§’
+                case 0x34: // ºá¹ö½Ç
                     s = (short)(d >> 16);
                     data_receive_Roll = s * (180. / 32768);
                     data_difference_Roll.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0100
-                case 0x35: // æ— çº¿ç”µé«˜åº¦
+                case 0x35: // ÎŞÏßµç¸ß¶È
                     s = (short)(d >> 16);
                     data_receive_HighR = s * (1524. / 32768);
                     data_difference_HighR.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0101
-                case 0x36: // æœ€ä½å®‰å…¨é«˜åº¦
+                case 0x36: // ×îµÍ°²È«¸ß¶È
                     s = (short)(d >> 16);
                     data_receive_HighL = s * (1500. / 32768);
                     data_difference_HighL.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0110
-                case 0x37: // ä¾§æ»‘è§’
+                case 0x37: // ²à»¬½Ç
                     s = (short)(d >> 16);
                     data_receive_Sideslip = s * (10. / 32768);
                     data_difference_Sideslip.Format("%08x", d);
                     break;
                     // 0000 0110 0011 0111
-                case 0x38: // æ³•å‘è¿‡è½½
+                case 0x38: // ·¨Ïò¹ıÔØ
                     s = (short)(d >> 16);
                     data_receive_NormalOverload = s * (10. / 32768);
                     data_difference_NormalOverload.Format("%08x", d);
@@ -593,7 +593,7 @@ start:
                     break;
                 }
             }
-            DisablReadFIFO(hCard); // ç¦æ­¢è¯»FIFOæ•°æ®
+            DisablReadFIFO(hCard); // ½ûÖ¹¶ÁFIFOÊı¾İ
         }                          // end of if (btTriggerLevel...
     }                              // end of while ((chno<CHNO_RMAX...
 

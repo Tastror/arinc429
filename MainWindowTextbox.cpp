@@ -29,7 +29,7 @@ void CMainWindow::OnChangeEDITSpeed()
     if (l == 0)
         return;
 
-    memset(s, 0, sizeof(s)); // så’Œcä¸¤ä¸ªå˜é‡åˆå§‹åŒ–ä¸ºé›¶
+    memset(s, 0, sizeof(s)); // sºÍcÁ½¸ö±äÁ¿³õÊ¼»¯ÎªÁã
     memset(c, 0, sizeof(c));
 
     dw = this->textbox_send_Speed.GetSel();
@@ -55,7 +55,7 @@ void CMainWindow::OnChangeEDITSpeed()
 
     if (!isErr)
     {
-        ii = atoi(c); // å­—ç¬¦ä¸²è½¬åŒ–ä¸ºæ•´å½¢
+        ii = atoi(c); // ×Ö·û´®×ª»¯ÎªÕûĞÎ
         ff = ii / 3.6 / 340;
         sprintf(f, "%f", ff);
         this->textbox_send_Ma.SetWindowText("3");
@@ -832,7 +832,7 @@ void CMainWindow::OnChangeEditn()
     //  write back the HEX value
     //
     this->textbox_send_NormalOverload.SetWindowText(s);
-    this->textbox_send_NormalOverload.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE); // ä¸ºFALSEè¡¨ç¤ºä¼šéšå…‰æ ‡ä½ç½®æ”¹å˜è€Œæ»šåŠ¨æ»šåŠ¨æ¡ã€‚
+    this->textbox_send_NormalOverload.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE); // ÎªFALSE±íÊ¾»áËæ¹â±êÎ»ÖÃ¸Ä±ä¶ø¹ö¶¯¹ö¶¯Ìõ¡£
 }
 
 void CMainWindow::OnKillfocusEditn()

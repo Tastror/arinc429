@@ -1,15 +1,15 @@
-# ç¨‹åºé€»è¾‘æ•´ç†
+# ³ÌÐòÂß¼­ÕûÀí
 
 ## BOOL CMainWindow::OnInitDialog()  //demo
 
-1. CDialog::OnInitDialog(); çˆ¶ç±»çš„åˆå§‹åŒ–å‡½æ•°
-2. åŠ è½½ç³»ç»Ÿèœå•ï¼Œä¸é‡è¦
-2. è®¾ç½®å›¾æ ‡ï¼Œè°ƒç”¨ `SetIcon()` å‡½æ•°
-2. è®¾ç½®å››ä¸ªè¾“å…¥é€šé“å’Œä¸¤ä¸ªè¾“å‡ºé€šé“çš„è§¦å‘ç­‰çº§ä¸º `0`
-2. è·³è¿‡ä¹‹åŽå†…å®¹
+1. CDialog::OnInitDialog(); ¸¸ÀàµÄ³õÊ¼»¯º¯Êý
+2. ¼ÓÔØÏµÍ³²Ëµ¥£¬²»ÖØÒª
+2. ÉèÖÃÍ¼±ê£¬µ÷ÓÃ `SetIcon()` º¯Êý
+2. ÉèÖÃËÄ¸öÊäÈëÍ¨µÀºÍÁ½¸öÊä³öÍ¨µÀµÄ´¥·¢µÈ¼¶Îª `0`
+2. Ìø¹ýÖ®ºóÄÚÈÝ
 
-## Coding() å‡½æ•°
+## Coding() º¯Êý
 
-åœ¨å‘é€æ—¶è°ƒç”¨ `coding()` å‡½æ•°ï¼Œè¿™ä¸ªé€»è¾‘å¤§æ¦‚å°±æ˜¯æŠŠéœ€è¦å‘é€çš„ä¸œè¥¿ä¾æ¬¡å¡«å…¥
+ÔÚ·¢ËÍÊ±µ÷ÓÃ `coding()` º¯Êý£¬Õâ¸öÂß¼­´ó¸Å¾ÍÊÇ°ÑÐèÒª·¢ËÍµÄ¶«Î÷ÒÀ´ÎÌîÈë
 
-æ•´ç†ä¸€ä¸‹å˜é‡ï¼š
+ÕûÀíÒ»ÏÂ±äÁ¿£º
