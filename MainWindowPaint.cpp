@@ -35,7 +35,7 @@ void CMainWindow::OnPaint()
 		int screen_x_strip = 10, screen_y_strip = 0;
 		int screen_width = 760, screen_height = 600;
 
-        int display_x_offset = 100, display_y_offset = 50;
+        int display_x_offset = 130, display_y_offset = 100;
 
         CDC *pMem = new CDC;
         CBitmap *pBmp = new CBitmap;
