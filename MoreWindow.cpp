@@ -2,6 +2,7 @@
 #include "resource.h"
 #include "MainWindow.h"
 
+#include "MoreWindow.h"
 #include "cusfunc.h"
 #include "DLL429D42_lib.h"
 

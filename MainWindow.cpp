@@ -26,7 +26,7 @@ int iTabID = 0;
 
 bool keep_receive = false;
 
-CMainWindow* mother_window = nullptr;
+CMainWindow* mother_window = NULL;
 
 /* Confusing Variables */
 BYTE btCardId = 0;                    // 板卡号
@@ -326,6 +326,7 @@ ON_BN_CLICKED(IDC_BUTTON_StopTimer, On_BUTTON_StopTimer)
 // ON_BN_CLICKED(IDC_RADIO_OddCheck, On_RADIO_OddCheck)
 // ON_BN_CLICKED(IDC_RADIO_EvenCheck, On_RADIO_EvenCheck)
 
+ON_BN_CLICKED(IDC_BUTTON_Jump, OnGoToMore)
 ON_COMMAND(IDM_GoToMore, OnGoToMore)
 
 END_MESSAGE_MAP()
@@ -651,12 +652,14 @@ void CMainWindow::OnPaint()
     }
     else
     {
-        int x_mov = 250, y_mov = 10; // 平显横向和纵向位移
+        int x_mov = 270, y_mov = 0; // 平显横向和纵向位移
+		int strip_x = 10, strip_y = 0;
+		int width = 760, height = 600;
         CDC *pMem = new CDC;
         CBitmap *pBmp = new CBitmap;
         CBitmap *pOldBmp;
         CDC *pDC = GetDC();
-        CRect rectTemp(10 + x_mov, 10 + y_mov, 535 + x_mov, 460 + y_mov);
+        CRect rectTemp(strip_x + x_mov, strip_y + y_mov, strip_x + width + x_mov, strip_y + height + y_mov);
         pMem->CreateCompatibleDC(pDC);
         pBmp->CreateCompatibleBitmap(pDC, rectTemp.Width(), rectTemp.Height());
         pOldBmp = pMem->SelectObject(pBmp);
@@ -1180,7 +1183,7 @@ void CMainWindow::OnDraw_BlackRect(CDC *pDC)
 // 擦除（天空背景）
 void CMainWindow::OnDraw_SkyRect(CDC *pDC)
 {
-    CRect rect(0, 0, 600, 530);
+    CRect rect(0, 0, 800, 600);
     CBrush brush;
     CDC dcBmp;                                // 定义并创建一个内存设备环境
     CBitmap bmpBackground;                    // 定义位图句柄

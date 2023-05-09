@@ -25,7 +25,7 @@ public:
     void Receive();
 
     // Dialog Data
-    enum { IDD = IDD_OldFormat };
+    enum { IDD = IDD_MainWindow };
 	
     CButton m_Button_Receive;
     CEdit textbot_send_NormalOverload;
