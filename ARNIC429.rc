@@ -80,7 +80,7 @@ STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION |
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "认知实习实验"
 MENU IDR_MainWindow_Menu
-FONT 9, "宋体"
+FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     GROUPBOX        "",IDC_STATIC,15,13,125,203,0,WS_EX_DLGMODALFRAME
     LTEXT           "真空速km/h",IDC_STATIC,26,16,41,8
@@ -351,7 +351,7 @@ BEGIN
                     WS_EX_CLIENTEDGE
     PUSHBUTTON      "开始定时发送",IDC_BUTTON_StartTimer,527,269,53,13,0,
                     WS_EX_CLIENTEDGE
-    PUSHBUTTON      "停止定时发送",IDC_BUTTON_StopTimer,598,269,54,13,0,
+    PUSHBUTTON      "停止定时发送",IDC_BUTTON_StopTimer,590,269,54,13,0,
                     WS_EX_CLIENTEDGE
     PUSHBUTTON      "更多",IDC_BUTTON_Jump,527,283,40,13,0,WS_EX_CLIENTEDGE
     LTEXT           "control1",IDC_STATIC,18,261,38,10
@@ -361,6 +361,8 @@ BEGIN
     EDITTEXT        IDC_ControlWord2,73,273,40,12,ES_AUTOHSCROLL | 
                     WS_DISABLED,WS_EX_STATICEDGE
     GROUPBOX        "控制字",IDC_STATIC,16,250,118,40
+    PUSHBUTTON      "更换背景",IDC_BUTTON_ChangeImage,590,283,40,13,0,
+                    WS_EX_CLIENTEDGE
 END
 
 IDD_Develop DIALOG DISCARDABLE  0, 0, 188, 70

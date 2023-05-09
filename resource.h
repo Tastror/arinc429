@@ -2,29 +2,18 @@
 // Microsoft Developer Studio generated include file.
 // Used by ARNIC429.rc
 //
-
-// command
 #define IDM_ABOUTBOX                    16
-#define IDM_GoToMore                    32771
-
-// strings
 #define IDS_Develop                     100
-
-// windows and resource
 #define IDD_MainWindow                  110
 #define IDD_Develop                     111
 #define IDD_More                        112
 #define IDD_OldFormat                   113
 #define IDR_MainWindow_Menu             114
-
 #define IDI_NwpuPlane                   129
 #define IDI_Arnic8081                   130
-
 #define IDB_BG_None                     131
 #define IDB_BG_Sky                      132
 #define IDB_BG_Hill                     133
-
-// control
 #define IDC_EDIT_RealSpeed              1000
 #define IDC_EDIT_Speed                  1001
 #define IDC_EDIT_Mach                   1002
@@ -39,7 +28,6 @@
 #define IDC_EDIT_Azimuth                1011
 #define IDC_EDIT_HighL                  1012
 #define IDC_EDIT_NormalOverload         1013
-
 #define IDC_SHOW_RealSpeed              1014
 #define IDC_SHOW_Speed                  1015
 #define IDC_SHOW_Mach                   1016
@@ -54,7 +42,6 @@
 #define IDC_SHOW_Azimuth                1025
 #define IDC_SHOW_HighL                  1026
 #define IDC_SHOW_NormalOverload         1027
-
 #define IDC_DIFF_RealSpeed              1028
 #define IDC_DIFF_Speed                  1029
 #define IDC_DIFF_Mach                   1030
@@ -69,26 +56,25 @@
 #define IDC_DIFF_Azimuth                1039
 #define IDC_DIFF_HighL                  1040
 #define IDC_DIFF_NormalOverload         1041
-
 #define IDC_ControlWord1                1042
 #define IDC_ControlWord2                1043
-
 #define IDC_BUTTON_Send                 1044
 #define IDC_BUTTON_Receive              1045
 #define IDC_BUTTON_StartTimer           1046
 #define IDC_BUTTON_StopTimer            1047
 #define IDC_BUTTON_Jump                 1048
-#define IDC_BUTTON_CheckControl1        1049
-#define IDC_BUTTON_CheckControl2        1050
-
-#define IDC_RADIO_SelfSend              1051
-#define IDC_RADIO_Normal                1052
-#define IDC_RADIO_100K                  1053
-#define IDC_RADIO_48K                   1054
-#define IDC_RADIO_12p5K                 1055
-#define IDC_RADIO_NoCheck               1056
-#define IDC_RADIO_EvenCheck             1057
-#define IDC_RADIO_OddCheck              1058
+#define IDC_BUTTON_ChangeImage          1049
+#define IDC_BUTTON_CheckControl1        1050
+#define IDC_BUTTON_CheckControl2        1051
+#define IDC_RADIO_SelfSend              1052
+#define IDC_RADIO_Normal                1053
+#define IDC_RADIO_100K                  1054
+#define IDC_RADIO_48K                   1055
+#define IDC_RADIO_12p5K                 1056
+#define IDC_RADIO_NoCheck               1057
+#define IDC_RADIO_EvenCheck             1058
+#define IDC_RADIO_OddCheck              1059
+#define IDM_GoToMore                    32771
 
 // Next default values for new objects
 // 
@@ -96,7 +82,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
 #define _APS_NEXT_COMMAND_VALUE         32772
-#define _APS_NEXT_CONTROL_VALUE         1059
+#define _APS_NEXT_CONTROL_VALUE         1060
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
