@@ -248,7 +248,7 @@ END
 IDD_MainWindow DIALOGEX 0, 0, 659, 297
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Main"
-FONT 10, "System", 0, 0, 0x1
+FONT 10, "System"
 BEGIN
     LTEXT           "真空速|km/h",IDC_STATIC,21,30,43,10
     LTEXT           "指示空速|km/h",IDC_STATIC,75,31,50,9
@@ -349,10 +349,9 @@ BEGIN
                     WS_EX_CLIENTEDGE
     PUSHBUTTON      "开始定时发送",IDC_BUTTON_StartTimer,527,269,53,13,0,
                     WS_EX_CLIENTEDGE
-    PUSHBUTTON      "停止定时发送",IDC_BUTTON_StopTimer,590,268,54,13,0,
+    PUSHBUTTON      "停止定时发送",IDC_BUTTON_StopTimer,590,269,54,13,0,
                     WS_EX_CLIENTEDGE
-    PUSHBUTTON      "(需要函数实现跳转至More窗口)",IDC_BUTTON_Jump,527,283,
-                    125,13,0,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "更多",IDC_BUTTON_Jump,527,283,40,13,0,WS_EX_CLIENTEDGE
     LTEXT           "control1",IDC_STATIC,18,261,38,10
     LTEXT           "control2",IDC_STATIC,73,261,51,9
     EDITTEXT        IDC_ControlWord1,19,273,40,12,ES_AUTOHSCROLL | 
@@ -377,8 +376,8 @@ END
 
 IDD_More DIALOGEX 0, 0, 304, 211
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "More"
-FONT 10, "System", 0, 0, 0x1
+CAPTION "更多"
+FONT 10, "System"
 BEGIN
     LTEXT           "真空速|km/h",IDC_STATIC,21,30,43,10
     LTEXT           "指示空速|km/h",IDC_STATIC,75,31,50,9
@@ -556,7 +555,6 @@ IDB_BG_None             BITMAP  DISCARDABLE     "res\\none.bmp"
 IDB_BG_Sky              BITMAP  DISCARDABLE     "res\\sky.bmp"
 IDB_BG_Hill             BITMAP  DISCARDABLE     "res\\Blue hills.bmp"
 
-
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
@@ -580,7 +578,7 @@ END
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDM_GoToMore               "更多(&M)"
+    IDM_GoToMore            "更多(&M)"
 END
 
 #endif    // Chinese (P.R.C.) resources
