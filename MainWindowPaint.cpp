@@ -89,7 +89,7 @@ void CMainWindow::OnDraw_SkyRect(CDC *pDC)
 void CMainWindow::OnDraw_Fighter(int color, int x_offset, int y_offset, int x, int y, CDC *pDC) // 机炮十字线和速度矢量
 {
 
-    CPen GreenPen, WhitePen;
+    CPen ColorPen;
     ColorPen.CreatePen(PS_SOLID, 2, color);
 
     // poldPen =pDC->SelectObject(&WhitePen);
