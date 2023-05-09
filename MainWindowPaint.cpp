@@ -80,7 +80,7 @@ void CMainWindow::OnPaint()
 void CMainWindow::On_Change_Background()
 {
     now_chosen_painting++;
-    if (now_chosen_painting > sizeof(paintings) / sizeof(int))
+    if (now_chosen_painting >= sizeof(paintings) / sizeof(int))
         now_chosen_painting = 0;
     OnPaint();
 }
