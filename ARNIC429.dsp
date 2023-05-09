@@ -169,11 +169,7 @@ SOURCE=".\res\nwpu_plane.ico"
 # End Source File
 # Begin Source File
 
-SOURCE=.\res\ARNIC429.ico
-# End Source File
-# Begin Source File
-
-SOURCE=.\res\ARNIC8081.ico
+SOURCE=.\res\Arnic8081.ico
 # End Source File
 # Begin Source File
 

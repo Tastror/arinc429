@@ -28,7 +28,7 @@ public:
     void Receive();
 
     // Dialog Data
-    enum { IDD = IDD_ARNIC8081_DIALOG };
+    enum { IDD = IDD_OldFormat };
 	
     CButton m_Button_Receive;
     CEdit textbot_send_NormalOverload;

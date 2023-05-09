@@ -11,7 +11,7 @@
 #define IDD_MainWindow                  110
 #define IDD_Develop                     111
 #define IDD_More                        112
-#define IDD_ARNIC8081_DIALOG            113
+#define IDD_OldFormat                   113
 
 #define IDI_NwpuPlane                   129
 #define IDI_Arnic8081                   130
