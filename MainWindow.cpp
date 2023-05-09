@@ -26,6 +26,8 @@ int iTabID = 0;
 
 bool keep_receive = false;
 
+CMainWindow* mother_window = nullptr;
+
 /* Confusing Variables */
 BYTE btCardId = 0;                    // 板卡号
 HANDLE hCard = NULL;                  // 全局板卡句柄
@@ -112,9 +114,10 @@ CString data_ControlWord2;
 
 // Construc Function
 // Set init variables used in sending and receiving
-CMainWindow::CMainWindow(CWnd *pParent)
-    : CDialog(CMainWindow::IDD, pParent)
+CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
 {
+    mother_window = this;
+
     data_send_Speed = 1;
     data_send_Roll = 0.0;
     data_send_Pitch = 0.0;
@@ -233,20 +236,21 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     DDX_Text(pDX, IDC_SHOW_HighL, data_receive_HighL);
     DDX_Text(pDX, IDC_SHOW_NormalOverload, data_receive_NormalOverload);
 
-    DDX_Text(pDX, IDC_DIFF_Speed, data_difference_Speed);
-    DDX_Text(pDX, IDC_DIFF_Roll, data_difference_Roll);
-    DDX_Text(pDX, IDC_DIFF_Pitch, data_difference_Pitch);
-    DDX_Text(pDX, IDC_DIFF_High, data_difference_High);
-    DDX_Text(pDX, IDC_DIFF_Azimuth, data_difference_Azimuth);
-    DDX_Text(pDX, IDC_DIFF_SlideSlip, data_difference_Sideslip);
-    DDX_Text(pDX, IDC_DIFF_RealSpeed, data_difference_RealSpeed);
-    DDX_Text(pDX, IDC_DIFF_Mach, data_difference_Mach);
-    DDX_Text(pDX, IDC_DIFF_AirP, data_difference_AirP);
-    DDX_Text(pDX, IDC_DIFF_Attack, data_difference_Attack);
-    DDX_Text(pDX, IDC_DIFF_SpeedUD, data_difference_SpeedUD);
-    DDX_Text(pDX, IDC_DIFF_HighR, data_difference_HighR);
-    DDX_Text(pDX, IDC_DIFF_HighL, data_difference_HighL);
-    DDX_Text(pDX, IDC_DIFF_NormalOverload, data_difference_NormalOverload);
+    // in more window
+    // DDX_Text(pDX, IDC_DIFF_Speed, data_difference_Speed);
+    // DDX_Text(pDX, IDC_DIFF_Roll, data_difference_Roll);
+    // DDX_Text(pDX, IDC_DIFF_Pitch, data_difference_Pitch);
+    // DDX_Text(pDX, IDC_DIFF_High, data_difference_High);
+    // DDX_Text(pDX, IDC_DIFF_Azimuth, data_difference_Azimuth);
+    // DDX_Text(pDX, IDC_DIFF_SlideSlip, data_difference_Sideslip);
+    // DDX_Text(pDX, IDC_DIFF_RealSpeed, data_difference_RealSpeed);
+    // DDX_Text(pDX, IDC_DIFF_Mach, data_difference_Mach);
+    // DDX_Text(pDX, IDC_DIFF_AirP, data_difference_AirP);
+    // DDX_Text(pDX, IDC_DIFF_Attack, data_difference_Attack);
+    // DDX_Text(pDX, IDC_DIFF_SpeedUD, data_difference_SpeedUD);
+    // DDX_Text(pDX, IDC_DIFF_HighR, data_difference_HighR);
+    // DDX_Text(pDX, IDC_DIFF_HighL, data_difference_HighL);
+    // DDX_Text(pDX, IDC_DIFF_NormalOverload, data_difference_NormalOverload);
 
     DDX_Text(pDX, IDC_ControlWord1, data_ControlWord1);
     DDX_Text(pDX, IDC_ControlWord2, data_ControlWord2);
@@ -257,10 +261,6 @@ BEGIN_MESSAGE_MAP(CMainWindow, CDialog)
 ON_WM_SYSCOMMAND()
 ON_WM_PAINT()
 ON_WM_QUERYDRAGICON()
-ON_BN_CLICKED(IDC_BUTTON_Send, OnBUTTONSend)
-
-ON_BN_CLICKED(IDC_BUTTON_StartTimer, OnBUTTONStartTimer)
-ON_BN_CLICKED(IDC_BUTTON_Receive, OnBUTTONReceive)
 
 ON_EN_CHANGE(IDC_EDIT_Speed, OnChangeEDITSpeed)
 ON_EN_KILLFOCUS(IDC_EDIT_Speed, OnKillfocusEDITSpeed)
@@ -288,6 +288,8 @@ ON_EN_CHANGE(IDC_EDIT_HighL, OnChangeEDITHighL)
 ON_EN_KILLFOCUS(IDC_EDIT_HighL, OnKillfocusEDITHighL)
 ON_EN_CHANGE(IDC_EDIT_NormalOverload, OnChangeEditn)
 ON_EN_KILLFOCUS(IDC_EDIT_NormalOverload, OnKillfocusEditn)
+ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
+ON_EN_CHANGE(IDC_EDIT_Mach, OnChangeEDITMa)
 
 ON_EN_CHANGE(IDC_SHOW_Speed, OnChangeEDITSpeed)
 ON_EN_CHANGE(IDC_SHOW_SlideSlip, OnChangeEDITSlideslip)
@@ -303,26 +305,33 @@ ON_EN_CHANGE(IDC_SHOW_HighR, OnChangeEDITHighR)
 ON_EN_CHANGE(IDC_SHOW_HighL, OnChangeEDITHighL)
 ON_EN_CHANGE(IDC_SHOW_NormalOverload, OnChangeEditn)
 
-ON_BN_CLICKED(IDC_BUTTON_StopTimer, OnBUTTONCLR)
 ON_WM_TIMER()
-ON_BN_CLICKED(IDC_RADIO_SelfSend, OnRADIOSelftest)
-ON_BN_CLICKED(IDC_RADIO_Normal, OnRADIONormal)
-ON_BN_CLICKED(IDC_BUTTON_CheckControl1, OnCHECKControl1)
-ON_BN_CLICKED(IDC_BUTTON_CheckControl2, OnCHECKControl2)
-ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
-ON_EN_CHANGE(IDC_EDIT_Mach, OnChangeEDITMa)
+ON_BN_CLICKED(IDC_BUTTON_Send, On_BUTTON_Send)
+ON_BN_CLICKED(IDC_BUTTON_Receive, On_BUTTON_Receive)
+ON_BN_CLICKED(IDC_BUTTON_StartTimer, On_BUTTON_StartTimer)
+ON_BN_CLICKED(IDC_BUTTON_StopTimer, On_BUTTON_StopTimer)
 
-ON_BN_CLICKED(IDC_RADIO_100K, OnButtonBITRATE100K)
-ON_BN_CLICKED(IDC_RADIO_48K, OnButtonBITRATE48K)
+// where is the button ???
+// ON_BN_CLICKED(IDC_BUTTON_CheckControl1, OnCHECKControl1)
+// ON_BN_CLICKED(IDC_BUTTON_CheckControl2, OnCHECKControl2)
 
-ON_BN_CLICKED(IDC_RADIO_NoCheck, OnButtonPARITY_NONE)
-ON_BN_CLICKED(IDC_RADIO_OddCheck, OnButtonPARITY_ODD)
-ON_BN_CLICKED(IDC_RADIO_EvenCheck, OnButtonPARITY_EVEN)
-ON_BN_CLICKED(IDC_RADIO_12p5K, OnBnClickedOnbuttonbitrate12k)
+// in more window
+// ON_BN_CLICKED(IDC_RADIO_SelfSend, On_RADIO_SelfSend)
+// ON_BN_CLICKED(IDC_RADIO_Normal, On_RADIO_Normal)
+// ON_BN_CLICKED(IDC_RADIO_100K, On_RADIO_100K)
+// ON_BN_CLICKED(IDC_RADIO_48K, On_RADIO_48K)
+// ON_BN_CLICKED(IDC_RADIO_12p5K, On_RADIO_12p5K)
+// ON_BN_CLICKED(IDC_RADIO_NoCheck, On_RADIO_NoCheck)
+// ON_BN_CLICKED(IDC_RADIO_OddCheck, On_RADIO_OddCheck)
+// ON_BN_CLICKED(IDC_RADIO_EvenCheck, On_RADIO_EvenCheck)
 
 ON_COMMAND(IDM_GoToMore, OnGoToMore)
 
 END_MESSAGE_MAP()
+
+
+
+
 
 // Init function, called when the dialog is created
 BOOL CMainWindow::OnInitDialog()
@@ -479,7 +488,7 @@ BOOL CMainWindow::SetUp429Card()
     }
 
     //  3. configuring Trigger Level
-    //
+    //On_RADIO_SelfSend
     SetTriggerDepth(hCard, &stTriggerLevel); // 设置触发深度
 
     //  4. setting up Label Filter
@@ -2554,57 +2563,42 @@ void CMainWindow::OnKillfocusEditn()
     }
 }
 
-////////////////////////////////工作方式/////////////////////////////////////////////
-void CMainWindow::OnRADIOSelftest()
-{
-    // TODO: Add your control notification handler code here
-    wdMode = C429_SELFTEST;
-    CMainWindow::SetUp429Card(); // 自检测
-}
+// void CMainWindow::OnCHECKControl1()
+// {
 
-void CMainWindow::OnRADIONormal()
-{
-    // TODO: Add your control notification handler code here
-    wdMode = C429_NORMAL;
-    CMainWindow::SetUp429Card();
-}
+//     if (!CWord_flg1)
+//     {
+//         m_ControlWord1 = 0x00000630;
+//         CWord_flg1 = TRUE;
+//     }
+//     else
+//     {
+//         m_ControlWord1 = 0;
+//         data_ControlWord1.Format("%01x", 0);
+//         CWord_flg1 = FALSE;
+//     }
+//     UpdateData(FALSE);
+// }
 
-void CMainWindow::OnCHECKControl1()
-{
+// void CMainWindow::OnCHECKControl2()
+// {
 
-    if (!CWord_flg1)
-    {
-        m_ControlWord1 = 0x00000630;
-        CWord_flg1 = TRUE;
-    }
-    else
-    {
-        m_ControlWord1 = 0;
-        data_ControlWord1.Format("%01x", 0);
-        CWord_flg1 = FALSE;
-    }
-    UpdateData(FALSE);
-}
-
-void CMainWindow::OnCHECKControl2()
-{
-
-    if (!CWord_flg2)
-    {
-        m_ControlWord2 = 0x00000631;
-        CWord_flg2 = TRUE;
-    }
-    else
-    {
-        m_ControlWord2 = 0;
-        data_ControlWord2.Format("%01x", 0);
-        CWord_flg2 = FALSE;
-    }
-    UpdateData(FALSE);
-}
+//     if (!CWord_flg2)
+//     {
+//         m_ControlWord2 = 0x00000631;
+//         CWord_flg2 = TRUE;
+//     }
+//     else
+//     {
+//         m_ControlWord2 = 0;
+//         data_ControlWord2.Format("%01x", 0);
+//         CWord_flg2 = FALSE;
+//     }
+//     UpdateData(FALSE);
+// }
 
 ///////////////////////////////收发按钮///////////////////////////////////////////////
-void CMainWindow::OnBUTTONSend() // 发送
+void CMainWindow::On_BUTTON_Send() // 发送
 {
     // TODO: Add your control notification handler code here
     UpdateData(true); // 读取
@@ -2614,7 +2608,7 @@ void CMainWindow::OnBUTTONSend() // 发送
     UpdateData(FALSE); // 显示
 }
 
-void CMainWindow::OnBUTTONReceive() // 一直接收
+void CMainWindow::On_BUTTON_Receive() // 一直接收
 {
     // TODO: Add your control notification handler code here
     if (blRxNow)
@@ -2848,7 +2842,7 @@ void CMainWindow::Receive()
 {
 }
 
-void CMainWindow::OnBUTTONStartTimer() // 打开定时发送
+void CMainWindow::On_BUTTON_StartTimer() // 打开定时发送
 {
     // TODO: Add your control notification handler here
     if (!Timer_flg)
@@ -2872,7 +2866,7 @@ void CMainWindow::OnBUTTONStartTimer() // 打开定时发送
     }
 }
 
-void CMainWindow::OnBUTTONCLR() // 结束定时发送
+void CMainWindow::On_BUTTON_StopTimer() // 结束定时发送
 {
     memset(dwTxBuf, 0, sizeof(DWORD) * FIFO_TMAX);
     time_counter = 0;
@@ -2920,6 +2914,7 @@ void CMainWindow::OnBUTTONCLR() // 结束定时发送
     data_difference_HighR.Format("%01x", 0);
     data_difference_HighL.Format("%01x", 0);
     data_difference_NormalOverload.Format("%01x", 0);
+
     data_ControlWord1.Format("%01x", 0);
     data_ControlWord2.Format("%01x", 0);
 
@@ -3162,63 +3157,6 @@ start:
 
     ExitThread(THREAD_EXITCODE);
     return 0;
-}
-
-void CMainWindow::OnButtonBITRATE100K()
-{
-    // TODO: 在此添加控件通知处理程序代码
-    for (int i = 0; i < CHNO_TMAX; i++)      // bits rate & parity//波特率的选择
-    {                                        // followed definitions can be found in cusfunc.h
-        stComm[i].iSelBR = C429_BITRATE100K; // 0: 100k    1: 48k    2: 12.5k
-    }
-    CMainWindow::SetUp429Card();
-}
-
-void CMainWindow::OnButtonBITRATE48K()
-{
-    // TODO: 在此添加控件通知处理程序代码
-    for (int i = 0; i < CHNO_TMAX; i++)     // bits rate & parity//波特率的选择
-    {                                       // followed definitions can be found in cusfunc.h
-        stComm[i].iSelBR = C429_BITRATE48K; // 0: 100k    1: 48k    2: 12.5k
-    }
-    CMainWindow::SetUp429Card();
-}
-
-void CMainWindow::OnBnClickedOnbuttonbitrate12k()
-{
-    // TODO: 在此添加控件通知处理程序代码
-    for (int i = 0; i < CHNO_TMAX; i++)      // bits rate & parity//波特率的选择
-    {                                        // followed definitions can be found in cusfunc.h
-        stComm[i].iSelBR = C429_BITRATE125K; // 0: 100k    1: 48k    2: 12.5k
-    }
-    CMainWindow::SetUp429Card();
-}
-
-void CMainWindow::OnButtonPARITY_NONE()
-{
-    for (int i = 0; i < CHNO_TMAX; i++)
-    {
-        stComm[i].iSelParity = C429_PARITY_NONE;
-    }
-    CMainWindow::SetUp429Card();
-}
-
-void CMainWindow::OnButtonPARITY_ODD() // 奇
-{
-    for (int i = 0; i < CHNO_TMAX; i++)
-    {
-        stComm[i].iSelParity = C429_PARITY_ODD;
-    }
-    CMainWindow::SetUp429Card();
-}
-
-void CMainWindow::OnButtonPARITY_EVEN() // 偶
-{
-    for (int i = 0; i < CHNO_TMAX; i++)
-    {
-        stComm[i].iSelParity = C429_PARITY_EVEN;
-    }
-    CMainWindow::SetUp429Card();
 }
 
 void CMainWindow::OnGoToMore()
