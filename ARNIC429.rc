@@ -78,6 +78,7 @@ IDD_OldFormat DIALOGEX 0, 0, 815, 346
 STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "认知实习实验"
+MENU IDR_MainWindow_Menu
 FONT 9, "宋体", 0, 0, 0x1
 BEGIN
     GROUPBOX        "",IDC_STATIC,15,13,125,203,0,WS_EX_DLGMODALFRAME
@@ -364,11 +365,12 @@ END
 IDD_Develop DIALOG DISCARDABLE  0, 0, 188, 70
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Devolop"
+MENU IDR_MainWindow_Menu
 FONT 10, "System"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,57,46,50,14,WS_GROUP
-    LTEXT           "认识实习_ARNIC429和平显交互  ",IDC_STATIC,41,16,119,9
-    LTEXT           "组员:  舒适，孟祥宇，吴金剑，徐鑫鹏",IDC_STATIC,41,28,
+    LTEXT           "认识实习：ARNIC429 + 平显交互",IDC_STATIC,41,16,119,9
+    LTEXT           "组员：舒适、孟祥宇、吴金剑、徐鑫鹏",IDC_STATIC,41,28,
                     140,10
     ICON            IDI_NwpuPlane,IDC_STATIC,18,16,16,16
 END
@@ -554,6 +556,18 @@ IDB_BG_None             BITMAP  DISCARDABLE     "res\\none.bmp"
 IDB_BG_Sky              BITMAP  DISCARDABLE     "res\\sky.bmp"
 IDB_BG_Hill             BITMAP  DISCARDABLE     "res\\Blue hills.bmp"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MainWindow_Menu MENU DISCARDABLE 
+BEGIN
+    MENUITEM "更多(&M)",                    IDM_GoToMore
+END
+
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // String Table
@@ -561,7 +575,12 @@ IDB_BG_Hill             BITMAP  DISCARDABLE     "res\\Blue hills.bmp"
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_Develop             "关于开发者(&A)..."
+    IDS_Develop             "关于开发者(&A)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDM_GoToMore               "更多(&M)"
 END
 
 #endif    // Chinese (P.R.C.) resources

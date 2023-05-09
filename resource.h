@@ -2,16 +2,20 @@
 // Microsoft Developer Studio generated include file.
 // Used by ARNIC429.rc
 //
-#define IDM_ABOUTBOX                    0x0010
 
-// symed
+// command
+#define IDM_ABOUTBOX                    16
+#define IDM_GoToMore                    32771
+
+// strings
 #define IDS_Develop                     100
 
-// resource
+// windows and resource
 #define IDD_MainWindow                  110
 #define IDD_Develop                     111
 #define IDD_More                        112
 #define IDD_OldFormat                   113
+#define IDR_MainWindow_Menu             114
 
 #define IDI_NwpuPlane                   129
 #define IDI_Arnic8081                   130
@@ -91,7 +95,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
-#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_COMMAND_VALUE         32772
 #define _APS_NEXT_CONTROL_VALUE         1059
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
