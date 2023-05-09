@@ -36,6 +36,8 @@ void CMainWindow::OnPaint()
 		int screen_width = 760, screen_height = 600;
 
         int display_x_offset = 130, display_y_offset = 100;
+        int display_center_color = RGB(120, 240, 120);
+        int display_color = RGB(255, 0, 0);
 
         CDC *pMem = new CDC;
         CBitmap *pBmp = new CBitmap;
@@ -53,14 +55,14 @@ void CMainWindow::OnPaint()
 
         OnDraw_SkyRect(pMem);
         OnDraw_Fighter(
-            display_x_offset, display_y_offset,
+            display_center_color, display_x_offset, display_y_offset,
             205 + (int)data_receive_Pitch, 260 + (int)data_receive_Sideslip, pMem
         );
-        OnDraw_High(display_x_offset, display_y_offset, data_receive_High, pMem);
-        OnDraw_Speed(display_x_offset, display_y_offset, data_receive_Speed, pMem);
-        OnDraw_HXJ(display_x_offset, display_y_offset, data_receive_Azimuth, pMem); // 方位角
-        OnDraw_HGKD(display_x_offset, display_y_offset, data_receive_Roll, pMem);
-        OnDraw_HG(display_x_offset, display_y_offset, -data_receive_Roll, data_receive_Pitch, pMem);
+        OnDraw_High(display_color, display_x_offset, display_y_offset, data_receive_High, pMem);
+        OnDraw_Speed(display_color, display_x_offset, display_y_offset, data_receive_Speed, pMem);
+        OnDraw_HXJ(display_color, display_x_offset, display_y_offset, data_receive_Azimuth, pMem); // 方位角
+        OnDraw_HGKD(display_color, display_x_offset, display_y_offset, data_receive_Roll, pMem);
+        OnDraw_HG(display_color, display_x_offset, display_y_offset, -data_receive_Roll, data_receive_Pitch, pMem);
 
         pDC->BitBlt(rectTemp.left, rectTemp.top, rectTemp.Width(), rectTemp.Height(), pMem, 0, 0, SRCCOPY);
         pMem->SelectObject(pOldBmp);
@@ -84,12 +86,11 @@ void CMainWindow::OnDraw_SkyRect(CDC *pDC)
 }
 
 // 机炮十字线和速度矢量
-void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *pDC) // 机炮十字线和速度矢量
+void CMainWindow::OnDraw_Fighter(int color, int x_offset, int y_offset, int x, int y, CDC *pDC) // 机炮十字线和速度矢量
 {
 
     CPen GreenPen, WhitePen;
-    GreenPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
-    WhitePen.CreatePen(PS_SOLID, 2, RGB(250, 250, 250));
+    ColorPen.CreatePen(PS_SOLID, 2, color);
 
     // poldPen =pDC->SelectObject(&WhitePen);
     // pDC->SetArcDirection(AD_CLOCKWISE);   //顺时针
@@ -103,7 +104,7 @@ void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *
     // pDC->MoveTo(x_offset + 495, y_offset + 90);
     // pDC->LineTo(x_offset + 495, y_offset + 380);//直线边界
 
-    CPen *poldPen = pDC->SelectObject(&WhitePen);
+    CPen *poldPen = pDC->SelectObject(&ColorPen);
     pDC->MoveTo(x_offset + 260, y_offset + 190);
     pDC->LineTo(x_offset + 260, y_offset + 220);
     pDC->MoveTo(x_offset + 245, y_offset + 205);
@@ -137,7 +138,7 @@ void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *
 }
 
 // 画高度
-void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
+void CMainWindow::OnDraw_High(int color, int x_offset, int y_offset, int x, CDC *pDC)
 {
     char c[80];
     int a;
@@ -147,9 +148,9 @@ void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
     int text_offset = 7;
 
     CPen pNewPen;
-    pNewPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
+    pNewPen.CreatePen(PS_SOLID, 2, color);
     CPen *poldPen = pDC->SelectObject(&pNewPen);
-    pDC->SetTextColor(RGB(0, 250, 0));
+    pDC->SetTextColor(color);
     pDC->SetBkMode(TRANSPARENT);
 
     pDC->MoveTo(x_offset + 390, y_offset + 205);
@@ -298,7 +299,7 @@ void CMainWindow::OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC)
 }
 
 // 画速度
-void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
+void CMainWindow::OnDraw_Speed(int color, int x_offset, int y_offset, int x, CDC *pDC)
 {
     char c[80];
     int a;
@@ -309,9 +310,9 @@ void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
     int amp = 2;
 
     CPen pNewPen;
-    pNewPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
+    pNewPen.CreatePen(PS_SOLID, 2, color);
     CPen *poldPen = pDC->SelectObject(&pNewPen);
-    pDC->SetTextColor(RGB(0, 255, 0));
+    pDC->SetTextColor(color);
     pDC->SetBkMode(TRANSPARENT);
 
     pDC->MoveTo(x_offset + 100, y_offset + 205);
@@ -575,7 +576,7 @@ void CMainWindow::OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC)
 }
 
 // 画方位角
-void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
+void CMainWindow::OnDraw_HXJ(int color, int x_offset, int y_offset, double x, CDC *pDC)
 {
     // CDC *pDC = GetDC();
     int HX_int;
@@ -586,10 +587,10 @@ void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
     unsigned int amp = 4;
     char c[80];
 
-    pDC->SetTextColor(RGB(0, 250, 0));
+    pDC->SetTextColor(color);
     pDC->SetBkMode(TRANSPARENT);
     CPen pNewPen;
-    pNewPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
+    pNewPen.CreatePen(PS_SOLID, 2, color);
     CPen *poldPen = pDC->SelectObject(&pNewPen);
 
     HX_int = (int)x;
@@ -662,7 +663,7 @@ void CMainWindow::OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC)
 }
 
 // 画滚转角
-void CMainWindow::OnDraw_HGKD(int x_offset, int y_offset, double HGJ, CDC *pDC)
+void CMainWindow::OnDraw_HGKD(int color, int x_offset, int y_offset, double HGJ, CDC *pDC)
 {
     // CDC *pDC = GetDC();
     char c[80];
@@ -676,7 +677,7 @@ void CMainWindow::OnDraw_HGKD(int x_offset, int y_offset, double HGJ, CDC *pDC)
     int text;
 
     CPen pNewPen;
-    pNewPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
+    pNewPen.CreatePen(PS_SOLID, 2, color);
     CPen *poldPen = pDC->SelectObject(&pNewPen);
 
     HGJ = HGJ / 180 * PI;
@@ -753,7 +754,7 @@ void CMainWindow::OnDraw_HGKD(int x_offset, int y_offset, double HGJ, CDC *pDC)
     pDC->SelectObject(poldPen);
 }
 
-void CMainWindow::OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, CDC *pDC)
+void CMainWindow::OnDraw_HG(int color, int x_offset, int y_offset, double HGJ, double FYJ, CDC *pDC)
 {
     char c[80];
     int a;
@@ -766,9 +767,9 @@ void CMainWindow::OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, 
     int amp = 20;
     int text_offset = 12;
     CPen pNewPen;
-    pNewPen.CreatePen(PS_SOLID, 2, RGB(0, 250, 0));
+    pNewPen.CreatePen(PS_SOLID, 2, color);
     CPen *poldPen = pDC->SelectObject(&pNewPen);
-    pDC->SetTextColor(RGB(0, 250, 0));
+    pDC->SetTextColor(color);
     pDC->SetBkMode(TRANSPARENT);
 
     CFont font;

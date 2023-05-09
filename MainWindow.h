@@ -163,12 +163,12 @@ protected:
 
     afx_msg void OnPaint();
     afx_msg void OnDraw_SkyRect(CDC *pDC);
-    afx_msg void OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *pDC);
-    afx_msg void OnDraw_HXJ(int x_offset, int y_offset, double x, CDC *pDC);
-    afx_msg void OnDraw_High(int x_offset, int y_offset, int x, CDC *pDC);
-    afx_msg void OnDraw_Speed(int x_offset, int y_offset, int x, CDC *pDC);
-    afx_msg void OnDraw_HG(int x_offset, int y_offset, double HGJ, double FYJ, CDC *pCD);
-    afx_msg void OnDraw_HGKD(int x_offset, int y_offset, double HGJ, CDC *pDC);
+    afx_msg void OnDraw_Fighter(int color, int x_offset, int y_offset, int x, int y, CDC *pDC);
+    afx_msg void OnDraw_HXJ(int color, int x_offset, int y_offset, double x, CDC *pDC);
+    afx_msg void OnDraw_High(int color, int x_offset, int y_offset, int x, CDC *pDC);
+    afx_msg void OnDraw_Speed(int color, int x_offset, int y_offset, int x, CDC *pDC);
+    afx_msg void OnDraw_HG(int color, int x_offset, int y_offset, double HGJ, double FYJ, CDC *pCD);
+    afx_msg void OnDraw_HGKD(int color, int x_offset, int y_offset, double HGJ, CDC *pDC);
 
     afx_msg void OnChangeEDITSpeed();
     afx_msg void OnKillfocusEDITSpeed();
