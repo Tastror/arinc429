@@ -23,6 +23,25 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
 {
     mother_window = this;
 
+    iTabID = 0;
+    keep_receive = false;
+    btCardId = 0;
+    hCard = NULL;
+    stLabelTable = (LabelTable_STRUCT)({0});
+    stSysTime = (SYSTEMTIME)({0});
+    wdMode = C429_SELFTEST;
+    dwTime = 0;
+    CWord_flg1 = FALSE;
+    CWord_flg2 = FALSE;
+    isNeedThread = FALSE;
+    hThread = NULL;
+    dwThreadId = 0;
+    Timer_flg = FALSE;
+    blRxNow = FALSE;
+    ghWnd = NULL;
+    wdTxBufLen = 0;
+    stTriggerLevel = (TriggerDepth_STRUCT)({0});
+
     data_send_Speed = 1;
     data_send_Roll = 0.0;
     data_send_Pitch = 0.0;

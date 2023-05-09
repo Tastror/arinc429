@@ -37,33 +37,33 @@ protected:
     virtual void DoDataExchange(CDataExchange *pDX);
 
 public:
-    int iTabID = 0;
-    bool keep_receive = false;
+    int iTabID;
+    bool keep_receive;
 
     /* Confusing Variables */
-    BYTE btCardId = 0;                    // 板卡号
-    HANDLE hCard = NULL;                  // 全局板卡句柄
-    LabelTable_STRUCT stLabelTable = {0}; // 标注区
-    BOOL blFilter[CHNO_RMAX];             // 标号过滤
+    BYTE btCardId;  // 板卡号
+    HANDLE hCard;  // 全局板卡句柄
+    LabelTable_STRUCT stLabelTable; // 标注区
+    BOOL blFilter[CHNO_RMAX];  // 标号过滤
     STCOMMUNICATION stComm[CHNO_TMAX];
-    SYSTEMTIME stSysTime = {0};  // 系统时间
-    WORD wdMode = C429_SELFTEST; // 工作模式
-    BOOL blTimeTag[CHNO_RMAX];   // 使能时间标签
-    DWORD dwTime = 0;            // 时间
-    WORD wdBInterval[CHNO_TMAX]; // 群定时
-    WORD wdSInterval[CHNO_TMAX]; // 自定时
-    BOOL CWord_flg1 = FALSE;
-    BOOL CWord_flg2 = FALSE;
-    BOOL isNeedThread = FALSE;
-    HANDLE hThread = NULL; // handle to thread function（穿插功能）
-    DWORD dwThreadId = 0;
-    BOOL Timer_flg = FALSE;
-    BOOL blRxNow = FALSE;
-    HWND ghWnd = NULL;
+    SYSTEMTIME stSysTime;  // 系统时间
+    WORD wdMode;  // 工作模式
+    BOOL blTimeTag[CHNO_RMAX];  // 使能时间标签
+    DWORD dwTime;  // 时间
+    WORD wdBInterval[CHNO_TMAX];  // 群定时
+    WORD wdSInterval[CHNO_TMAX];  // 自定时
+    BOOL CWord_flg1;
+    BOOL CWord_flg2;
+    BOOL isNeedThread;
+    HANDLE hThread;  // handle to thread function（穿插功能）
+    DWORD dwThreadId;
+    BOOL Timer_flg;
+    BOOL blRxNow;
+    HWND ghWnd;
 
-    DWORD dwTxBuf[FIFO_TMAX];                 // 发送 FIFO
-    WORD wdTxBufLen = 0;                      // 发送FIFO长度
-    TriggerDepth_STRUCT stTriggerLevel = {0}; // 缓冲区触发深度
+    DWORD dwTxBuf[FIFO_TMAX];  // 发送 FIFO
+    WORD wdTxBufLen;  // 发送FIFO长度
+    TriggerDepth_STRUCT stTriggerLevel; // 缓冲区触发深度
 
     DWORD ReceiveData_Vector[FIFO_RMAX];
     BOOL Mode_flg;
