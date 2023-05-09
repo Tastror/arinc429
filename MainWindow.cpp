@@ -112,6 +112,7 @@ DWORD m_ControlWord2 = 0;
 CString data_ControlWord1;
 CString data_ControlWord2;
 
+
 // Construc Function
 // Set init variables used in sending and receiving
 CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
