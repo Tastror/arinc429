@@ -35,7 +35,7 @@ void CMainWindow::OnPaint()
 		int screen_x_strip = 10, screen_y_strip = 0;
 		int screen_width = 760, screen_height = 600;
 
-        int display_x_offset = 0, display_y_offset = 0;
+        int display_x_offset = 100, display_y_offset = 50;
 
         CDC *pMem = new CDC;
         CBitmap *pBmp = new CBitmap;
@@ -104,28 +104,33 @@ void CMainWindow::OnDraw_Fighter(int x_offset, int y_offset, int x, int y, CDC *
     // pDC->LineTo(495,380);//Ö±Ïß±ß½ç
 
     CPen *poldPen = pDC->SelectObject(&WhitePen);
-    pDC->MoveTo(260, 190);
-    pDC->LineTo(260, 220);
-    pDC->MoveTo(245, 205);
-    pDC->LineTo(275, 205);
-    pDC->Arc(y - radius, x - radius, y + radius, x + radius, y - radius, x - radius, y - radius, x - radius);
-    pDC->MoveTo(y - radius, x);
-    pDC->LineTo(y - radius - 10, x);
-    pDC->MoveTo(y + radius, x);
-    pDC->LineTo(y + radius + 10, x);
-    pDC->MoveTo(y, x - radius);
-    pDC->LineTo(y, x - radius - 10);
+    pDC->MoveTo(x_offset + 260, y_offset + 190);
+    pDC->LineTo(x_offset + 260, y_offset + 220);
+    pDC->MoveTo(x_offset + 245, y_offset + 205);
+    pDC->LineTo(x_offset + 275, y_offset + 205);
+    pDC->Arc(
+        x_offset + y - radius, y_offset + x - radius,
+        x_offset + y + radius, y_offset + x + radius,
+        x_offset + y - radius, y_offset + x - radius,
+        x_offset + y - radius, y_offset + x - radius
+    );
+    pDC->MoveTo(x_offset + y - radius, y_offset + x);
+    pDC->LineTo(x_offset + y - radius - 10, y_offset + x);
+    pDC->MoveTo(x_offset + y + radius, y_offset + x);
+    pDC->LineTo(x_offset + y + radius + 10, y_offset + x);
+    pDC->MoveTo(x_offset + y, y_offset + x - radius);
+    pDC->LineTo(x_offset + y, y_offset + x - radius - 10);
 
     if (data_receive_High <= data_receive_HighL)
     {
-        pDC->MoveTo(y - 20, x - 5);
-        pDC->LineTo(y - 20, x + 10);
-        pDC->MoveTo(y - 20, x + 10);
-        pDC->LineTo(y - 1, x + 10);
-        pDC->MoveTo(y + 1, x + 10);
-        pDC->LineTo(y + 20, x + 10);
-        pDC->MoveTo(y + 20, x + 10);
-        pDC->LineTo(y + 20, x - 5);
+        pDC->MoveTo(x_offset + y - 20, y_offset + x - 5);
+        pDC->LineTo(x_offset + y - 20, y_offset + x + 10);
+        pDC->MoveTo(x_offset + y - 20, y_offset + x + 10);
+        pDC->LineTo(x_offset + y - 1, y_offset + x + 10);
+        pDC->MoveTo(x_offset + y + 1, y_offset + x + 10);
+        pDC->LineTo(x_offset + y + 20, y_offset + x + 10);
+        pDC->MoveTo(x_offset + y + 20, y_offset + x + 10);
+        pDC->LineTo(x_offset + y + 20, y_offset + x - 5);
     }
 
     pDC->SelectObject(poldPen);
