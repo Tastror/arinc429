@@ -26,7 +26,6 @@ int iTabID=0;
 
 bool keep_receive = false;
 
-<<<<<<< HEAD
 /* Confusing Variables */
 BYTE				btCardId=0;				//板卡号         
 HANDLE				hCard=NULL;				//全局板卡句柄
@@ -43,24 +42,6 @@ BOOL				CWord_flg1 = FALSE;
 BOOL				CWord_flg2 = FALSE;
 BOOL				isNeedThread=FALSE;
 HANDLE				hThread=NULL;			// handle to thread function（穿插功能）
-=======
-BYTE				btCardId=0;							//板卡号         
-HANDLE				hCard=NULL;							//全局板卡句柄
-TriggerDepth_STRUCT stTriggerLevel={0};		//缓冲区触发深度
-LabelTable_STRUCT	stLabelTable={0};			//标注区
-BOOL				blFilter[CHNO_RMAX];         //标号过滤
-STCOMMUNICATION		stComm[CHNO_TMAX];   
-SYSTEMTIME			stSysTime={0};      //系统时间
-WORD				wdMode=C429_SELFTEST;       //工作模式
-BOOL				blTimeTag[CHNO_RMAX];      //使能时间标签
-DWORD				dwTime=0;                //时间
-WORD				wdBInterval[CHNO_TMAX];     //群定时
-WORD				wdSInterval[CHNO_TMAX];    //自定时
-BOOL				CWord_flg1 = FALSE;
-BOOL				CWord_flg2 = FALSE;
-BOOL				isNeedThread=FALSE;
-HANDLE				hThread=NULL; // handle to thread function（穿插功能）
->>>>>>> refs/remotes/origin/master
 DWORD				dwThreadId=0;  
 BOOL				Timer_flg = FALSE;
 BOOL				blRxNow=FALSE;

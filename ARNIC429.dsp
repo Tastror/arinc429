@@ -194,10 +194,6 @@ SOURCE=.\res\sunset.bmp
 # End Group
 # Begin Source File
 
-SOURCE=".\2022-5-26.txt"
-# End Source File
-# Begin Source File
-
 SOURCE=.\ReadMe.txt
 # End Source File
 # End Target
