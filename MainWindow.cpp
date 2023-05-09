@@ -248,6 +248,7 @@ ON_BN_CLICKED(IDC_BUTTON_StopTimer, On_BUTTON_StopTimer)
 // ON_BN_CLICKED(IDC_RADIO_EvenCheck, On_RADIO_EvenCheck)
 
 ON_BN_CLICKED(IDC_BUTTON_Jump, OnGoToMore)
+ON_BN_CLICKED(IDC_BUTTON_ChangeImage, On_Change_Background)
 ON_COMMAND(IDM_GoToMore, OnGoToMore)
 
 END_MESSAGE_MAP()

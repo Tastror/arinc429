@@ -7,6 +7,10 @@
 #include "DevelopWindow.h"
 #include "MoreWindow.h"
 
+
+int paintings[] = {IDB_BG_Sky, IDB_BG_Hill};
+int now_chosen_painting = 0;
+
 // If you add a minimize button to your dialog, you will need the code below
 //  to draw the icon.  For MFC applications using the document/view model,
 //  this is automatically done for you by the framework.
@@ -73,13 +77,21 @@ void CMainWindow::OnPaint()
     }
 }
 
+void CMainWindow::On_Change_Background()
+{
+    now_chosen_painting++;
+    if (now_chosen_painting > sizeof(paintings) / sizeof(int))
+        now_chosen_painting = 0;
+    OnPaint();
+}
+
 void CMainWindow::OnDraw_SkyRect(CDC *pDC)
 {
     CRect rect(0, 0, 800, 600);
     CBrush brush;
     CDC dcBmp;                                // 定义并创建一个内存设备环境
     CBitmap bmpBackground;                    // 定义位图句柄
-    bmpBackground.LoadBitmap(IDB_BG_Sky);     // 将位图资源绑定在位图句柄上
+    bmpBackground.LoadBitmap(paintings[now_chosen_painting]);     // 将位图资源绑定在位图句柄上
     brush.CreatePatternBrush(&bmpBackground); // 绑定在位图画刷上
     // brush.CreateSolidBrush(RGB(0, 0, 0));
     pDC->FillRect(rect, &brush);

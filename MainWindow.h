@@ -162,6 +162,7 @@ protected:
     afx_msg void OnClose();
 
     afx_msg void OnPaint();
+    afx_msg void On_Change_Background();
     afx_msg void OnDraw_SkyRect(CDC *pDC);
     afx_msg void OnDraw_Fighter(int color, int x_offset, int y_offset, int x, int y, CDC *pDC);
     afx_msg void OnDraw_HXJ(int color, int x_offset, int y_offset, double x, CDC *pDC);
