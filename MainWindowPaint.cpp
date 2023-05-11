@@ -8,7 +8,7 @@
 #include "MoreWindow.h"
 
 
-int paintings[] = {IDB_BG_Sky, IDB_BG_Hill};
+int paintings[] = {IDB_BG_Sky, IDB_BG_Hill, IDB_BG_Sky2};
 int now_chosen_painting = 0;
 
 // If you add a minimize button to your dialog, you will need the code below

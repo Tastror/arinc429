@@ -8,12 +8,14 @@
 #define IDD_Develop                     111
 #define IDD_More                        112
 #define IDD_OldFormat                   113
-#define IDR_MainWindow_Menu             114
+#define IDD_More_OldFormat              114
+#define IDR_MainWindow_Menu             115
 #define IDI_NwpuPlane                   129
 #define IDI_Arnic8081                   130
 #define IDB_BG_None                     131
 #define IDB_BG_Sky                      132
 #define IDB_BG_Hill                     133
+#define IDB_BG_Sky2                     134
 #define IDC_EDIT_RealSpeed              1000
 #define IDC_EDIT_Speed                  1001
 #define IDC_EDIT_Mach                   1002
@@ -80,7 +82,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        134
+#define _APS_NEXT_RESOURCE_VALUE        135
 #define _APS_NEXT_COMMAND_VALUE         32772
 #define _APS_NEXT_CONTROL_VALUE         1060
 #define _APS_NEXT_SYMED_VALUE           101

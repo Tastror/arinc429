@@ -72,7 +72,25 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     data_receive_HighL = 0;
     data_receive_NormalOverload = 0.0f;
 
-    data_difference_Speed.Format("%01x", 0);
+    data_show_Speed.Format("%01x", 0);
+    data_show_Roll.Format("%01x", 0);
+    data_show_Pitch.Format("%01x", 0);
+    data_show_High.Format("%01x", 0);
+    data_show_Azimuth.Format("%01x", 0);
+    data_show_Sideslip.Format("%01x", 0);
+    data_show_RealSpeed.Format("%01x", 0);
+    data_show_Mach.Format("%01x", 0);
+    data_show_AirP.Format("%01x", 0);
+    data_show_Attack.Format("%01x", 0);
+    data_show_SpeedUD.Format("%01x", 0);
+    data_show_HighR.Format("%01x", 0);
+    data_show_HighL.Format("%01x", 0);
+    data_show_NormalOverload.Format("%01x", 0);
+
+    data_ControlWord1.Format("%01x", 0);
+    data_ControlWord2.Format("%01x", 0);
+
+	data_difference_Speed.Format("%01x", 0);
     data_difference_Roll.Format("%01x", 0);
     data_difference_Pitch.Format("%01x", 0);
     data_difference_High.Format("%01x", 0);
@@ -87,9 +105,6 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     data_difference_HighL.Format("%01x", 0);
     data_difference_NormalOverload.Format("%01x", 0);
 
-    data_ControlWord1.Format("%01x", 0);
-    data_ControlWord2.Format("%01x", 0);
-
     // Note that LoadIcon does not require a subsequent DestroyIcon in Win32
     m_hIcon = AfxGetApp()->LoadIcon(IDI_NwpuPlane);
 }
@@ -99,6 +114,7 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     CDialog::DoDataExchange(pDX);
 
     DDX_Control(pDX, IDC_BUTTON_Receive, text_Button_Receive);
+	DDX_Control(pDX, IDC_BUTTON_StartTimer, text_Button_StartTimer);
     DDX_Control(pDX, IDC_EDIT_NormalOverload, textbox_send_NormalOverload);
     DDX_Control(pDX, IDC_EDIT_HighL, textbox_send_HighL);
     DDX_Control(pDX, IDC_EDIT_HighR, textbox_send_HighR);
@@ -143,20 +159,20 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     DDX_Text(pDX, IDC_EDIT_NormalOverload, data_send_NormalOverload);
     DDV_MinMaxFloat(pDX, data_send_NormalOverload, -10.f, 10.f);
 
-    DDX_Text(pDX, IDC_SHOW_Speed, data_receive_Speed);
-    DDX_Text(pDX, IDC_SHOW_Roll, data_receive_Roll);
-    DDX_Text(pDX, IDC_SHOW_Pitch, data_receive_Pitch);
-    DDX_Text(pDX, IDC_SHOW_High, data_receive_High);
-    DDX_Text(pDX, IDC_SHOW_Azimuth, data_receive_Azimuth);
-    DDX_Text(pDX, IDC_SHOW_SlideSlip, data_receive_Sideslip);
-    DDX_Text(pDX, IDC_SHOW_RealSpeed, data_receive_RealSpeed);
-    DDX_Text(pDX, IDC_SHOW_Mach, data_receive_Mach);
-    DDX_Text(pDX, IDC_SHOW_AirP, data_receive_AirP);
-    DDX_Text(pDX, IDC_SHOW_Attack, data_receive_Attack);
-    DDX_Text(pDX, IDC_SHOW_SpeedUD, data_receive_SpeedUD);
-    DDX_Text(pDX, IDC_SHOW_HighR, data_receive_HighR);
-    DDX_Text(pDX, IDC_SHOW_HighL, data_receive_HighL);
-    DDX_Text(pDX, IDC_SHOW_NormalOverload, data_receive_NormalOverload);
+    DDX_Text(pDX, IDC_SHOW_Roll, data_show_Roll);
+    DDX_Text(pDX, IDC_SHOW_Pitch, data_show_Pitch);
+    DDX_Text(pDX, IDC_SHOW_Speed, data_show_Speed);
+    DDX_Text(pDX, IDC_SHOW_High, data_show_High);
+    DDX_Text(pDX, IDC_SHOW_Azimuth, data_show_Azimuth);
+    DDX_Text(pDX, IDC_SHOW_SlideSlip, data_show_Sideslip);
+    DDX_Text(pDX, IDC_SHOW_RealSpeed, data_show_RealSpeed);
+    DDX_Text(pDX, IDC_SHOW_Mach, data_show_Mach);
+    DDX_Text(pDX, IDC_SHOW_AirP, data_show_AirP);
+    DDX_Text(pDX, IDC_SHOW_Attack, data_show_Attack);
+    DDX_Text(pDX, IDC_SHOW_SpeedUD, data_show_SpeedUD);
+    DDX_Text(pDX, IDC_SHOW_HighR, data_show_HighR);
+    DDX_Text(pDX, IDC_SHOW_HighL, data_show_HighL);
+    DDX_Text(pDX, IDC_SHOW_NormalOverload, data_show_NormalOverload);
 
     // in more window
     // DDX_Text(pDX, IDC_DIFF_Speed, data_difference_Speed);
@@ -210,8 +226,8 @@ ON_EN_CHANGE(IDC_EDIT_HighL, OnChangeEDITHighL)
 ON_EN_KILLFOCUS(IDC_EDIT_HighL, OnKillfocusEDITHighL)
 ON_EN_CHANGE(IDC_EDIT_NormalOverload, OnChangeEditn)
 ON_EN_KILLFOCUS(IDC_EDIT_NormalOverload, OnKillfocusEditn)
-ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
 ON_EN_CHANGE(IDC_EDIT_Mach, OnChangeEDITMa)
+ON_EN_KILLFOCUS(IDC_EDIT_Mach, OnKillfocusEDITMa)
 
 ON_EN_CHANGE(IDC_SHOW_Speed, OnChangeEDITSpeed)
 ON_EN_CHANGE(IDC_SHOW_SlideSlip, OnChangeEDITSlideslip)
@@ -226,6 +242,20 @@ ON_EN_CHANGE(IDC_SHOW_SpeedUD, OnChangeEDITSpeedUD)
 ON_EN_CHANGE(IDC_SHOW_HighR, OnChangeEDITHighR)
 ON_EN_CHANGE(IDC_SHOW_HighL, OnChangeEDITHighL)
 ON_EN_CHANGE(IDC_SHOW_NormalOverload, OnChangeEditn)
+
+ON_EN_CHANGE(IDC_DIFF_Speed, OnChangeEDITSpeed)
+ON_EN_CHANGE(IDC_DIFF_SlideSlip, OnChangeEDITSlideslip)
+ON_EN_CHANGE(IDC_DIFF_Roll, OnChangeEDITRoll)
+ON_EN_CHANGE(IDC_DIFF_Pitch, OnChangeEDITPitch)
+ON_EN_CHANGE(IDC_DIFF_High, OnChangeEDITHigh)
+ON_EN_CHANGE(IDC_DIFF_Azimuth, OnChangeEDITAzimuth)
+ON_EN_CHANGE(IDC_DIFF_RealSpeed, OnChangeEDITRealSpeed)
+ON_EN_CHANGE(IDC_DIFF_AirP, OnChangeEDITAirP)
+ON_EN_CHANGE(IDC_DIFF_Attack, OnChangeEDITAttack)
+ON_EN_CHANGE(IDC_DIFF_SpeedUD, OnChangeEDITSpeedUD)
+ON_EN_CHANGE(IDC_DIFF_HighR, OnChangeEDITHighR)
+ON_EN_CHANGE(IDC_DIFF_HighL, OnChangeEDITHighL)
+ON_EN_CHANGE(IDC_DIFF_NormalOverload, OnChangeEditn)
 
 ON_WM_TIMER()
 ON_BN_CLICKED(IDC_BUTTON_Send, On_BUTTON_Send)

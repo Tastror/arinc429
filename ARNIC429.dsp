@@ -17,7 +17,6 @@ CFG=ARNIC429 - Win32 Debug
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "ARNIC429 - Win32 Release" (based on "Win32 (x86) Application")
 !MESSAGE "ARNIC429 - Win32 Debug" (based on "Win32 (x86) Application")
 !MESSAGE 
 
@@ -28,34 +27,6 @@ CFG=ARNIC429 - Win32 Debug
 CPP=cl.exe
 MTL=midl.exe
 RSC=rc.exe
-
-!IF  "$(CFG)" == "ARNIC429 - Win32 Release"
-
-# PROP BASE Use_MFC 6
-# PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "Release"
-# PROP BASE Intermediate_Dir "Release"
-# PROP BASE Target_Dir ""
-# PROP Use_MFC 6
-# PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
-# PROP Target_Dir ""
-# ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Yu"stdafx.h" /FD /c
-# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
-# ADD BASE RSC /l 0x804 /d "NDEBUG" /d "_AFXDLL"
-# ADD RSC /l 0x804 /d "NDEBUG" /d "_AFXDLL"
-BSC32=bscmake.exe
-# ADD BASE BSC32 /nologo
-# ADD BSC32 /nologo
-LINK32=link.exe
-# ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
-# ADD LINK32 /nologo /subsystem:windows /machine:I386
-
-!ELSEIF  "$(CFG)" == "ARNIC429 - Win32 Debug"
-
 # PROP BASE Use_MFC 6
 # PROP BASE Use_Debug_Libraries 1
 # PROP BASE Output_Dir "Debug"
@@ -80,12 +51,8 @@ LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # ADD LINK32 DLL429D42.lib /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
 # SUBTRACT LINK32 /map
-
-!ENDIF 
-
 # Begin Target
 
-# Name "ARNIC429 - Win32 Release"
 # Name "ARNIC429 - Win32 Debug"
 # Begin Group "Source Files"
 
@@ -104,7 +71,23 @@ SOURCE=.\res\ARNIC429.rc2
 # End Source File
 # Begin Source File
 
+SOURCE=.\coding.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\cusfunc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DevelopWindow.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\MainWindow.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainWindowButton.cpp
 # End Source File
 # Begin Source File
 
@@ -120,23 +103,7 @@ SOURCE=.\MainWindowTextbox.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\MainWindowButton.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\DevelopWindow.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\MoreWindow.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\coding.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\cusfunc.cpp
 # End Source File
 # Begin Source File
 
@@ -153,18 +120,6 @@ SOURCE=.\ARNIC429.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\MainWindow.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\DevelopWindow.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\MoreWindow.h
-# End Source File
-# Begin Source File
-
 SOURCE=.\coding.h
 # End Source File
 # Begin Source File
@@ -173,7 +128,19 @@ SOURCE=.\cusfunc.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DevelopWindow.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLL429D42_lib.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainWindow.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MoreWindow.h
 # End Source File
 # Begin Source File
 
@@ -189,15 +156,7 @@ SOURCE=.\StdAfx.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
-SOURCE=".\res\nwpu_plane.ico"
-# End Source File
-# Begin Source File
-
 SOURCE=.\res\Arnic8081.ico
-# End Source File
-# Begin Source File
-
-SOURCE=.\res\none.bmp
 # End Source File
 # Begin Source File
 
@@ -205,7 +164,19 @@ SOURCE=".\res\Blue hills.bmp"
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\none.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\nwpu_plane.ico"
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\sky.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\sky_2.bmp
 # End Source File
 # End Group
 # Begin Source File

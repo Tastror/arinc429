@@ -70,6 +70,7 @@ public:
     BOOL Complete_flg; // 接收完成标志
 
     CButton text_Button_Receive;
+	CButton text_Button_StartTimer;
     CEdit textbox_send_NormalOverload;
     CEdit textbox_send_HighL;
     CEdit textbox_send_HighR;
@@ -132,7 +133,28 @@ public:
     int data_receive_HighL;
     float data_receive_NormalOverload;
 
-    CString data_difference_Speed;
+	CString data_show_Speed;
+    CString data_show_Roll;
+    CString data_show_Pitch;
+    CString data_show_High;
+    CString data_show_Azimuth;
+    CString data_show_Sideslip;
+    CString data_show_RealSpeed;
+    CString data_show_Mach;
+    CString data_show_AirP;
+    CString data_show_Attack;
+    CString data_show_SpeedUD;
+    CString data_show_HighR;
+    CString data_show_HighL;
+    CString data_show_NormalOverload;
+
+    DWORD m_ControlWord1;
+    DWORD m_ControlWord2;
+
+    CString data_ControlWord1;
+    CString data_ControlWord2;
+
+	CString data_difference_Speed;
     CString data_difference_Roll;
     CString data_difference_Pitch;
     CString data_difference_High;
@@ -146,12 +168,6 @@ public:
     CString data_difference_HighR;
     CString data_difference_HighL;
     CString data_difference_NormalOverload;
-
-    DWORD m_ControlWord1;
-    DWORD m_ControlWord2;
-
-    CString data_ControlWord1;
-    CString data_ControlWord2;
 
 protected:
     HICON m_hIcon;

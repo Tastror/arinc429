@@ -63,11 +63,11 @@ void CMainWindow::OnChangeEDITSpeed()
     }
 
     //  write back the HEX value
-    //
     ii = atoi(s);
     ff = ii / 3.6 / 340;
     sprintf(f, "%f", ff);
     this->textbox_send_Ma.SetWindowText(f);
+
     this->textbox_send_Speed.SetWindowText(s);
     this->textbox_send_Speed.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }

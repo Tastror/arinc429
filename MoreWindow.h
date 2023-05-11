@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "resource.h"
 
+void updateData();
+
 class CMoreWindow : public CDialog
 {
 public:
