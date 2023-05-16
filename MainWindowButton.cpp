@@ -44,7 +44,6 @@ void CMainWindow::OnCheck_Control2()
 
 void CMainWindow::OnButton_Send() // ·¢ËÍ
 {
-    // TODO: Add your control notification handler code here
     UpdateData(true); // ¶ÁÈ¡
     Sleep(20);
     Send();
@@ -532,6 +531,7 @@ DWORD WINAPI DecodeThreadFunc(LPVOID lpParam)
                 default:
                     break;
                 }
+                mother_window->UpdateData(FALSE);
             }
             DisablReadFIFO(mother_window->hCard);
         }
