@@ -7,42 +7,42 @@
 #include "DevelopWindow.h"
 #include "MoreWindow.h"
 
-void CMainWindow::OnCHECKControl1()
+void CMainWindow::OnCheck_Control1()
 {
 
     if (!CWord_flg1)
     {
-        m_ControlWord1 = 0x00000630;
+        data_ControlWord1 = 0x00000630;
         CWord_flg1 = TRUE;
     }
     else
     {
-        m_ControlWord1 = 0;
-        data_ControlWord1.Format("%01x", 0);
+        data_ControlWord1 = 0;
+        string_ControlWord1.Format("%01x", 0);
         CWord_flg1 = FALSE;
     }
     UpdateData(FALSE);
 }
 
-void CMainWindow::OnCHECKControl2()
+void CMainWindow::OnCheck_Control2()
 {
 
     if (!CWord_flg2)
     {
-        m_ControlWord2 = 0x00000631;
+        data_ControlWord2 = 0x00000631;
         CWord_flg2 = TRUE;
     }
     else
     {
-        m_ControlWord2 = 0;
-        data_ControlWord2.Format("%01x", 0);
+        data_ControlWord2 = 0;
+        string_ControlWord2.Format("%01x", 0);
         CWord_flg2 = FALSE;
     }
     UpdateData(FALSE);
 }
 
 ///////////////////////////////收发按钮///////////////////////////////////////////////
-void CMainWindow::On_BUTTON_Send() // 发送
+void CMainWindow::OnButton_Send() // 发送
 {
     // TODO: Add your control notification handler code here
     UpdateData(true); // 读取
@@ -52,7 +52,7 @@ void CMainWindow::On_BUTTON_Send() // 发送
     UpdateData(FALSE); // 显示
 }
 
-void CMainWindow::On_BUTTON_Receive() // 一直接收
+void CMainWindow::OnButton_Receive() // 一直接收
 {
     // TODO: Add your control notification handler code here
     if (blRxNow)
@@ -83,7 +83,7 @@ void CMainWindow::On_BUTTON_Receive() // 一直接收
             ::CloseHandle(hThread);
             hThread = NULL;
         }
-        this->text_Button_Receive.SetWindowText(TEXT("开始接收"));
+        this->button_Receive.SetWindowText(TEXT("开始接收"));
         blRxNow = FALSE;
         // KillTimer(3); // this is send timer, do not need to kill
         KillTimer(2);
@@ -105,7 +105,7 @@ void CMainWindow::On_BUTTON_Receive() // 一直接收
             MessageBox(TEXT("无法创建接收线程,请重新启动应用程序!"), TEXT("错误"), MB_OK | MB_ICONERROR);
             return;
         }
-        this->text_Button_Receive.SetWindowText(TEXT("停止接收"));
+        this->button_Receive.SetWindowText(TEXT("停止接收"));
         blRxNow = TRUE;
         /*Sleep(20);
         Decoding();
@@ -165,8 +165,8 @@ void CMainWindow::OnClose()
 // void CMainWindow::Coding()
 // {
 //     wdTxBufLen=0;
-//     dwTxBuf[wdTxBufLen] = m_ControlWord1;
-//     dwTxBuf[++wdTxBufLen] = m_ControlWord2;
+//     dwTxBuf[wdTxBufLen] = data_ControlWord1;
+//     dwTxBuf[++wdTxBufLen] = data_ControlWord2;
 
 //     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_RealSpeed/(4096.0/32768));
 //     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;
@@ -286,12 +286,12 @@ void CMainWindow::Receive()
 {
 }
 
-void CMainWindow::On_BUTTON_StartTimer() // 开始or停止自动发送
+void CMainWindow::OnButton_StartStopTimer() // 开始or停止自动发送
 {
     // TODO: Add your control notification handler here
     if (!Timer_flg)
     {
-		this->text_Button_StartTimer.SetWindowText(TEXT("停止自动发送"));
+		this->button_StartTimer.SetWindowText(TEXT("停止自动发送"));
         UpdateData(TRUE); // 用于将屏幕上控件中的数据交换到变量中，将窗口中的值读到变量中
         for (int i = 0; i < FIFO_RMAX; i++) // 清空FIFO
             ReceiveData_Vector[i] = 0x0;
@@ -300,7 +300,7 @@ void CMainWindow::On_BUTTON_StartTimer() // 开始or停止自动发送
     }
     else
     {
-		this->text_Button_StartTimer.SetWindowText(TEXT("开始自动发送"));
+		this->button_StartTimer.SetWindowText(TEXT("开始自动发送"));
         KillTimer(3);
         Sleep(10);
         Sleep(10);
@@ -309,7 +309,7 @@ void CMainWindow::On_BUTTON_StartTimer() // 开始or停止自动发送
     }
 }
 
-void CMainWindow::On_BUTTON_StopTimer() // 清空自动发送 (名字要改为 BUTTON_ClearTimer)
+void CMainWindow::OnButton_ClearTimer() // 清空自动发送
 {
     memset(dwTxBuf, 0, sizeof(DWORD) * FIFO_TMAX);
     time_counter = 0;
@@ -343,23 +343,23 @@ void CMainWindow::On_BUTTON_StopTimer() // 清空自动发送 (名字要改为 BUTTON_Clear
     data_receive_HighL = 0;          // 最低安全高度
     data_receive_NormalOverload = 0; // 过载
 
-    data_show_Speed.Format("%01x", 0);
-    data_show_Roll.Format("%01x", 0);
-    data_show_Pitch.Format("%01x", 0);
-    data_show_High.Format("%01x", 0);
-    data_show_Azimuth.Format("%01x", 0);
-    data_show_Sideslip.Format("%01x", 0);
-    data_show_RealSpeed.Format("%01x", 0);
-    data_show_Mach.Format("%01x", 0);
-    data_show_AirP.Format("%01x", 0);
-    data_show_Attack.Format("%01x", 0);
-    data_show_SpeedUD.Format("%01x", 0);
-    data_show_HighR.Format("%01x", 0);
-    data_show_HighL.Format("%01x", 0);
-    data_show_NormalOverload.Format("%01x", 0);
+    string_receive_Speed.Format("%01x", 0);
+    string_receive_Roll.Format("%01x", 0);
+    string_receive_Pitch.Format("%01x", 0);
+    string_receive_High.Format("%01x", 0);
+    string_receive_Azimuth.Format("%01x", 0);
+    string_receive_Sideslip.Format("%01x", 0);
+    string_receive_RealSpeed.Format("%01x", 0);
+    string_receive_Mach.Format("%01x", 0);
+    string_receive_AirP.Format("%01x", 0);
+    string_receive_Attack.Format("%01x", 0);
+    string_receive_SpeedUD.Format("%01x", 0);
+    string_receive_HighR.Format("%01x", 0);
+    string_receive_HighL.Format("%01x", 0);
+    string_receive_NormalOverload.Format("%01x", 0);
 
-    data_ControlWord1.Format("%01x", 0);
-    data_ControlWord2.Format("%01x", 0);
+    string_ControlWord1.Format("%01x", 0);
+    string_ControlWord2.Format("%01x", 0);
 
     Sleep(20);
     UpdateData(FALSE);
@@ -507,85 +507,85 @@ start:	HWND hWnd = (HWND)lpParam;
 				switch (temp)
 				{
 				case 0x30:
-					mother_window->data_ControlWord1.Format("%08x", d); break;
+					mother_window->string_ControlWord1.Format("%08x", d); break;
 					//0000 0110 0011 0000
 				case 0x31:
-					mother_window->data_ControlWord2.Format("%08x", d); break;
+					mother_window->string_ControlWord2.Format("%08x", d); break;
 					//0000 0110 0011 0001
 				
 				case 0x88:	//?????
 					s = (short)(d >> 16);
 					mother_window->data_receive_RealSpeed = s * (4096. / 32768);
-					mother_window->data_show_RealSpeed.Format("%d", mother_window->data_receive_RealSpeed); 
-					// mother_window->data_difference_RealSpeed.Format("%d", mother_window->data_receive_RealSpeed - mother_window->data_send_RealSpeed); 
+					mother_window->string_receive_RealSpeed.Format("%d", mother_window->data_receive_RealSpeed); 
+					// mother_window->string_difference_RealSpeed.Format("%d", mother_window->data_receive_RealSpeed - mother_window->data_send_RealSpeed); 
 					break;
 					//0000 0110 1000 1000
 				case 0x86://??????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Speed = s * (2048. / 32768);
-					mother_window->data_show_Speed.Format("%d", mother_window->data_receive_Speed);
+					mother_window->string_receive_Speed.Format("%d", mother_window->data_receive_Speed);
 					break;
 					//0000 0110 1000 0110
 				case 0x85://??????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Mach = s * (4.096 / 32768);
-					mother_window->data_show_Mach.Format("%.3f", mother_window->data_receive_Mach);
+					mother_window->string_receive_Mach.Format("%.3f", mother_window->data_receive_Mach);
 					break;
 					//	0000 0110 0001 0101
 				case 0x97://??????
 					s = (short)(d >> 16);
 					mother_window->data_receive_AirP = s * (128. / 32768);
-					mother_window->data_show_AirP.Format("%.3f", mother_window->data_receive_AirP); break;
+					mother_window->string_receive_AirP.Format("%.3f", mother_window->data_receive_AirP); break;
 					//0000 0110 1001 0111
 				case 0xA1://????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Attack = s * (45. / 32768);
-					mother_window->data_show_Attack.Format("%.2f", mother_window->data_receive_Attack); break;
+					mother_window->string_receive_Attack.Format("%.2f", mother_window->data_receive_Attack); break;
 					//0000 0110 1010 0001
 				case 0x84://?????????
 					s = (short)(d >> 16);
 					mother_window->data_receive_High = s;
-					mother_window->data_show_High.Format("%d", mother_window->data_receive_High); break;
+					mother_window->string_receive_High.Format("%d", mother_window->data_receive_High); break;
 					//0000 0110 1000 0100
 				case 0x8A://???????
 					s = (short)(d >> 16);
 					mother_window->data_receive_SpeedUD = s * (512. / 32768);
-					mother_window->data_show_SpeedUD.Format("%d", mother_window->data_receive_SpeedUD); break;
+					mother_window->string_receive_SpeedUD.Format("%d", mother_window->data_receive_SpeedUD); break;
 					//0000 0110 1000 1010
 				case 0x32://?????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Azimuth = s * (360. / 32768);
-					mother_window->data_show_Azimuth.Format("%.2f", mother_window->data_receive_Azimuth); break;
+					mother_window->string_receive_Azimuth.Format("%.2f", mother_window->data_receive_Azimuth); break;
 					//0000 0110 0011 0010
 				case 0x33://??????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Pitch = s * (180. / 32768);
-					mother_window->data_show_Pitch.Format("%.2f", mother_window->data_receive_Pitch); break;
+					mother_window->string_receive_Pitch.Format("%.2f", mother_window->data_receive_Pitch); break;
 					//0000 0110 0011 0011
 				case 0x34://?????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Roll = s * (180. / 32768);
-					mother_window->data_show_Roll.Format("%.2f", mother_window->data_receive_Roll); break;
+					mother_window->string_receive_Roll.Format("%.2f", mother_window->data_receive_Roll); break;
 					//0000 0110 0011 0100
 				case 0x35://???????
 					s = (short)(d >> 16);
 					mother_window->data_receive_HighR = s * (1524. / 32768);
-					mother_window->data_show_HighR.Format("%d", mother_window->data_receive_HighR); break;
+					mother_window->string_receive_HighR.Format("%d", mother_window->data_receive_HighR); break;
 					//0000 0110 0011 0101
 				case 0x36://????????
 					s = (short)(d >> 16);
 					mother_window->data_receive_HighL = s * (1500. / 32768);
-					mother_window->data_show_HighL.Format("%d", mother_window->data_receive_HighL); break;
+					mother_window->string_receive_HighL.Format("%d", mother_window->data_receive_HighL); break;
 					//0000 0110 0011 0110 
 				case 0x37://????
 					s = (short)(d >> 16);
 					mother_window->data_receive_Sideslip = s * (10. / 32768);
-					mother_window->data_show_Sideslip.Format("%.2f", mother_window->data_receive_Sideslip); break;
+					mother_window->string_receive_Sideslip.Format("%.2f", mother_window->data_receive_Sideslip); break;
 					//0000 0110 0011 0111
 				case 0x38://???????
 					s = (short)(d >> 16);
 					mother_window->data_receive_NormalOverload = s * (10. / 32768);
-					mother_window->data_show_NormalOverload.Format("%.2f", mother_window->data_receive_NormalOverload); break;
+					mother_window->string_receive_NormalOverload.Format("%.2f", mother_window->data_receive_NormalOverload); break;
 					//0000 0110 0011 1000
 				default:
 					break;

@@ -22,20 +22,20 @@ void CMoreWindow::DoDataExchange(CDataExchange* pDX)
 {
     CDialog::DoDataExchange(pDX);
 	
-    // DDX_Text(pDX, IDC_DIFF_Speed, mother_window->data_difference_Speed);
-    // DDX_Text(pDX, IDC_DIFF_Roll, mother_window->data_difference_Roll);
-    // DDX_Text(pDX, IDC_DIFF_Pitch, mother_window->data_difference_Pitch);
-    // DDX_Text(pDX, IDC_DIFF_High, mother_window->data_difference_High);
-    // DDX_Text(pDX, IDC_DIFF_Azimuth, mother_window->data_difference_Azimuth);
-    // DDX_Text(pDX, IDC_DIFF_SlideSlip, mother_window->data_difference_Sideslip);
-    // DDX_Text(pDX, IDC_DIFF_RealSpeed, mother_window->data_difference_RealSpeed);
-    // DDX_Text(pDX, IDC_DIFF_Mach, mother_window->data_difference_Mach);
-    // DDX_Text(pDX, IDC_DIFF_AirP, mother_window->data_difference_AirP);
-    // DDX_Text(pDX, IDC_DIFF_Attack, mother_window->data_difference_Attack);
-    // DDX_Text(pDX, IDC_DIFF_SpeedUD, mother_window->data_difference_SpeedUD);
-    // DDX_Text(pDX, IDC_DIFF_HighR, mother_window->data_difference_HighR);
-    // DDX_Text(pDX, IDC_DIFF_HighL, mother_window->data_difference_HighL);
-    // DDX_Text(pDX, IDC_DIFF_NormalOverload, mother_window->data_difference_NormalOverload);
+    // DDX_Text(pDX, IDC_DIFF_Speed, mother_window->string_difference_Speed);
+    // DDX_Text(pDX, IDC_DIFF_Roll, mother_window->string_difference_Roll);
+    // DDX_Text(pDX, IDC_DIFF_Pitch, mother_window->string_difference_Pitch);
+    // DDX_Text(pDX, IDC_DIFF_High, mother_window->string_difference_High);
+    // DDX_Text(pDX, IDC_DIFF_Azimuth, mother_window->string_difference_Azimuth);
+    // DDX_Text(pDX, IDC_DIFF_SlideSlip, mother_window->string_difference_Sideslip);
+    // DDX_Text(pDX, IDC_DIFF_RealSpeed, mother_window->string_difference_RealSpeed);
+    // DDX_Text(pDX, IDC_DIFF_Mach, mother_window->string_difference_Mach);
+    // DDX_Text(pDX, IDC_DIFF_AirP, mother_window->string_difference_AirP);
+    // DDX_Text(pDX, IDC_DIFF_Attack, mother_window->string_difference_Attack);
+    // DDX_Text(pDX, IDC_DIFF_SpeedUD, mother_window->string_difference_SpeedUD);
+    // DDX_Text(pDX, IDC_DIFF_HighR, mother_window->string_difference_HighR);
+    // DDX_Text(pDX, IDC_DIFF_HighL, mother_window->string_difference_HighL);
+    // DDX_Text(pDX, IDC_DIFF_NormalOverload, mother_window->string_difference_NormalOverload);
 }
 
 BEGIN_MESSAGE_MAP(CMoreWindow, CDialog)

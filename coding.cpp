@@ -55,8 +55,8 @@ extern CMainWindow* mother_window;
 void CMainWindow::Coding()
 {
     wdTxBufLen=0;
-    dwTxBuf[wdTxBufLen] = m_ControlWord1;
-    dwTxBuf[++wdTxBufLen] = m_ControlWord2;
+    dwTxBuf[wdTxBufLen] = data_ControlWord1;
+    dwTxBuf[++wdTxBufLen] = data_ControlWord2;
 
     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_RealSpeed/(4096.0/32768));
     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;
@@ -119,8 +119,8 @@ void CMainWindow::Coding()
 //     mother_window->wdTxBufLen = 0;
     
 //     // 控制字 1、2
-//     mother_window->dwTxBuf[mother_window->wdTxBufLen] = mother_window->m_ControlWord1;
-//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = mother_window->m_ControlWord2;
+//     mother_window->dwTxBuf[mother_window->wdTxBufLen] = mother_window->data_ControlWord1;
+//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = mother_window->data_ControlWord2;
     
 //     // 真空速
 //     // 范围为 0 ~ 4096, 分辨率为 (4096/32768)
@@ -273,81 +273,81 @@ void CMainWindow::Coding()
 //                 switch (temp)
 //                 {
 //                     case 0x30://控制字1
-//                         mother_window->data_ControlWord1.Format(_T("%08x"), d); break;
+//                         mother_window->string_ControlWord1.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0000
 //                     case 0x31://控制字2
-//                         mother_window->data_ControlWord2.Format(_T("%08x"), d); break;
+//                         mother_window->string_ControlWord2.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0001
                     
 //                     case 0x88:    //真空速
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_RealSpeed = s * (4096. / 32768);
-//                         mother_window->data_difference_RealSpeed.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_RealSpeed.Format(_T("%08x"), d); break;
 //                         //0000 0110 1000 1000
 //                     case 0x86://指示空速
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Speed = s * (2048. / 32768);
-//                         mother_window->data_difference_Speed.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Speed.Format(_T("%08x"), d); break;
 //                         //0000 0110 1000 0110
 //                     case 0x85://马赫数
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Mach = s * (4.096 / 32768);
-//                         mother_window->data_difference_Mach.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Mach.Format(_T("%08x"), d); break;
 //                         //    0000 0110 0001 0101
 //                     case 0x97://装订气压
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_AirP = s * (128. / 32768);
-//                         mother_window->data_difference_AirP.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_AirP.Format(_T("%08x"), d); break;
 //                         //0000 0110 1001 0111
 //                     case 0xA1://攻角
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Attack = s * (45. / 32768);
-//                         mother_window->data_difference_Attack.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Attack.Format(_T("%08x"), d); break;
 //                         //0000 0110 1010 0001
 //                     case 0x84://相对气压高度
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_High = s;
-//                         mother_window->data_difference_High.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_High.Format(_T("%08x"), d); break;
 //                         //0000 0110 1000 0100
 //                     case 0x8A://升降速度
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_SpeedUD = s * (512. / 32768);
-//                         mother_window->data_difference_SpeedUD.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_SpeedUD.Format(_T("%08x"), d); break;
 //                         //0000 0110 1000 1010
 //                     case 0x32://航向角
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Azimuth = s * (360. / 32768);
-//                         mother_window->data_difference_Azimuth.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Azimuth.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0010
 //                     case 0x33://俯仰角
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Pitch = s * (180. / 32768);
-//                         mother_window->data_difference_Pitch.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Pitch.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0011
 //                     case 0x34://横滚角
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Roll = s * (180. / 32768);
-//                         mother_window->data_difference_Roll.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Roll.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0100
 //                     case 0x35://无线电高度
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_HighR = s * (1524. / 32768);
-//                         mother_window->data_difference_HighR.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_HighR.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0101
 //                     case 0x36://最低安全高度
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_HighL = s * (1500. / 32768);
-//                         mother_window->data_difference_HighL.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_HighL.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0110 
 //                     case 0x37://侧滑角
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_Sideslip = s * (10. / 32768);
-//                         mother_window->data_difference_Sideslip.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_Sideslip.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0111
 //                     case 0x38://法向过载
 //                         s = (short)(d >> 16);
 //                         mother_window->data_receive_NormalOverload = s * (10. / 32768);
-//                         mother_window->data_difference_NormalOverload.Format(_T("%08x"), d); break;
+//                         mother_window->string_difference_NormalOverload.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 1000
 //                     default:
 //                         break;

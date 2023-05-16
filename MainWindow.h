@@ -69,8 +69,11 @@ public:
     BOOL Mode_flg;
     BOOL Complete_flg; // 接收完成标志
 
-    CButton text_Button_Receive;
-	CButton text_Button_StartTimer;
+    int time_counter;
+
+    CButton button_Receive;
+	CButton button_StartTimer;
+
     CEdit textbox_send_NormalOverload;
     CEdit textbox_send_HighL;
     CEdit textbox_send_HighR;
@@ -100,8 +103,6 @@ public:
     CEdit textbox_receive_Roll;
     CEdit textbox_receive_Sideslip;
     CEdit textbox_receive_Speed;
-
-    int time_counter;
 
     int data_send_RealSpeed;        // 指示空速
     int data_send_Speed;            // 真空速
@@ -133,41 +134,41 @@ public:
     int data_receive_HighL;
     float data_receive_NormalOverload;
 
-	CString data_show_Speed;
-    CString data_show_Roll;
-    CString data_show_Pitch;
-    CString data_show_High;
-    CString data_show_Azimuth;
-    CString data_show_Sideslip;
-    CString data_show_RealSpeed;
-    CString data_show_Mach;
-    CString data_show_AirP;
-    CString data_show_Attack;
-    CString data_show_SpeedUD;
-    CString data_show_HighR;
-    CString data_show_HighL;
-    CString data_show_NormalOverload;
+    DWORD data_ControlWord1;
+    DWORD data_ControlWord2;
 
-    DWORD m_ControlWord1;
-    DWORD m_ControlWord2;
+	CString string_receive_Speed;
+    CString string_receive_Roll;
+    CString string_receive_Pitch;
+    CString string_receive_High;
+    CString string_receive_Azimuth;
+    CString string_receive_Sideslip;
+    CString string_receive_RealSpeed;
+    CString string_receive_Mach;
+    CString string_receive_AirP;
+    CString string_receive_Attack;
+    CString string_receive_SpeedUD;
+    CString string_receive_HighR;
+    CString string_receive_HighL;
+    CString string_receive_NormalOverload;
 
-    CString data_ControlWord1;
-    CString data_ControlWord2;
+    CString string_ControlWord1;
+    CString string_ControlWord2;
 
-	CString data_difference_Speed;
-    CString data_difference_Roll;
-    CString data_difference_Pitch;
-    CString data_difference_High;
-    CString data_difference_Azimuth;
-    CString data_difference_Sideslip;
-    CString data_difference_RealSpeed;
-    CString data_difference_Mach;
-    CString data_difference_AirP;
-    CString data_difference_Attack;
-    CString data_difference_SpeedUD;
-    CString data_difference_HighR;
-    CString data_difference_HighL;
-    CString data_difference_NormalOverload;
+	CString string_difference_Speed;
+    CString string_difference_Roll;
+    CString string_difference_Pitch;
+    CString string_difference_High;
+    CString string_difference_Azimuth;
+    CString string_difference_Sideslip;
+    CString string_difference_RealSpeed;
+    CString string_difference_Mach;
+    CString string_difference_AirP;
+    CString string_difference_Attack;
+    CString string_difference_SpeedUD;
+    CString string_difference_HighR;
+    CString string_difference_HighL;
+    CString string_difference_NormalOverload;
 
 protected:
     HICON m_hIcon;
@@ -178,7 +179,7 @@ protected:
     afx_msg void OnClose();
 
     afx_msg void OnPaint();
-    afx_msg void On_Change_Background();
+    afx_msg void OnChange_Background();
     afx_msg void OnDraw_SkyRect(CDC *pDC);
     afx_msg void OnDraw_Fighter(int color, int x_offset, int y_offset, int x, int y, CDC *pDC);
     afx_msg void OnDraw_HXJ(int color, int x_offset, int y_offset, double x, CDC *pDC);
@@ -187,43 +188,43 @@ protected:
     afx_msg void OnDraw_HG(int color, int x_offset, int y_offset, double HGJ, double FYJ, CDC *pCD);
     afx_msg void OnDraw_HGKD(int color, int x_offset, int y_offset, double HGJ, CDC *pDC);
 
-    afx_msg void OnChangeEDITSpeed();
-    afx_msg void OnKillfocusEDITSpeed();
-    afx_msg void OnChangeEDITSlideslip();
-    afx_msg void OnKillfocusEDITSlideslip();
-    afx_msg void OnChangeEDITRoll();
-    afx_msg void OnKillfocusEDITRoll();
-    afx_msg void OnChangeEDITPitch();
-    afx_msg void OnKillfocusEDITPitch();
-    afx_msg void OnChangeEDITHigh();
-    afx_msg void OnKillfocusEDITHigh();
-    afx_msg void OnChangeEDITAzimuth();
-    afx_msg void OnKillfocusEDITAzimuth();
-    afx_msg void OnChangeEDITRealSpeed();
-    afx_msg void OnKillfocusEDITRealSpeed();
-    afx_msg void OnChangeEDITAirP();
-    afx_msg void OnKillfocusEDITAirP();
-    afx_msg void OnChangeEDITAttack();
-    afx_msg void OnKillfocusEDITAttack();
-    afx_msg void OnChangeEDITSpeedUD();
-    afx_msg void OnKillfocusEDITSpeedUD();
-    afx_msg void OnChangeEDITHighR();
-    afx_msg void OnKillfocusEDITHighR();
-    afx_msg void OnChangeEDITHighL();
-    afx_msg void OnKillfocusEDITHighL();
-    afx_msg void OnChangeEditn();
-    afx_msg void OnKillfocusEditn();
-    afx_msg void OnChangeEDITMa();
-    afx_msg void OnKillfocusEDITMa();
+    afx_msg void OnChange_Speed();
+    afx_msg void OnKillFocus_Speed();
+    afx_msg void OnChange_SlideSlip();
+    afx_msg void OnKillFocus_SlideSlip();
+    afx_msg void OnChange_Roll();
+    afx_msg void OnKillFocus_Roll();
+    afx_msg void OnChange_Pitch();
+    afx_msg void OnKillFocus_Pitch();
+    afx_msg void OnChange_High();
+    afx_msg void OnKillFocus_High();
+    afx_msg void OnChange_Azimuth();
+    afx_msg void OnKillFocus_Azimuth();
+    afx_msg void OnChange_RealSpeed();
+    afx_msg void OnKillFocus_RealSpeed();
+    afx_msg void OnChange_AirP();
+    afx_msg void OnKillFocus_AirP();
+    afx_msg void OnChange_Attack();
+    afx_msg void OnKillFocus_Attack();
+    afx_msg void OnChange_SpeedUD();
+    afx_msg void OnKillFocus_SpeedUD();
+    afx_msg void OnChange_HighR();
+    afx_msg void OnKillFocus_HighR();
+    afx_msg void OnChange_HighL();
+    afx_msg void OnKillFocus_HighL();
+    afx_msg void OnChange_NormalOverload();
+    afx_msg void OnKillFocus_NormalOverload();
+    afx_msg void OnChange_Mach();
+    afx_msg void OnKillFocus_Mach();
 
     afx_msg void OnTimer(UINT_PTR nIDEvent);
-    afx_msg void On_BUTTON_StartTimer();
-    afx_msg void On_BUTTON_Send();
-    afx_msg void On_BUTTON_Receive();
-    afx_msg void On_BUTTON_StopTimer();
+    afx_msg void OnButton_StartStopTimer();
+    afx_msg void OnButton_ClearTimer();
+    afx_msg void OnButton_Send();
+    afx_msg void OnButton_Receive();
 
-    afx_msg void OnCHECKControl1();
-    afx_msg void OnCHECKControl2();
+    afx_msg void OnCheck_Control1();
+    afx_msg void OnCheck_Control2();
 
     // in more window
     // afx_msg void On_RADIO_SelfSend();

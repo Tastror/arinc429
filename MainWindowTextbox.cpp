@@ -7,7 +7,7 @@
 #include "DevelopWindow.h"
 #include "MoreWindow.h"
 
-void CMainWindow::OnChangeEDITSpeed()
+void CMainWindow::OnChange_Speed()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -72,7 +72,7 @@ void CMainWindow::OnChangeEDITSpeed()
     this->textbox_send_Speed.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITSpeed()
+void CMainWindow::OnKillFocus_Speed()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Speed.LineLength(-1) == 0)
@@ -81,7 +81,7 @@ void CMainWindow::OnKillfocusEDITSpeed()
     }
 }
 
-void CMainWindow::OnChangeEDITSlideslip()
+void CMainWindow::OnChange_SlideSlip()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -134,7 +134,7 @@ void CMainWindow::OnChangeEDITSlideslip()
     this->textbox_send_Sideslip.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITSlideslip()
+void CMainWindow::OnKillFocus_SlideSlip()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Sideslip.LineLength(-1) == 0)
@@ -143,7 +143,7 @@ void CMainWindow::OnKillfocusEDITSlideslip()
     }
 }
 
-void CMainWindow::OnChangeEDITRoll()
+void CMainWindow::OnChange_Roll()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -196,7 +196,7 @@ void CMainWindow::OnChangeEDITRoll()
     this->textbox_send_Roll.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITRoll()
+void CMainWindow::OnKillFocus_Roll()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Roll.LineLength(-1) == 0)
@@ -205,7 +205,7 @@ void CMainWindow::OnKillfocusEDITRoll()
     }
 }
 
-void CMainWindow::OnChangeEDITPitch()
+void CMainWindow::OnChange_Pitch()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -258,7 +258,7 @@ void CMainWindow::OnChangeEDITPitch()
     this->textbox_send_Pitch.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITPitch()
+void CMainWindow::OnKillFocus_Pitch()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Pitch.LineLength(-1) == 0)
@@ -267,7 +267,7 @@ void CMainWindow::OnKillfocusEDITPitch()
     }
 }
 
-void CMainWindow::OnChangeEDITHigh()
+void CMainWindow::OnChange_High()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -320,7 +320,7 @@ void CMainWindow::OnChangeEDITHigh()
     this->textbox_send_High.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITHigh()
+void CMainWindow::OnKillFocus_High()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_High.LineLength(-1) == 0)
@@ -329,7 +329,7 @@ void CMainWindow::OnKillfocusEDITHigh()
     }
 }
 
-void CMainWindow::OnChangeEDITAzimuth()
+void CMainWindow::OnChange_Azimuth()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -382,7 +382,7 @@ void CMainWindow::OnChangeEDITAzimuth()
     this->textbox_send_Azimuth.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITAzimuth()
+void CMainWindow::OnKillFocus_Azimuth()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -391,7 +391,7 @@ void CMainWindow::OnKillfocusEDITAzimuth()
     }
 }
 
-void CMainWindow::OnChangeEDITRealSpeed()
+void CMainWindow::OnChange_RealSpeed()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -444,7 +444,7 @@ void CMainWindow::OnChangeEDITRealSpeed()
     this->textbox_send_RealSpeed.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITRealSpeed()
+void CMainWindow::OnKillFocus_RealSpeed()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -453,7 +453,7 @@ void CMainWindow::OnKillfocusEDITRealSpeed()
     }
 }
 
-void CMainWindow::OnKillfocusEDITMa()
+void CMainWindow::OnKillFocus_Mach()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Ma.LineLength(-1) == 0)
@@ -462,7 +462,7 @@ void CMainWindow::OnKillfocusEDITMa()
     }
 }
 
-void CMainWindow::OnChangeEDITMa()
+void CMainWindow::OnChange_Mach()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -472,7 +472,7 @@ void CMainWindow::OnChangeEDITMa()
     // TODO: Add your control notification handler code here
 }
 
-void CMainWindow::OnChangeEDITAirP()
+void CMainWindow::OnChange_AirP()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -525,7 +525,7 @@ void CMainWindow::OnChangeEDITAirP()
     this->textbox_send_AirP.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITAirP()
+void CMainWindow::OnKillFocus_AirP()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -534,7 +534,7 @@ void CMainWindow::OnKillfocusEDITAirP()
     }
 }
 
-void CMainWindow::OnChangeEDITAttack()
+void CMainWindow::OnChange_Attack()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -587,7 +587,7 @@ void CMainWindow::OnChangeEDITAttack()
     this->textbox_send_Attack.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITAttack()
+void CMainWindow::OnKillFocus_Attack()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -596,7 +596,7 @@ void CMainWindow::OnKillfocusEDITAttack()
     }
 }
 
-void CMainWindow::OnChangeEDITSpeedUD()
+void CMainWindow::OnChange_SpeedUD()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -649,7 +649,7 @@ void CMainWindow::OnChangeEDITSpeedUD()
     this->textbox_send_SpeedUD.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITSpeedUD()
+void CMainWindow::OnKillFocus_SpeedUD()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -658,7 +658,7 @@ void CMainWindow::OnKillfocusEDITSpeedUD()
     }
 }
 
-void CMainWindow::OnChangeEDITHighR()
+void CMainWindow::OnChange_HighR()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -711,7 +711,7 @@ void CMainWindow::OnChangeEDITHighR()
     this->textbox_send_HighR.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITHighR()
+void CMainWindow::OnKillFocus_HighR()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -720,7 +720,7 @@ void CMainWindow::OnKillfocusEDITHighR()
     }
 }
 
-void CMainWindow::OnChangeEDITHighL()
+void CMainWindow::OnChange_HighL()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -773,7 +773,7 @@ void CMainWindow::OnChangeEDITHighL()
     this->textbox_send_HighL.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
-void CMainWindow::OnKillfocusEDITHighL()
+void CMainWindow::OnKillFocus_HighL()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
@@ -782,7 +782,7 @@ void CMainWindow::OnKillfocusEDITHighL()
     }
 }
 
-void CMainWindow::OnChangeEditn()
+void CMainWindow::OnChange_NormalOverload()
 {
     // TODO: If this is a RICHEDIT control, the control will not
     // send this notification unless you override the CDialog::OnInitDialog()
@@ -835,7 +835,7 @@ void CMainWindow::OnChangeEditn()
     this->textbox_send_NormalOverload.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE); // 为FALSE表示会随光标位置改变而滚动滚动条。
 }
 
-void CMainWindow::OnKillfocusEditn()
+void CMainWindow::OnKillFocus_NormalOverload()
 {
     // TODO: Add your control notification handler code here
     if (this->textbox_send_Azimuth.LineLength(-1) == 0)
