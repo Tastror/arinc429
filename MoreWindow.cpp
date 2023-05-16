@@ -27,7 +27,7 @@ void CMoreWindow::DoDataExchange(CDataExchange* pDX)
     // DDX_Text(pDX, IDC_DIFF_Pitch, mother_window->string_difference_Pitch);
     // DDX_Text(pDX, IDC_DIFF_High, mother_window->string_difference_High);
     // DDX_Text(pDX, IDC_DIFF_Azimuth, mother_window->string_difference_Azimuth);
-    // DDX_Text(pDX, IDC_DIFF_SlideSlip, mother_window->string_difference_Sideslip);
+    // DDX_Text(pDX, IDC_DIFF_SlideSlip, mother_window->string_difference_SideSlip);
     // DDX_Text(pDX, IDC_DIFF_RealSpeed, mother_window->string_difference_RealSpeed);
     // DDX_Text(pDX, IDC_DIFF_Mach, mother_window->string_difference_Mach);
     // DDX_Text(pDX, IDC_DIFF_AirP, mother_window->string_difference_AirP);

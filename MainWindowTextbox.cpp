@@ -97,16 +97,16 @@ void CMainWindow::OnChange_SlideSlip()
     BOOL isErr = FALSE;
     DWORD dw = 0;
 
-    l = this->textbox_send_Sideslip.LineLength(-1);
+    l = this->textbox_send_SideSlip.LineLength(-1);
     if (l == 0)
         return;
 
     memset(s, 0, sizeof(s));
     memset(c, 0, sizeof(c));
 
-    dw = this->textbox_send_Sideslip.GetSel();
+    dw = this->textbox_send_SideSlip.GetSel();
 
-    this->textbox_send_Sideslip.GetWindowText(c, sizeof(c)); // get data string with HEX
+    this->textbox_send_SideSlip.GetWindowText(c, sizeof(c)); // get data string with HEX
 
     //  analyze data string with HEX
     //
@@ -130,16 +130,16 @@ void CMainWindow::OnChange_SlideSlip()
 
     //  write back the HEX value
     //
-    this->textbox_send_Sideslip.SetWindowText(s);
-    this->textbox_send_Sideslip.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
+    this->textbox_send_SideSlip.SetWindowText(s);
+    this->textbox_send_SideSlip.SetSel(HIWORD(dw) - 1, HIWORD(dw) - 1, FALSE);
 }
 
 void CMainWindow::OnKillFocus_SlideSlip()
 {
     // TODO: Add your control notification handler code here
-    if (this->textbox_send_Sideslip.LineLength(-1) == 0)
+    if (this->textbox_send_SideSlip.LineLength(-1) == 0)
     {
-        this->textbox_send_Sideslip.SetWindowText(TEXT("0"));
+        this->textbox_send_SideSlip.SetWindowText(TEXT("0"));
     }
 }
 

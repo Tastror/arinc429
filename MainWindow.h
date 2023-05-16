@@ -72,7 +72,7 @@ public:
     int time_counter;
 
     CButton button_Receive;
-	CButton button_StartStopTimer;
+    CButton button_StartStopTimer;
 
     CEdit textbox_send_NormalOverload;
     CEdit textbox_send_HighL;
@@ -86,7 +86,7 @@ public:
     CEdit textbox_send_High;
     CEdit textbox_send_Pitch;
     CEdit textbox_send_Roll;
-    CEdit textbox_send_Sideslip;
+    CEdit textbox_send_SideSlip;
     CEdit textbox_send_Speed;
 
     CEdit textbox_receive_NormalOverload;
@@ -101,7 +101,7 @@ public:
     CEdit textbox_receive_High;
     CEdit textbox_receive_Pitch;
     CEdit textbox_receive_Roll;
-    CEdit textbox_receive_Sideslip;
+    CEdit textbox_receive_SideSlip;
     CEdit textbox_receive_Speed;
 
     int data_send_RealSpeed;        // 指示空速
@@ -110,7 +110,7 @@ public:
     float data_send_Pitch;          // 俯仰角
     int data_send_High;             // 气压高度
     float data_send_Azimuth;        // 方位角
-    float data_send_Sideslip;       // 侧滑角
+    float data_send_SideSlip;       // 侧滑角
     float data_send_Mach;           // 马赫数
     float data_send_AirP;           // 装订气压
     float data_send_Attack;         // 攻角
@@ -125,7 +125,7 @@ public:
     float data_receive_Pitch;
     int data_receive_High;
     float data_receive_Azimuth;
-    float data_receive_Sideslip;
+    float data_receive_SideSlip;
     float data_receive_Mach;
     float data_receive_AirP;
     float data_receive_Attack;
@@ -136,12 +136,12 @@ public:
     DWORD data_receive_ControlWord1;
     DWORD data_receive_ControlWord2;
 
-	CString string_receive_Speed;
+    CString string_receive_Speed;
     CString string_receive_Roll;
     CString string_receive_Pitch;
     CString string_receive_High;
     CString string_receive_Azimuth;
-    CString string_receive_Sideslip;
+    CString string_receive_SideSlip;
     CString string_receive_RealSpeed;
     CString string_receive_Mach;
     CString string_receive_AirP;
@@ -153,12 +153,12 @@ public:
     CString string_receive_ControlWord1;
     CString string_receive_ControlWord2;
 
-	CString string_difference_Speed;
+    CString string_difference_Speed;
     CString string_difference_Roll;
     CString string_difference_Pitch;
     CString string_difference_High;
     CString string_difference_Azimuth;
-    CString string_difference_Sideslip;
+    CString string_difference_SideSlip;
     CString string_difference_RealSpeed;
     CString string_difference_Mach;
     CString string_difference_AirP;

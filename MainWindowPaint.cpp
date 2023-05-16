@@ -36,8 +36,8 @@ void CMainWindow::OnPaint()
     else
     {
         int screen_x_offset = 270, screen_y_offset = 0;
-		int screen_x_strip = 10, screen_y_strip = 0;
-		int screen_width = 760, screen_height = 600;
+        int screen_x_strip = 10, screen_y_strip = 0;
+        int screen_width = 760, screen_height = 600;
 
         int display_x_offset = 130, display_y_offset = 100;
         int display_center_color = RGB(120, 240, 120);
@@ -60,7 +60,7 @@ void CMainWindow::OnPaint()
         OnDraw_SkyRect(pMem);
         OnDraw_Fighter(
             display_center_color, display_x_offset, display_y_offset,
-            205 + (int)data_receive_Pitch, 260 + (int)data_receive_Sideslip, pMem
+            205 + (int)data_receive_Pitch, 260 + (int)data_receive_SideSlip, pMem
         );
         OnDraw_High(display_color, display_x_offset, display_y_offset, data_receive_High, pMem);
         OnDraw_Speed(display_color, display_x_offset, display_y_offset, data_receive_Speed, pMem);

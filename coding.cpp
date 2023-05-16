@@ -104,7 +104,7 @@ void CMainWindow::Coding()
     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000636;
 
     {
-        dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_Sideslip/(10.0/32768));
+        dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_SideSlip/(10.0/32768));
         dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000637;
     }
 
@@ -211,8 +211,8 @@ void CMainWindow::Coding()
 //     // 侧滑角
 //     // 范围为 -10 ~ 10, 分辨率为 (10/32768)
 //     // 14 位为 LSB，29 位为 MSB
-//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = 0x00000000 | Sideslip_Mask;
-//     DWORD sideslip = (DWORD)(mother_window->data_send_Sideslip / (10.0/32768));
+//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = 0x00000000 | SideSlip_Mask;
+//     DWORD sideslip = (DWORD)(mother_window->data_send_SideSlip / (10.0/32768));
 //     set_value_parity(sideslip);
 
 //     // 法向过载
@@ -341,8 +341,8 @@ void CMainWindow::Coding()
 //                         //0000 0110 0011 0110 
 //                     case 0x37://侧滑角
 //                         s = (short)(d >> 16);
-//                         mother_window->data_receive_Sideslip = s * (10. / 32768);
-//                         mother_window->string_difference_Sideslip.Format(_T("%08x"), d); break;
+//                         mother_window->data_receive_SideSlip = s * (10. / 32768);
+//                         mother_window->string_difference_SideSlip.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0111
 //                     case 0x38://法向过载
 //                         s = (short)(d >> 16);

@@ -47,7 +47,7 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     data_send_Pitch = 0.0;
     data_send_High = 0;
     data_send_Azimuth = 0.0;
-    data_send_Sideslip = 0.0;
+    data_send_SideSlip = 0.0;
     data_send_RealSpeed = 0;
     data_send_Mach = 0.0f;
     data_send_AirP = 0.0f;
@@ -62,7 +62,7 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     data_receive_Pitch = 0.0;
     data_receive_High = 0;
     data_receive_Azimuth = 0.0;
-    data_receive_Sideslip = 0.0;
+    data_receive_SideSlip = 0.0;
     data_receive_RealSpeed = 0;
     data_receive_Mach = 0.0f;
     data_receive_AirP = 0.0f;
@@ -77,7 +77,7 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     string_receive_Pitch.Format("%01x", 0);
     string_receive_High.Format("%01x", 0);
     string_receive_Azimuth.Format("%01x", 0);
-    string_receive_Sideslip.Format("%01x", 0);
+    string_receive_SideSlip.Format("%01x", 0);
     string_receive_RealSpeed.Format("%01x", 0);
     string_receive_Mach.Format("%01x", 0);
     string_receive_AirP.Format("%01x", 0);
@@ -90,12 +90,12 @@ CMainWindow::CMainWindow(CWnd *pParent) : CDialog(CMainWindow::IDD, pParent)
     string_receive_ControlWord1.Format("%01x", 0);
     string_receive_ControlWord2.Format("%01x", 0);
 
-	string_difference_Speed.Format("%01x", 0);
+    string_difference_Speed.Format("%01x", 0);
     string_difference_Roll.Format("%01x", 0);
     string_difference_Pitch.Format("%01x", 0);
     string_difference_High.Format("%01x", 0);
     string_difference_Azimuth.Format("%01x", 0);
-    string_difference_Sideslip.Format("%01x", 0);
+    string_difference_SideSlip.Format("%01x", 0);
     string_difference_RealSpeed.Format("%01x", 0);
     string_difference_Mach.Format("%01x", 0);
     string_difference_AirP.Format("%01x", 0);
@@ -114,7 +114,7 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     CDialog::DoDataExchange(pDX);
 
     DDX_Control(pDX, IDC_BUTTON_Receive, button_Receive);
-	DDX_Control(pDX, IDC_BUTTON_StartStopTimer, button_StartStopTimer);
+    DDX_Control(pDX, IDC_BUTTON_StartStopTimer, button_StartStopTimer);
     DDX_Control(pDX, IDC_SEND_NormalOverload, textbox_send_NormalOverload);
     DDX_Control(pDX, IDC_SEND_HighL, textbox_send_HighL);
     DDX_Control(pDX, IDC_SEND_HighR, textbox_send_HighR);
@@ -127,7 +127,7 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     DDX_Control(pDX, IDC_SEND_High, textbox_send_High);
     DDX_Control(pDX, IDC_SEND_Pitch, textbox_send_Pitch);
     DDX_Control(pDX, IDC_SEND_Roll, textbox_send_Roll);
-    DDX_Control(pDX, IDC_SEND_SlideSlip, textbox_send_Sideslip);
+    DDX_Control(pDX, IDC_SEND_SlideSlip, textbox_send_SideSlip);
     DDX_Control(pDX, IDC_SEND_Speed, textbox_send_Speed);
 
     DDX_Text(pDX, IDC_SEND_Speed, data_send_Speed);
@@ -140,8 +140,8 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     DDV_MinMaxInt(pDX, data_send_High, 0, 32768);
     DDX_Text(pDX, IDC_SEND_Azimuth, data_send_Azimuth);
     DDV_MinMaxDouble(pDX, data_send_Azimuth, 0., 360.);
-    DDX_Text(pDX, IDC_SEND_SlideSlip, data_send_Sideslip);
-    DDV_MinMaxDouble(pDX, data_send_Sideslip, -10., 10.);
+    DDX_Text(pDX, IDC_SEND_SlideSlip, data_send_SideSlip);
+    DDV_MinMaxDouble(pDX, data_send_SideSlip, -10., 10.);
     DDX_Text(pDX, IDC_SEND_RealSpeed, data_send_RealSpeed);
     DDV_MinMaxInt(pDX, data_send_RealSpeed, 0, 4096);
     DDX_Text(pDX, IDC_SEND_Mach, data_send_Mach);
@@ -164,7 +164,7 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     DDX_Text(pDX, IDC_RECE_Speed, string_receive_Speed);
     DDX_Text(pDX, IDC_RECE_High, string_receive_High);
     DDX_Text(pDX, IDC_RECE_Azimuth, string_receive_Azimuth);
-    DDX_Text(pDX, IDC_RECE_SlideSlip, string_receive_Sideslip);
+    DDX_Text(pDX, IDC_RECE_SlideSlip, string_receive_SideSlip);
     DDX_Text(pDX, IDC_RECE_RealSpeed, string_receive_RealSpeed);
     DDX_Text(pDX, IDC_RECE_Mach, string_receive_Mach);
     DDX_Text(pDX, IDC_RECE_AirP, string_receive_AirP);
@@ -180,7 +180,7 @@ void CMainWindow::DoDataExchange(CDataExchange *pDX)
     // DDX_Text(pDX, IDC_DIFF_Pitch, string_difference_Pitch);
     // DDX_Text(pDX, IDC_DIFF_High, string_difference_High);
     // DDX_Text(pDX, IDC_DIFF_Azimuth, string_difference_Azimuth);
-    // DDX_Text(pDX, IDC_DIFF_SlideSlip, string_difference_Sideslip);
+    // DDX_Text(pDX, IDC_DIFF_SlideSlip, string_difference_SideSlip);
     // DDX_Text(pDX, IDC_DIFF_RealSpeed, string_difference_RealSpeed);
     // DDX_Text(pDX, IDC_DIFF_Mach, string_difference_Mach);
     // DDX_Text(pDX, IDC_DIFF_AirP, string_difference_AirP);

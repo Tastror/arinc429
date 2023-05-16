@@ -24,7 +24,7 @@
 // mother_window->data_send_Roll;       // MCHUD/00_11 横滚角
 // mother_window->data_send_HighR;        // MCHUD/00_12 无线电高度
 // mother_window->data_send_HighL;        // MCHUD/00_13 最低安全高度
-// mother_window->data_send_Sideslip;   // MCHUD/00_14 侧滑角
+// mother_window->data_send_SideSlip;   // MCHUD/00_14 侧滑角
 // mother_window->data_send_NormalOverload;          // MCHUD/00_15 过载
 
 // 掩码
@@ -42,7 +42,7 @@
 #define Roll_Mask 0x34000006
 #define HighR_Mask 0x35000006
 #define HighL_Mask 0x36000006
-#define Sideslip_Mask 0x37000006
+#define SideSlip_Mask 0x37000006
 #define N_Mask 0x38000006
 
 #endif
