@@ -78,8 +78,8 @@ BOOL CMainWindow::OnInitDialog()
     for (i = 0; i < FIFO_RMAX; i++)
         ReceiveData_Vector[i] = 0x0;
     time_counter = 0;
-    data_ControlWord1 = 0x00000630; ////????
-    data_ControlWord2 = 0x00000631; ////????
+    data_receive_ControlWord1 = 0x00000630; ////????
+    data_receive_ControlWord2 = 0x00000631; ////????
     Complete_flg = FALSE;
     return TRUE; // return TRUE  unless you set the focus to a control
 }

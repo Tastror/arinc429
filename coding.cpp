@@ -55,8 +55,8 @@ extern CMainWindow* mother_window;
 void CMainWindow::Coding()
 {
     wdTxBufLen=0;
-    dwTxBuf[wdTxBufLen] = data_ControlWord1;
-    dwTxBuf[++wdTxBufLen] = data_ControlWord2;
+    dwTxBuf[wdTxBufLen] = data_receive_ControlWord1;
+    dwTxBuf[++wdTxBufLen] = data_receive_ControlWord2;
 
     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_RealSpeed/(4096.0/32768));
     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;
@@ -119,8 +119,8 @@ void CMainWindow::Coding()
 //     mother_window->wdTxBufLen = 0;
     
 //     // 控制字 1、2
-//     mother_window->dwTxBuf[mother_window->wdTxBufLen] = mother_window->data_ControlWord1;
-//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = mother_window->data_ControlWord2;
+//     mother_window->dwTxBuf[mother_window->wdTxBufLen] = mother_window->data_receive_ControlWord1;
+//     mother_window->dwTxBuf[++mother_window->wdTxBufLen] = mother_window->data_receive_ControlWord2;
     
 //     // 真空速
 //     // 范围为 0 ~ 4096, 分辨率为 (4096/32768)
@@ -273,10 +273,10 @@ void CMainWindow::Coding()
 //                 switch (temp)
 //                 {
 //                     case 0x30://控制字1
-//                         mother_window->string_ControlWord1.Format(_T("%08x"), d); break;
+//                         mother_window->string_receive_ControlWord1.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0000
 //                     case 0x31://控制字2
-//                         mother_window->string_ControlWord2.Format(_T("%08x"), d); break;
+//                         mother_window->string_receive_ControlWord2.Format(_T("%08x"), d); break;
 //                         //0000 0110 0011 0001
                     
 //                     case 0x88:    //真空速

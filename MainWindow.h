@@ -72,7 +72,7 @@ public:
     int time_counter;
 
     CButton button_Receive;
-	CButton button_StartTimer;
+	CButton button_StartStopTimer;
 
     CEdit textbox_send_NormalOverload;
     CEdit textbox_send_HighL;
@@ -133,9 +133,8 @@ public:
     int data_receive_HighR;
     int data_receive_HighL;
     float data_receive_NormalOverload;
-
-    DWORD data_ControlWord1;
-    DWORD data_ControlWord2;
+    DWORD data_receive_ControlWord1;
+    DWORD data_receive_ControlWord2;
 
 	CString string_receive_Speed;
     CString string_receive_Roll;
@@ -151,9 +150,8 @@ public:
     CString string_receive_HighR;
     CString string_receive_HighL;
     CString string_receive_NormalOverload;
-
-    CString string_ControlWord1;
-    CString string_ControlWord2;
+    CString string_receive_ControlWord1;
+    CString string_receive_ControlWord2;
 
 	CString string_difference_Speed;
     CString string_difference_Roll;

@@ -10,8 +10,8 @@
 // mother_window->wdTxBufLen;          // 发送FIFO长度
 
 // 编码使用的 16 个变量
-// mother_window->data_ControlWord1;   // MCHUD/00_00 控制字 1, 25, 100K
-// mother_window->data_ControlWord2;   // MCHUD/00_01 控制字 2
+// mother_window->data_receive_ControlWord1;   // MCHUD/00_00 控制字 1, 25, 100K
+// mother_window->data_receive_ControlWord2;   // MCHUD/00_01 控制字 2
 // mother_window->data_send_RealSpeed;   // MCHUD/00_02 真空速
 // mother_window->data_send_Speed;        // MCHUD/00_03 指示空速
 // mother_window->data_send_Mach;         // MCHUD/00_04 马赫数

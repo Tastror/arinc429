@@ -12,13 +12,13 @@ void CMainWindow::OnCheck_Control1()
 
     if (!CWord_flg1)
     {
-        data_ControlWord1 = 0x00000630;
+        data_receive_ControlWord1 = 0x00000630;
         CWord_flg1 = TRUE;
     }
     else
     {
-        data_ControlWord1 = 0;
-        string_ControlWord1.Format("%01x", 0);
+        data_receive_ControlWord1 = 0;
+        string_receive_ControlWord1.Format("%01x", 0);
         CWord_flg1 = FALSE;
     }
     UpdateData(FALSE);
@@ -29,13 +29,13 @@ void CMainWindow::OnCheck_Control2()
 
     if (!CWord_flg2)
     {
-        data_ControlWord2 = 0x00000631;
+        data_receive_ControlWord2 = 0x00000631;
         CWord_flg2 = TRUE;
     }
     else
     {
-        data_ControlWord2 = 0;
-        string_ControlWord2.Format("%01x", 0);
+        data_receive_ControlWord2 = 0;
+        string_receive_ControlWord2.Format("%01x", 0);
         CWord_flg2 = FALSE;
     }
     UpdateData(FALSE);
@@ -165,8 +165,8 @@ void CMainWindow::OnClose()
 // void CMainWindow::Coding()
 // {
 //     wdTxBufLen=0;
-//     dwTxBuf[wdTxBufLen] = data_ControlWord1;
-//     dwTxBuf[++wdTxBufLen] = data_ControlWord2;
+//     dwTxBuf[wdTxBufLen] = data_receive_ControlWord1;
+//     dwTxBuf[++wdTxBufLen] = data_receive_ControlWord2;
 
 //     dwTxBuf[++wdTxBufLen] = (DWORD)(data_send_RealSpeed/(4096.0/32768));
 //     dwTxBuf[wdTxBufLen] = (dwTxBuf[wdTxBufLen]<<16)|0x00000688;
@@ -291,7 +291,7 @@ void CMainWindow::OnButton_StartStopTimer() // 开始or停止自动发送
     // TODO: Add your control notification handler here
     if (!Timer_flg)
     {
-		this->button_StartTimer.SetWindowText(TEXT("停止自动发送"));
+		this->button_StartStopTimer.SetWindowText(TEXT("停止自动发送"));
         UpdateData(TRUE); // 用于将屏幕上控件中的数据交换到变量中，将窗口中的值读到变量中
         for (int i = 0; i < FIFO_RMAX; i++) // 清空FIFO
             ReceiveData_Vector[i] = 0x0;
@@ -300,7 +300,7 @@ void CMainWindow::OnButton_StartStopTimer() // 开始or停止自动发送
     }
     else
     {
-		this->button_StartTimer.SetWindowText(TEXT("开始自动发送"));
+		this->button_StartStopTimer.SetWindowText(TEXT("开始自动发送"));
         KillTimer(3);
         Sleep(10);
         Sleep(10);
@@ -358,8 +358,8 @@ void CMainWindow::OnButton_ClearTimer() // 清空自动发送
     string_receive_HighL.Format("%01x", 0);
     string_receive_NormalOverload.Format("%01x", 0);
 
-    string_ControlWord1.Format("%01x", 0);
-    string_ControlWord2.Format("%01x", 0);
+    string_receive_ControlWord1.Format("%01x", 0);
+    string_receive_ControlWord2.Format("%01x", 0);
 
     Sleep(20);
     UpdateData(FALSE);
@@ -507,10 +507,10 @@ start:	HWND hWnd = (HWND)lpParam;
 				switch (temp)
 				{
 				case 0x30:
-					mother_window->string_ControlWord1.Format("%08x", d); break;
+					mother_window->string_receive_ControlWord1.Format("%08x", d); break;
 					//0000 0110 0011 0000
 				case 0x31:
-					mother_window->string_ControlWord2.Format("%08x", d); break;
+					mother_window->string_receive_ControlWord2.Format("%08x", d); break;
 					//0000 0110 0011 0001
 				
 				case 0x88:	//?????
