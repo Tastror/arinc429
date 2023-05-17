@@ -58,7 +58,7 @@ void CMainWindow::OnChange_Speed()
         ii = atoi(c); // 字符串转化为整形
         ff = ii / 3.6 / 340;
         sprintf(f, "%f", ff);
-        this->textbox_send_Ma.SetWindowText(ff);
+        this->textbox_send_Ma.SetWindowText(f);
         return;
     }
 
