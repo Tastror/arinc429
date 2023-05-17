@@ -3,7 +3,6 @@
 #include "MainWindow.h"
 
 #include "coding.h"
-#include <assert.h>
 
 // in main window
 extern CMainWindow* mother_window;
